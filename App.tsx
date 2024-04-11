@@ -1,3 +1,4 @@
+
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {ImageBackground, StyleSheet, Text, TouchableOpacity, View, Image, ScrollView,} from 'react-native';
@@ -94,4 +95,5 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
+
 });
