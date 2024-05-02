@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
-    marginTop: 10,
+    marginTop: 20,
   },
   button: {
     backgroundColor: 'rgba(255, 255, 255, 0.918)',
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderRadius: 5,
     alignSelf: 'center',
-    marginBottom: 20,
+    marginTop: 20,
   },
   footer: {
     height: 50, 
