@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider  = "postgresql"
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
@@ -26,8 +26,9 @@ model Post {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  email String @unique
-  name  String?
-  posts Post[]
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String?
+  password String
+  posts    Post[]
 }
