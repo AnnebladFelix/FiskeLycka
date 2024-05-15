@@ -4,6 +4,9 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {ImageBackground, StyleSheet, Text, TouchableOpacity, View, Image, ScrollView, TextInput} from 'react-native';
 import MapScreen from './src/screens/MapScreen';
+import FishSpeciesScreen from './src/screens/FishSpeciesScreen';
+import FishingWaterScreen from './src/screens/FishingWaterScreen';
+import FishingMethodsScreen from './src/screens/FingingMethodsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +16,9 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Map Screen' }} />
+        <Stack.Screen name="FishSpecies" component={FishSpeciesScreen} options={{ title: 'Fish Species Screen' }} />
+        <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'FishingWater Screen' }} />
+        <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fishing Methods Screen' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -29,6 +35,18 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
 
   const goToMapScreen = () => {
     navigation.navigate('Map');
+  };
+
+  const goToFishSpeciesScreen = () => {
+    navigation.navigate('FishSpecies');
+  }; 
+
+  const goToFishingWaterScreen = () => {
+    navigation.navigate('FishingWater');
+  };
+
+  const goToFishingMethodsScreen = () => {
+    navigation.navigate('FishingMethods');
   };
 
   return (
@@ -50,7 +68,7 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
       <ScrollView style={styles.mainContent}>
         {/* Searchbar */}
         <View style={styles.searchContainer}>
-          <TextInput placeholder="Search" style={styles.searchInput} />
+          <TextInput placeholder="Sök fiskevatten" style={styles.searchInput} />
         </View>
 
         <View style={styles.buttonRow}>
@@ -60,15 +78,15 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
             </ImageBackground>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Fiska</Text>
+          <TouchableOpacity style={styles.button} onPress={goToFishingWaterScreen}>
+            <Text style={styles.buttonText}>Fiskevatten</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.buttonRow}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={goToFishSpeciesScreen}>
             <Text style={styles.buttonText}>Fiskarter</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={goToFishingMethodsScreen}>
             <Text style={styles.buttonText}>Fiske Metoder</Text>
           </TouchableOpacity>
         </View>
@@ -82,7 +100,7 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
 
       {/* Footer */}
       <View style={styles.footer}>
-        <Text>Footer</Text>
+        <Text>@Copywrite 2024</Text>
         <StatusBar style="auto" />
       </View>
     </ImageBackground>
@@ -97,9 +115,9 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     justifyContent: 'space-between',
-    height: 80,
+    height: 120,
     paddingHorizontal: 20,
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     position: 'absolute',
@@ -122,7 +140,7 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     flex: 1,
-    marginTop: 100, 
+    marginTop: 120, 
   },
   searchContainer: {
     padding: 10,
@@ -144,7 +162,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   button: {
-    backgroundColor: 'rgba(255, 255, 255, 0.918)',
+    backgroundColor: 'rgba(255, 255, 255, 0.91)',
     borderRadius: 5,
     width: '45%',
     height: '55%',
