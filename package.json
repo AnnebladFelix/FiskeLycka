@@ -9,11 +9,12 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@prisma/client": "^5.13.0",
+    "@prisma/client": "^5.14.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "@react-navigation/stack": "^6.3.29",
+    "bcrypt": "^5.1.1",
     "expo": "~51.0.6",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@types/bcrypt": "^5.0.2",
     "@types/react": "~18.2.79",
     "@types/react-native": "^0.73.0",
     "prisma": "^5.13.0",
