@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { Button, TextInput, View, TouchableOpacity, Text } from 'react-native';
+import { verifyUser } from '../../db/userOperations';
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    // Handle login logic here
-    console.log(`Username: ${username}, Password: ${password}`);
+  const handleLogin = async () => {
+    try {
+      await verifyUser(username, password);
+    } catch (error: any) {
+      console.error(`Login failed: ${error.message}`);
+    }
   };
 
   const handleCreateAccount = () => {
-    // Navigate to Create Account screen
     navigation.navigate('CreateAccount');
   };
 
@@ -28,9 +31,12 @@ const LoginScreen = ({ navigation }) => {
         placeholder="Password"
         secureTextEntry
       />
-      <Button title="Login" onPress={handleLogin} />
+      <Button 
+        title="Login" 
+        onPress={handleLogin} 
+      />
       <TouchableOpacity onPress={handleCreateAccount}>
-        <Text>Create Account</Text>
+        <Text>Create new account</Text>
       </TouchableOpacity>
     </View>
   );
