@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, TextInput, View, TouchableOpacity, Text } from 'react-native';
 import { verifyUser } from '../../db/userOperations';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }: { navigation: any }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 

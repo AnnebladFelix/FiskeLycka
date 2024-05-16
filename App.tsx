@@ -7,6 +7,7 @@ import MapScreen from './src/screens/MapScreen';
 import FishSpeciesScreen from './src/screens/FishSpeciesScreen';
 import FishingWaterScreen from './src/screens/FishingWaterScreen';
 import FishingMethodsScreen from './src/screens/FingingMethodsScreen';
+import LoginScreen from './src/screens/LoginScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Map Screen' }} />
+        <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Screen' }} />
         <Stack.Screen name="FishSpecies" component={FishSpeciesScreen} options={{ title: 'Fish Species Screen' }} />
         <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'FishingWater Screen' }} />
         <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fishing Methods Screen' }} />
@@ -32,6 +34,10 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
   const handleLogoClick = () => {
     console.log('Logo clicked');
   }
+
+  const goToLoginScreen = () => {
+    navigation.navigate('Login');
+  };
 
   const goToMapScreen = () => {
     navigation.navigate('Map');
@@ -61,6 +67,9 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuButton} onPress={handleMenuClick}>
           <Image source={require('./assets/images/icon-hamburger.png')} style={styles.icon} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={goToLoginScreen}>
+          <Image source={require('./assets/images/login.png')} style={styles.logo} />
         </TouchableOpacity>
       </View>
 
