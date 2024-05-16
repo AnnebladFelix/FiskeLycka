@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Platform } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import Device from 'expo-device';
+import CustomMarker from '../components/CustomMarker';
 
 
 interface Position {
@@ -14,6 +15,15 @@ const MapScreen = () => {
   const [currentPosition, setCurrentPosition] = useState<Position | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const mapViewRef = useRef<MapView>(null);
+
+  const markers = [
+    { latitude: 57.431835, longitude: 12.664502, title: 'Öresjön Skene' },
+    { latitude: 57.648468, longitude: 13.376188, title: 'Sämsjön Vegby' },
+    { latitude: 57.641907, longitude: 12.406097, title: 'Kåsjön Partille' },
+    { latitude: 57.63423, longitude: 12.137591, title: 'Finnsjön Mölnlycke' },
+    { latitude: 56.548056, longitude: 12.949444, title: 'Lagan' },
+    { latitude: 57.78754, longitude: 12.97886, title: 'Öresjön Fristad' },
+  ];
 
   useEffect(() => {
     (async () => {
@@ -65,6 +75,7 @@ const MapScreen = () => {
         }}
         showsUserLocation={true}
         >
+          <CustomMarker markers={markers} />
           {currentPosition && (
             <Marker
               coordinate={currentPosition}
