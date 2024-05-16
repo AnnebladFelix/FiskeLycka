@@ -8,6 +8,7 @@ import FishSpeciesScreen from './src/screens/FishSpeciesScreen';
 import FishingWaterScreen from './src/screens/FishingWaterScreen';
 import FishingMethodsScreen from './src/screens/FingingMethodsScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import SignupScreen from './src/screens/SignupScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Map Screen' }} />
         <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Screen' }} />
+        <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Signup Screen' }} />
         <Stack.Screen name="FishSpecies" component={FishSpeciesScreen} options={{ title: 'Fish Species Screen' }} />
         <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'FishingWater Screen' }} />
         <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fishing Methods Screen' }} />

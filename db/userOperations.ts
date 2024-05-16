@@ -1,10 +1,11 @@
 import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcrypt";
+import bcrypt from 'react-native-bcrypt';
 
 const prisma = new PrismaClient();
 
 export async function createUser(email: string, name: string, password: string) {
-  const hashedPassword = await bcrypt.hash(password, 10);
+  let salt = bcrypt.genSaltSync(10);
+  const hashedPassword = await bcrypt.hashSync(password, salt);
 
   const newUser = await prisma.user.create({
     data: {
@@ -36,7 +37,7 @@ export async function verifyUser(username: string, password: string) {
   }
 
   // Compare the provided password with the hashed password
-  const passwordIsValid = await bcrypt.compare(password, user.password);
+  const passwordIsValid = await bcrypt.compareSync(password, user.password);
 
   // If the password is wrong
   if (!passwordIsValid) {

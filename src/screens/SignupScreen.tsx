@@ -9,7 +9,8 @@ const SignupScreen = () => {
 
   const handleSignup = async () => {
     try {
-      await createUser(email, name, password);
+      const newUser = await createUser(email, name, password);
+      return newUser;
     } catch (error: any) {
       console.error(`Something went wrong: ${error.message}`);
     }

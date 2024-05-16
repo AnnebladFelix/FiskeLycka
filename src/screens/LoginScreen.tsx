@@ -15,7 +15,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
   };
 
   const handleCreateAccount = () => {
-    navigation.navigate('CreateAccount');
+    navigation.navigate('Signup');
   };
 
   return (
