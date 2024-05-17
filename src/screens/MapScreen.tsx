@@ -17,12 +17,12 @@ const MapScreen = () => {
   const mapViewRef = useRef<MapView>(null);
 
   const markers = [
-    { latitude: 57.431835, longitude: 12.664502, title: 'Öresjön Skene' },
-    { latitude: 57.648468, longitude: 13.376188, title: 'Sämsjön Vegby' },
-    { latitude: 57.641907, longitude: 12.406097, title: 'Kåsjön Partille' },
-    { latitude: 57.63423, longitude: 12.137591, title: 'Finnsjön Mölnlycke' },
-    { latitude: 56.548056, longitude: 12.949444, title: 'Lagan' },
-    { latitude: 57.78754, longitude: 12.97886, title: 'Öresjön Fristad' },
+    { latitude: 57.431835, longitude: 12.664502, title: 'Öresjön Skene', description: 'Gös Gädda ' },
+    { latitude: 57.648468, longitude: 13.376188, title: 'Sämsjön Vegby', description: 'Gös Gädda ' },
+    { latitude: 57.641907, longitude: 12.406097, title: 'Kåsjön Partille', description: 'Gös Gädda ' },
+    { latitude: 57.63423, longitude: 12.137591, title: 'Finnsjön Mölnlycke', description: 'Gös Gädda ' },
+    { latitude: 56.548056, longitude: 12.949444, title: 'Lagan', description: 'Gös Gädda ' },
+    { latitude: 57.78754, longitude: 12.97886, title: 'Öresjön Fristad', description: 'Gös Gädda ' },
   ];
 
   useEffect(() => {

@@ -41,19 +41,15 @@ const CustomMarker: React.FC<CustomMarkerProps> = ({ markers }) => {
 };
 const styles = StyleSheet.create({
     calloutView: {
-      // Style for the callout bubble
     },
     calloutContainer: {
-      width: '100%', // Adjust the width as needed
-      height: '50%', // Adjust the height as needed
+      width: '100%', 
+      height: '50%', 
       backgroundColor: 'white',
-      // Additional styles for the container
     },
     calloutTitle: {
-      // Style for the title text
     },
     calloutDescription: {
-      // Style for the description text
     },
   });
 
