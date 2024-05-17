@@ -1,31 +1,92 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, Text, StyleSheet, Platform } from 'react-native';
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import * as Location from 'expo-location';
+import Device from 'expo-device';
+import CustomMarker from '../components/CustomMarker';
 
 
-
-
-const INITIAL_REGION = {
-  latitude: 57.709127,
-  longitude: 11.934746,
-  latitudeDelta: 0.0922,
-  longitudeDelta: 0.0421,
+interface Position {
+  latitude: number;
+  longitude: number;
 }
 
 const MapScreen = () => {
+  const [currentPosition, setCurrentPosition] = useState<Position | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const mapViewRef = useRef<MapView>(null);
+
+  const markers = [
+    { latitude: 57.431835, longitude: 12.664502, title: 'Öresjön Skene', description: 'Gös Gädda ' },
+    { latitude: 57.648468, longitude: 13.376188, title: 'Sämsjön Vegby', description: 'Gös Gädda ' },
+    { latitude: 57.641907, longitude: 12.406097, title: 'Kåsjön Partille', description: 'Gös Gädda ' },
+    { latitude: 57.63423, longitude: 12.137591, title: 'Finnsjön Mölnlycke', description: 'Gös Gädda ' },
+    { latitude: 56.548056, longitude: 12.949444, title: 'Lagan', description: 'Gös Gädda ' },
+    { latitude: 57.78754, longitude: 12.97886, title: 'Öresjön Fristad', description: 'Gös Gädda ' },
+  ];
+
+  useEffect(() => {
+    (async () => {
+      if(Platform.OS === 'android' && Device && Device.isDevice) {
+        setErrorMsg(
+          'Ops, this did not work on a emulator, test on your device instead!'
+        );
+        return;
+      }
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg('Permission to access location denied');
+        return;
+      }
+      let location = await Location.getCurrentPositionAsync({});
+      setCurrentPosition({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      });
+
+      if (mapViewRef.current) {
+        mapViewRef.current.animateToRegion({
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+          latitudeDelta: 0.0122,
+          longitudeDelta: 0.0121,
+        }, 1000);
+      }
+    })();
+  }, []);
+                
+
   return (
     <View style={styles.container}>
       <Text>Hitta din nya fiskeplats</Text>
+      {errorMsg ? (
+        <Text>{errorMsg}</Text>
+      ) : (
 
       <MapView 
+        ref={mapViewRef}
         style={styles.map} 
         provider={PROVIDER_GOOGLE}
-        initialRegion={INITIAL_REGION}
+        initialRegion={{
+          latitude: 57.709127,
+          longitude: 11.934746,
+          latitudeDelta: 0.0422,
+          longitudeDelta: 0.0221,
+        }}
+        showsUserLocation={true}
         >
+          <CustomMarker markers={markers} />
+          {currentPosition && (
+            <Marker
+              coordinate={currentPosition}
+              title={'Din Plats'}
+            />
+          )}
       </MapView>
+      )}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

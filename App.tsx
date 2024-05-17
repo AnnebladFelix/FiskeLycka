@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   logo: {
+    marginTop:20,
     width: 100,
     height: 80, 
     resizeMode: 'contain',
@@ -147,6 +148,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   icon: {
+    marginTop:20,
     width: 24,
     height: 24,
     resizeMode: 'contain',
@@ -156,6 +158,7 @@ const styles = StyleSheet.create({
     marginTop: 120, 
   },
   searchContainer: {
+    marginTop:10,
     padding: 10,
     paddingHorizontal: 10,
   },
@@ -172,7 +175,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
-    marginTop: 20,
+    marginTop: 30,
   },
   button: {
     backgroundColor: 'rgba(255, 255, 255, 0.91)',
@@ -205,7 +208,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderRadius: 5,
     alignSelf: 'center',
-    marginTop: 20,
+    marginTop: 50,
   },
   footer: {
     height: 50, 
