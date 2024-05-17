@@ -1,28 +1,42 @@
-import React, { useState } from 'react';
-import { Button, TextInput, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import { Button, TextInput, View, TouchableOpacity, Text, StyleSheet  } from "react-native";
+import { loginUser } from "../../db/userOperations"; 
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); 
 
-  const handleLogin = () => {
-    // Handle login logic here
-    console.log(`Username: ${username}, Password: ${password}`);
+  const handleLoginClick = async () => {
+    try {
+      const result = await loginUser(email, password); 
+      if (result.success) {
+        navigation.navigate("Home");
+      } else {
+        setErrorMessage(result.message || ""); 
+      }
+    } catch (error: any) { 
+      if (error instanceof Error) { 
+        setErrorMessage(error.message); 
+      } else {
+        setErrorMessage("An error occurred while logging in."); 
+      }
+    }
   };
 
   const handleCreateAccount = () => {
     // Navigate to Create Account screen
-    navigation.navigate('Signup');
+    navigation.navigate("Signup");
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Logga in</Text>
       <TextInput
-        style={styles.input}
-        value={username}
-        onChangeText={setUsername}
+        value={email}
+        onChangeText={setEmail}
         placeholder="Email"
+        style={styles.input}
         autoCapitalize="none"
       />
       <TextInput
@@ -32,8 +46,15 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
         placeholder="Lösenord"
         secureTextEntry
       />
-      <Button title="Logga in" onPress={handleLogin} />
-      <TouchableOpacity onPress={handleCreateAccount} style={styles.createAccountButton}>
+      <Button 
+        title="Logga in" 
+        onPress={handleLoginClick} 
+       /> 
+      {errorMessage ? <Text>{errorMessage}</Text> : null} 
+      <TouchableOpacity 
+        onPress={handleCreateAccount} 
+        style={styles.createAccountButton}
+       >
         <Text style={styles.createAccountText}>Inget konto än? Skapa här.</Text>
       </TouchableOpacity>
     </View>
