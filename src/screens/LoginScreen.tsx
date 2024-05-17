@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
-import { Button, TextInput, View, TouchableOpacity, Text } from 'react-native';
+import React, { useState } from "react";
+import { Button, TextInput, View, TouchableOpacity, Text } from "react-native";
+import { loginUser } from "../../db/userOperations";
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    // Handle login logic here
-    console.log(`Username: ${username}, Password: ${password}`);
+    loginUser(email, password);
+    navigation.navigate("Home");
   };
 
   const handleCreateAccount = () => {
     // Navigate to Create Account screen
-    navigation.navigate('Signup');
+    navigation.navigate("Signup");
   };
 
   return (
     <View>
       <TextInput
-        value={username}
-        onChangeText={setUsername}
-        placeholder="Username"
+        value={email}
+        onChangeText={setEmail}
+        placeholder="Email"
       />
       <TextInput
         value={password}
