@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, TextInput, View, TouchableOpacity, Text } from 'react-native';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }: { navigation: any }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,7 +12,7 @@ const LoginScreen = ({ navigation }) => {
 
   const handleCreateAccount = () => {
     // Navigate to Create Account screen
-    navigation.navigate('CreateAccount');
+    navigation.navigate('Signup');
   };
 
   return (
