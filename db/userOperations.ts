@@ -1,24 +1,40 @@
-import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcrypt";
+import axios from "axios";
 
-
-const prisma = new PrismaClient();
-
-export async function createUser(email: string, name: string, password: string) {
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  const newUser = await prisma.user.create({
-    data: {
-      email: email,
-      name: name,
-      password: hashedPassword,
-    },
-  });
-
-  return newUser;
+interface User {
+    id: number;
+    name: string;
+    email: string;
 }
 
-// Usage:
-// createUser('test@example.com', 'Test User', 'securepassword')
-//   .then(user => console.log(`Created new user: ${user.email} (ID: ${user.id})`))
-//   .catch(error => console.error(`Something went wrong: ${error.message}`));
+export const fetchUsers = async () => {
+  try {
+      const response = await axios.get<User[]>(
+          "https://fiskelycka.netlify.app/api/users",
+          { timeout: 10000 }
+      );
+      return response.data;
+  } catch (error) {
+      console.error(error);
+      return [];
+  }
+};
+
+export const addUser = async (name: string, email: string, password: string) => {
+    try {
+        const response = await axios.post<User>(
+            "https://fiskelycka.netlify.app/api/users",
+            { name, email, password }
+        );
+        console.log(
+            `Created new user: ${response.data.email} (ID: ${response.data.id})`
+        );
+        return response.data;
+    } catch (error: any) {
+        console.error(error);
+        if (error.response && error.response.data) {
+            throw new Error(error.response.data.error);
+        } else {
+            throw new Error("Error creating user");
+        }
+    }
+};
