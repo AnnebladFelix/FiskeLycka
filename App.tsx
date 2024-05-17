@@ -73,7 +73,7 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
           <Image source={require('./assets/images/icon-hamburger.png')} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={goToLoginScreen}>
-          <Image source={require('./assets/images/login+fish.png')} style={styles.logo} />
+          <Image source={require('./assets/images/login+fish.png')} style={styles.loginLogo} />
         </TouchableOpacity>
       </View>
 
@@ -142,6 +142,13 @@ const styles = StyleSheet.create({
     marginTop:20,
     width: 100,
     height: 80, 
+    resizeMode: 'contain',
+  },
+  loginLogo: {
+    marginTop:20,
+    marginBottom:10,
+    width: 80,
+    height: 60, 
     resizeMode: 'contain',
   },
   menuButton: {
