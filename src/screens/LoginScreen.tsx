@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, TextInput, View, TouchableOpacity, Text } from "react-native";
+import { Button, TextInput, View, TouchableOpacity, Text, StyleSheet  } from "react-native";
 import { loginUser } from "../../db/userOperations"; 
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
@@ -30,25 +30,69 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
+      <Text style={styles.title}>Logga in</Text>
       <TextInput
         value={email}
         onChangeText={setEmail}
         placeholder="Email"
+        style={styles.input}
+        autoCapitalize="none"
       />
       <TextInput
+        style={styles.input}
         value={password}
         onChangeText={setPassword}
-        placeholder="Password"
+        placeholder="Lösenord"
         secureTextEntry
       />
-      <Button title="Login" onPress={handleLoginClick} /> 
+      <Button 
+        title="Logga in" 
+        onPress={handleLoginClick} 
+       /> 
       {errorMessage ? <Text>{errorMessage}</Text> : null} 
-      <TouchableOpacity onPress={handleCreateAccount}>
-        <Text>Create Account</Text>
+      <TouchableOpacity 
+        onPress={handleCreateAccount} 
+        style={styles.createAccountButton}
+       >
+        <Text style={styles.createAccountText}>Inget konto än? Skapa här.</Text>
       </TouchableOpacity>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: 'pink',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 24,
+    marginTop:40,
+  },
+  input: {
+    width: '100%',
+    height: 40,
+    padding: 10,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    backgroundColor: '#fff',
+  },
+  createAccountButton: {
+    marginTop: 16,
+  },
+  createAccountText: {
+    color: '#007BFF',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+});
 
 export default LoginScreen;
