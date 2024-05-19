@@ -11,7 +11,7 @@ interface User {
 export const fetchUsers = async () => {
   try {
       const response = await axios.get<User[]>(
-          "https://fiskelycka.netlify.app/api/users",
+          "https://fiskelycka.netlify.app/api/users/getUser",
           { timeout: 10000 }
       );
       return response.data;
@@ -23,11 +23,11 @@ export const fetchUsers = async () => {
 
 export const addUser = async (name: string, email: string, password: string) => {
     try {
-      const salt = bcrypt.genSaltSync(10);
-      const hashedPassword = bcrypt.hashSync(password, salt);
+    //   const salt = bcrypt.genSaltSync(10);
+    //   const hashedPassword = bcrypt.hashSync(password, salt);
         const response = await axios.post<User>(
-            "https://fiskelycka.netlify.app/api/users",
-            { name, email, hashedPassword }
+            "https://fiskelycka.netlify.app/api/users/register",
+            { name, email, password }
         );
         console.log(
             `Created new user: ${response.data.email} (ID: ${response.data.id})`
