@@ -30,7 +30,6 @@ const SignupScreen: React.FC = () => {
     const handleAddUser = async () => {
         try {
             const user = await addUser(name, email, password);
-            console.log(`Created new user: ${user.email} (ID: ${user.id})`);
             setError("");
             setUserCreated(true);
             setEmail("");
