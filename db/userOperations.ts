@@ -1,5 +1,4 @@
 import axios from "axios";
-import bcrypt from 'react-native-bcrypt';
 
 interface User {
     id: number;
@@ -23,8 +22,6 @@ export const fetchUsers = async () => {
 
 export const addUser = async (name: string, email: string, password: string) => {
     try {
-    //   const salt = bcrypt.genSaltSync(10);
-    //   const hashedPassword = bcrypt.hashSync(password, salt);
         const response = await axios.post<User>(
             "https://fiskelycka.netlify.app/api/users/register",
             { name, email, password }
