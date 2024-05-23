@@ -6,7 +6,7 @@ import { fetchUsers, addUser } from "../../db/userOperations";
 
 
 interface User {
-    id: number;
+    id: string;
     name: string;
     email: string;
 }
