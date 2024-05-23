@@ -71,7 +71,7 @@ export const loginUser = async (email: string, password: string) => {
 export const fetchLoggedInUser = async () => {
   try {
     const response = await axios.get<User>(
-      'https://your-app.com/api/users/loggedInUser',
+      'https://fiskelycka.netlify.app/api/users/loggedInUser',
       { timeout: 10000 }
     );
     return response.data.id;
