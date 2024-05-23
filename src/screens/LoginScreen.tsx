@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, TextInput, View, TouchableOpacity, Text, StyleSheet  } from "react-native";
+import { Button, TextInput, View, TouchableOpacity, Text, StyleSheet, ImageBackground  } from "react-native";
 import { loginUser } from "../../db/userOperations"; 
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
@@ -30,44 +30,53 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Logga in</Text>
-      <TextInput
-        value={email}
-        onChangeText={setEmail}
-        placeholder="Email"
-        style={styles.input}
-        autoCapitalize="none"
-      />
-      <TextInput
-        style={styles.input}
-        value={password}
-        onChangeText={setPassword}
-        placeholder="Lösenord"
-        secureTextEntry
-      />
-      <Button 
-        title="Logga in" 
-        onPress={handleLoginClick} 
-       /> 
-      {errorMessage ? <Text>{errorMessage}</Text> : null} 
-      <TouchableOpacity 
-        onPress={handleCreateAccount} 
-        style={styles.createAccountButton}
-       >
-        <Text style={styles.createAccountText}>Inget konto än? Skapa här.</Text>
-      </TouchableOpacity>
-    </View>
+    <ImageBackground
+      source={require("../../assets/images/bakground1.jpg")}
+      style={styles.background}
+    >
+      <View style={styles.container}>
+        <Text style={styles.title}>Logga in</Text>
+        <TextInput
+          value={email}
+          onChangeText={setEmail}
+          placeholder="Email"
+          style={styles.input}
+          autoCapitalize="none"
+        />
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={setPassword}
+          placeholder="Lösenord"
+          secureTextEntry
+        />
+        <Button 
+          title="Logga in" 
+          onPress={handleLoginClick} 
+        /> 
+        {errorMessage ? <Text>{errorMessage}</Text> : null} 
+        <TouchableOpacity 
+          onPress={handleCreateAccount} 
+          style={styles.createAccountButton}
+        >
+          <Text style={styles.createAccountText}>Inget konto än? Skapa här.</Text>
+        </TouchableOpacity>
+      </View>
+  </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'flex-start',
+  },
   container: {
-    flex:1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    padding: 16,
-    backgroundColor: 'pink',
+    padding: 5,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
   },
   title: {
     fontSize: 24,
