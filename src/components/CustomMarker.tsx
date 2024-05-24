@@ -6,33 +6,36 @@ interface MarkerData {
   latitude: number;
   longitude: number;
   title: string;
-  description: string;
 }
 
 interface CustomMarkerProps {
   markers: MarkerData[];
+  navigation: any;
 }
+const formatMarkerTitle = (title: string) => {
+  const formattedTitle = title.replace(/_/g, ' ');
 
-const CustomMarker: React.FC<CustomMarkerProps> = ({ markers }) => {
+  return formattedTitle;
+};
+
+const CustomMarker: React.FC<CustomMarkerProps> = ({ markers, navigation }) => {
   return (
     <>
       {markers.map((marker, index) => (
         <Marker
           key={index}
           coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
-          title={marker.title}
-          onPress={() => console.log('Marker Pressed')}
+          title={formatMarkerTitle(marker.title)}
+          onPress={() => navigation.navigate('FishingWater', { title: formatMarkerTitle(marker.title) })}
         >
             <Callout tooltip style={styles.calloutView}>
                 <View style={styles.calloutContainer}>
                     <Text style={styles.calloutTitle}>
-                        {marker.title}
+                        {formatMarkerTitle(marker.title)}
                     </Text>
                     <Text style={styles.calloutDescription}>
-                        {marker.description}
                     </Text>
                 </View>
-
             </Callout>
         </Marker>
       ))}
