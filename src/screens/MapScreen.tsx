@@ -11,18 +11,18 @@ interface Position {
   longitude: number;
 }
 
-const MapScreen = () => {
+const MapScreen = ({ navigation }: { navigation: any }) => {
   const [currentPosition, setCurrentPosition] = useState<Position | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const mapViewRef = useRef<MapView>(null);
 
   const markers = [
-    { latitude: 57.431835, longitude: 12.664502, title: 'Öresjön Skene', description: 'Gös Gädda ' },
-    { latitude: 57.648468, longitude: 13.376188, title: 'Sämsjön Vegby', description: 'Gös Gädda ' },
-    { latitude: 57.641907, longitude: 12.406097, title: 'Kåsjön Partille', description: 'Gös Gädda ' },
-    { latitude: 57.63423, longitude: 12.137591, title: 'Finnsjön Mölnlycke', description: 'Gös Gädda ' },
-    { latitude: 56.548056, longitude: 12.949444, title: 'Lagan', description: 'Gös Gädda ' },
-    { latitude: 57.78754, longitude: 12.97886, title: 'Öresjön Fristad', description: 'Gös Gädda ' },
+    { latitude: 57.431835, longitude: 12.664502, title: 'Västra Öresjön', name: 'Västra Öresjön' },
+    { latitude: 57.648468, longitude: 13.376188, title: 'Sämsjön_(Finnekumla_socken,_Västergötland)', name: 'Sämsjön' },
+    { latitude: 57.641907, longitude: 12.406097, title: 'Stora_Kåsjön', name: 'Kåsjön' },
+    { latitude: 57.63423, longitude: 12.137591, title: 'Finnsjön,_Västergötland', name: 'Finnsjön' },
+    { latitude: 56.548056, longitude: 12.949444, title: 'Lagan', name: 'Lagan' },
+    { latitude: 57.78754, longitude: 12.97886, title: 'Öresjö_(Fristads_socken,_Västergötland)', name: 'Öresjön' },
   ];
 
   useEffect(() => {
@@ -75,7 +75,7 @@ const MapScreen = () => {
         }}
         showsUserLocation={true}
         >
-          <CustomMarker markers={markers} />
+          <CustomMarker markers={markers} navigation={navigation} />
           {currentPosition && (
             <Marker
               coordinate={currentPosition}
