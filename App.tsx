@@ -69,11 +69,8 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
         <TouchableOpacity onPress={handleLogoClick}>
           <Image source={require('./assets/images/Logo.png')} style={styles.logo} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuButton} onPress={handleMenuClick}>
-          <Image source={require('./assets/images/icon-hamburger.png')} style={styles.icon} />
-        </TouchableOpacity>
         <TouchableOpacity onPress={goToLoginScreen}>
-          <Image source={require('./assets/images/login+fish.png')} style={styles.logo} />
+          <Image source={require('./assets/images/login+fish.png')} style={styles.loginLogo} />
         </TouchableOpacity>
       </View>
 
@@ -144,14 +141,15 @@ const styles = StyleSheet.create({
     height: 80, 
     resizeMode: 'contain',
   },
+  loginLogo: {
+    marginTop:20,
+    marginBottom:10,
+    width: 80,
+    height: 60, 
+    resizeMode: 'contain',
+  },
   menuButton: {
     padding: 10,
-  },
-  icon: {
-    marginTop:20,
-    width: 24,
-    height: 24,
-    resizeMode: 'contain',
   },
   mainContent: {
     flex: 1,
