@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Button, TextInput, View, TouchableOpacity, Text, StyleSheet, ImageBackground  } from "react-native";
 import { loginUser } from "../../db/userOperations"; 
+import { useAuth } from "../components/AuthContext";
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); 
+  const [errorMessage, setErrorMessage] = useState("");
+  const { user, logout } = useAuth();
 
   const handleLoginClick = async () => {
     try {
@@ -34,34 +36,42 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
       source={require("../../assets/images/bakground1.jpg")}
       style={styles.background}
     >
-      <View style={styles.container}>
-        <Text style={styles.title}>Logga in</Text>
-        <TextInput
-          value={email}
-          onChangeText={setEmail}
-          placeholder="Email"
-          style={styles.input}
-          autoCapitalize="none"
-        />
-        <TextInput
-          style={styles.input}
-          value={password}
-          onChangeText={setPassword}
-          placeholder="Lösenord"
-          secureTextEntry
-        />
-        <Button 
-          title="Logga in" 
-          onPress={handleLoginClick} 
-        /> 
-        {errorMessage ? <Text>{errorMessage}</Text> : null} 
-        <TouchableOpacity 
-          onPress={handleCreateAccount} 
-          style={styles.createAccountButton}
-        >
-          <Text style={styles.createAccountText}>Inget konto än? Skapa här.</Text>
-        </TouchableOpacity>
-      </View>
+      { !user ? (
+        <View style={styles.container}>
+          <Text style={styles.title}>Logga in</Text>
+          <TextInput
+            value={email}
+            onChangeText={setEmail}
+            placeholder="Email"
+            style={styles.input}
+            autoCapitalize="none"
+          />
+          <TextInput
+            style={styles.input}
+            value={password}
+            onChangeText={setPassword}
+            placeholder="Lösenord"
+            secureTextEntry
+          />
+          <Button 
+            title="Logga in" 
+            onPress={handleLoginClick} 
+          /> 
+          {errorMessage ? <Text>{errorMessage}</Text> : null} 
+          <TouchableOpacity 
+            onPress={handleCreateAccount} 
+            style={styles.createAccountButton}
+          >
+            <Text style={styles.createAccountText}>Inget konto än? Skapa här.</Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <View>
+          <Text>Logged in as {email}</Text>
+          <Button title="Log out" onPress={logout} />
+        </View>
+        )
+    }
   </ImageBackground>
   );
 };

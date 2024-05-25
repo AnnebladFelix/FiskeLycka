@@ -10,22 +10,25 @@ import FishingWaterScreen from './src/screens/FishingWaterScreen';
 import FishingMethodsScreen from './src/screens/FingingMethodsScreen';
 import SignupScreen from './src/screens/SignupScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import { AuthProvider } from './src/components/AuthContext';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Map Screen' }} />
-        <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Screen' }} />
-        <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Signup Screen' }} />
-        <Stack.Screen name="FishSpecies" component={FishSpeciesScreen} options={{ title: 'Fish Species Screen' }} />
-        <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'FishingWater Screen' }} />
-        <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fishing Methods Screen' }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Map Screen' }} />
+          <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Screen' }} />
+          <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Signup Screen' }} />
+          <Stack.Screen name="FishSpecies" component={FishSpeciesScreen} options={{ title: 'Fish Species Screen' }} />
+          <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'FishingWater Screen' }} />
+          <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fishing Methods Screen' }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
   );
 }
 
