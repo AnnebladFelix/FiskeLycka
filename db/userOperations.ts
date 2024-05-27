@@ -26,9 +26,6 @@ export const addUser = async (name: string, email: string, password: string) => 
             "https://fiskelycka.netlify.app/api/users/register",
             { name, email, password }
         );
-        console.log(
-            `Created new user: ${response.data.email} (ID: ${response.data.id})`
-        );
         return response.data;
     } catch (error: any) {
         console.error(error);
@@ -49,7 +46,6 @@ export const loginUser = async (email: string, password: string) => {
         const { success, userId } = response.data;
 
         if (success) {
-            console.log(`User logged in: ${email} (ID: ${userId})`);
             return { success: true, userId };
         } else {
             return { success: false, message: 'Invalid credentials' };
