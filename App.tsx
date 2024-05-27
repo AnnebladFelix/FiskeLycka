@@ -12,6 +12,7 @@ import SignupScreen from './src/screens/SignupScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import { AuthProvider } from './src/components/AuthContext';
 import UserScreen from './src/screens/UserScreen';
+import FishDetailScreen from './src/screens/FishDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,7 @@ export default function App() {
           <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'Fiskevatten' }} />
           <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fiskemetoder' }} />
           <Stack.Screen name="UserScreen" component={UserScreen} options={{ title: 'Mina sidor' }} />
+          <Stack.Screen name="FishDetail" component={FishDetailScreen} options={{ title: 'Fiskart' }} />
         </Stack.Navigator>
       </NavigationContainer>
     </AuthProvider>

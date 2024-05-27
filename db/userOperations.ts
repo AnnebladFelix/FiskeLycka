@@ -8,19 +8,23 @@ interface User {
 }
 
 export const fetchUsers = async () => {
-  try {
-      const response = await axios.get<User[]>(
-          "https://fiskelycka.netlify.app/api/users/getUser",
-          { timeout: 10000 }
-      );
-      return response.data;
-  } catch (error) {
-      console.error(error);
-      return [];
-  }
+    try {
+        const response = await axios.get<User[]>(
+            "https://fiskelycka.netlify.app/api/users/getUser",
+            { timeout: 10000 }
+        );
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
 };
 
-export const addUser = async (name: string, email: string, password: string) => {
+export const addUser = async (
+    name: string,
+    email: string,
+    password: string
+) => {
     try {
         const response = await axios.post<User>(
             "https://fiskelycka.netlify.app/api/users/register",
@@ -48,7 +52,7 @@ export const loginUser = async (email: string, password: string) => {
         if (success) {
             return { success: true, userId };
         } else {
-            return { success: false, message: 'Invalid credentials' };
+            return { success: false, message: "Invalid credentials" };
         }
     } catch (error: any) {
         console.error(error);
@@ -62,58 +66,49 @@ export const loginUser = async (email: string, password: string) => {
 
 // Function to fetch logged-in user
 export const fetchLoggedInUser = async () => {
-  try {
-    const response = await axios.get<User>(
-      'https://fiskelycka.netlify.app/api/users/loggedInUser',
-      { timeout: 10000 }
-    );
-    return response.data.id;
-  } catch (error) {
-    console.error('Error fetching logged-in user:', error);
-    return null;
-  }
+    try {
+        const response = await axios.get<User>(
+            "https://fiskelycka.netlify.app/api/users/loggedInUser",
+            { timeout: 10000 }
+        );
+        return response.data.id;
+    } catch (error) {
+        console.error("Error fetching logged-in user:", error);
+        return null;
+    }
 };
-
 
 // Function to update user name
 export async function updateUserName(newName: string) {
     const userId = await fetchLoggedInUser();
-    const response = await fetch('https://fiskelycka.netlify.app/api/users/updateUser', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            userId: userId,
-            newName: newName,
-        }),
-    });
-
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
+    try {
+        const response = await axios.post(`https://fiskelycka.netlify.app/api/users/updateUser`, { newName, userId });
+        return response.data;
+    } catch (error) {
+        throw new Error("Network response was not ok");
     }
-
-    const data = await response.json();
-    return data;
 }
 
-// Function to update user password
-export async function updateUserPassword(newPassword:string) {
 
+// Function to update user password
+export async function updateUserPassword(newPassword: string) {
     const userId = await fetchLoggedInUser();
-    const response = await fetch('https://fiskelycka.netlify.app/api/users/updateUser', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            userId: userId,
-            newPassword: newPassword,
-        }),
-    });
+    const response = await fetch(
+        "https://fiskelycka.netlify.app/api/users/updateUser",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                userId: userId,
+                newPassword: newPassword,
+            }),
+        }
+    );
 
     if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
     }
 
     const data = await response.json();
