@@ -6,26 +6,32 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {ImageBackground, StyleSheet, Text, TouchableOpacity, View, Image, ScrollView, TextInput} from 'react-native';
 import MapScreen from './src/screens/MapScreen';
 import FishSpeciesScreen from './src/screens/FishSpeciesScreen';
-import FishingWaterScreen from './src/screens/FishingWaterScreen';
 import FishingMethodsScreen from './src/screens/FingingMethodsScreen';
 import SignupScreen from './src/screens/SignupScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import SearchFishingWaterScreen from './src/screens/SearchFishingWaterScreen';
+import FishingWaterScreen from './src/screens/FishingWaterScreen';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Map Screen' }} />
-        <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Screen' }} />
-        <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Signup Screen' }} />
-        <Stack.Screen name="FishSpecies" component={FishSpeciesScreen} options={{ title: 'Fish Species Screen' }} />
-        <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'FishingWater Screen' }} />
-        <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fishing Methods Screen' }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <GestureHandlerRootView style={{ flex: 1}}>
+
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Map Screen' }} />
+          <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Screen' }} />
+          <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Signup Screen' }} />
+          <Stack.Screen name="FishSpecies" component={FishSpeciesScreen} options={{ title: 'Fish Species Screen' }} />
+          <Stack.Screen name="SearchFishingWater" component={SearchFishingWaterScreen} options={{ title: 'Search Fishing Water' }} />
+          <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'Fishing Water Screen' }} />
+          <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fishing Methods Screen' }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 
@@ -51,8 +57,8 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
     navigation.navigate('FishSpecies');
   }; 
 
-  const goToFishingWaterScreen = () => {
-    navigation.navigate('FishingWater');
+  const goToSearchFishingWaterScreen = () => {
+    navigation.navigate('SearchFishingWater');
   };
 
   const goToFishingMethodsScreen = () => {
@@ -88,7 +94,7 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
             </ImageBackground>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.button} onPress={goToFishingWaterScreen}>
+          <TouchableOpacity style={styles.button} onPress={goToSearchFishingWaterScreen}>
             <Text style={styles.buttonText}>Fiskevatten</Text>
           </TouchableOpacity>
         </View>
