@@ -13,6 +13,7 @@ import LoginScreen from './src/screens/LoginScreen';
 import { AuthProvider } from './src/components/AuthContext';
 import UserScreen from './src/screens/UserScreen';
 import AdminPage from './src/screens/AdminPage';
+import FishDetailScreen from './src/screens/FishDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,12 +31,12 @@ export default function App() {
           <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fiskemetoder' }} />
           <Stack.Screen name="UserScreen" component={UserScreen} options={{ title: 'Mina sidor' }} />
           <Stack.Screen name="AdminPage" component={AdminPage} options={{title: 'Admin sida'}} />
+          <Stack.Screen name="FishDetail" component={FishDetailScreen} options={{ title: 'Fiskart' }} />
         </Stack.Navigator>
       </NavigationContainer>
     </AuthProvider>
   );
 }
-
 
 const HomeScreen = ({ navigation }: { navigation: any}) => {
   const handleMenuClick = () => {
@@ -45,7 +46,6 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
   const handleLogoClick = () => {
     console.log('Logo clicked');
   }
-
 
   const goToLoginScreen = () => {
     navigation.navigate('Login');
