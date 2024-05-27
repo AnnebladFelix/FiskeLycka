@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, TextInput, View, TouchableOpacity, Text, StyleSheet, ImageBackground  } from "react-native";
 import { loginUser } from "../../db/userOperations"; 
 import { useAuth } from "../components/AuthContext";
@@ -7,18 +7,21 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const { user, logout } = useAuth();
+  const { user, login, logout } = useAuth();
+
+  useEffect(() => {
+    if (user?.userId && user.email) {
+      navigation.navigate("UserScreen");
+    }
+  }, [user]);
 
   const handleLoginClick = async () => {
     try {
       const result = await loginUser(email, password); 
       if (result.success) {
-          console.log("User", email, "logged in successfully.", user?.userId, result.userId, user?.email);
-        if (user?.userId && email) {
-          navigation.navigate("Home");
-        } else {
-          setErrorMessage("An error occurred while logging in.");
-        }
+        console.log("User", email, "logged in successfully.", user?.userId, result.userId, user?.email);
+        const userData = { userId: result.userId, email };
+        login(userData);
       } else {
         setErrorMessage(result.message || ""); 
       }

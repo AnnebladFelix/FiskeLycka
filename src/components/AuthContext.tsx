@@ -13,7 +13,7 @@ const AuthContext = createContext<{
   logout: () => void;
 } | undefined>(undefined);
 
-export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const AuthProvider: React.FC<{ children: ReactNode}> = ({ children }) => {
   const [user, setUser] = useState<UserData | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -35,10 +35,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       <ActivityIndicator animating={true} color="blue" size="large" />
     </View>
   }
-
-  const login = async (userData: UserData) => {
+    
+    const login = async (userData: UserData) => {
     // Save the user data to AsyncStorage
     await AsyncStorage.setItem('userData', JSON.stringify(userData));
+    console.log("async", userData)
     setUser(userData);
   };
 

@@ -11,6 +11,7 @@ import FishingMethodsScreen from './src/screens/FingingMethodsScreen';
 import SignupScreen from './src/screens/SignupScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import { AuthProvider } from './src/components/AuthContext';
+import UserScreen from './src/screens/UserScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,17 +21,19 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Map Screen' }} />
-          <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Screen' }} />
-          <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Signup Screen' }} />
-          <Stack.Screen name="FishSpecies" component={FishSpeciesScreen} options={{ title: 'Fish Species Screen' }} />
-          <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'FishingWater Screen' }} />
-          <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fishing Methods Screen' }} />
+          <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Karta' }} />
+          <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Logga in' }} />
+          <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Skapa konto' }} />
+          <Stack.Screen name="FishSpecies" component={FishSpeciesScreen} options={{ title: 'Fiskarter' }} />
+          <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'Fiskevatten' }} />
+          <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fiskemetoder' }} />
+          <Stack.Screen name="UserScreen" component={UserScreen} options={{ title: 'Mina sidor' }} />
         </Stack.Navigator>
       </NavigationContainer>
     </AuthProvider>
   );
 }
+
 
 const HomeScreen = ({ navigation }: { navigation: any}) => {
   const handleMenuClick = () => {
