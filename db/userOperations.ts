@@ -74,42 +74,37 @@ export async function fetchUserById(id: string) {
 
 // Function to update user name
 export async function updateUserName(userId: string, newName: string) {
-    const response = await fetch('https://fiskelycka.netlify.app/api/users/updateUserName', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+    try {
+        const response = await axios.post('https://fiskelycka.netlify.app/api/users/updateUserName', {
             userId: userId,
             newName: newName,
-        }),
-    });
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
+        return response.data;
+    } catch (error) {
+        throw new Error(`Network response was not ok: ${error}`);
     }
-
-    const data = await response.json();
-    return data;
 }
 
+
 // Function to update user password
-export async function updateUserPassword(userId: string, newPassword:string) {
-    const response = await fetch('https://fiskelycka.netlify.app/api/users/updateUserPW', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+export async function updateUserPassword(userId: string, newPassword: string) {
+    try {
+        const response = await axios.post('https://fiskelycka.netlify.app/api/users/updateUserPW', {
             userId: userId,
             newPassword: newPassword,
-        }),
-    });
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
+        return response.data;
+    } catch (error) {
+        throw new Error(`Network response was not ok: ${error}`);
     }
-
-    const data = await response.json();
-    return data;
 }
