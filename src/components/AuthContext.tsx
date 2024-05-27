@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { ActivityIndicator, View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface UserData {
   userId: string;
@@ -13,12 +15,36 @@ const AuthContext = createContext<{
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<UserData | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const login = (userData: UserData) => {
+  useEffect(() => {
+    // Fetch the user data from AsyncStorage when the component mounts
+    const fetchUserData = async () => {
+      const userDataString = await AsyncStorage.getItem('userData');
+      if (userDataString) {
+        setUser(JSON.parse(userDataString));
+      }
+      setLoading(false);
+    };
+
+    fetchUserData();
+  }, []);
+
+  if (loading) {
+    <View>
+      <ActivityIndicator animating={true} color="blue" size="large" />
+    </View>
+  }
+
+  const login = async (userData: UserData) => {
+    // Save the user data to AsyncStorage
+    await AsyncStorage.setItem('userData', JSON.stringify(userData));
     setUser(userData);
   };
 
-  const logout = () => {
+  const logout = async () => {
+    // Remove the user data from AsyncStorage
+    await AsyncStorage.removeItem('userData');
     setUser(null);
   };
 

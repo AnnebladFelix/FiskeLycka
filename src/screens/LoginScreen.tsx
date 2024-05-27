@@ -13,7 +13,12 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
     try {
       const result = await loginUser(email, password); 
       if (result.success) {
-        navigation.navigate("Home");
+          console.log("User", email, "logged in successfully.", user?.userId, result.userId, user?.email);
+        if (user?.userId && email) {
+          navigation.navigate("Home");
+        } else {
+          setErrorMessage("An error occurred while logging in.");
+        }
       } else {
         setErrorMessage(result.message || ""); 
       }
