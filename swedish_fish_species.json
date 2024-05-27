@@ -1,0 +1,353 @@
+[
+  {
+      "swedishName": "Abborre",
+      "scientificName": "Perca fluviatilis",
+      "description": "En populär sportfisk känd för sina distinkta ränder.",
+      "occurrence": "Finns i nästan alla vatten från söder till norr.",
+      "habitat": "Sötvatten och bräckt vatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "2,875 kg"
+  },
+  {
+      "swedishName": "Gädda",
+      "scientificName": "Esox lucius",
+      "description": "En toppredator i sötvattensekosystemet med ett distinkt utseende.",
+      "occurrence": "Vanlig i sjöar och vattendrag över hela Sverige.",
+      "habitat": "Sötvatten och bräckt vatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "21,07 kg"
+  },
+  {
+      "swedishName": "Gös",
+      "scientificName": "Sander lucioperca",
+      "description": "En eftertraktad matfisk med ljus, fin textur.",
+      "occurrence": "Vanlig i södra och mellersta Sverige.",
+      "habitat": "Sötvatten och bräckt vatten",
+      "minimumSize": "45-50 cm beroende på region",
+      "swedishRecord": "12,65 kg"
+  },
+  {
+      "swedishName": "Braxen",
+      "scientificName": "Abramis brama",
+      "description": "Känd för sin storlek och silverglänsande kropp.",
+      "occurrence": "Vanlig i sjöar och vattendrag över hela Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "8,42 kg"
+  },
+  {
+      "swedishName": "Regnbåge",
+      "scientificName": "Oncorhynchus mykiss",
+      "description": "En införd art populär i sportfiske och som matfisk.",
+      "occurrence": "Utsatt i många vatten över hela landet.",
+      "habitat": "Sötvatten, ofta i utsatta fiskevatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "14,16 kg"
+  },
+  {
+      "swedishName": "Sik",
+      "scientificName": "Coregonus lavaretus",
+      "description": "En populär matfisk med en distinkt smak.",
+      "occurrence": "Vanlig i norra Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "5,39 kg"
+  },
+  {
+      "swedishName": "Siklöja",
+      "scientificName": "Coregonus albula",
+      "description": "En liten fisk som är populär för sin rom.",
+      "occurrence": "Vanlig i norra Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "0,63 "
+  },
+  {
+      "swedishName": "Björkna",
+      "scientificName": "Blicca bjoerkna",
+      "description": "En silvrig fisk som liknar braxen.",
+      "occurrence": "Vanlig i sjöar och vattendrag över hela Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "1,48 kg"
+  },
+  {
+      "swedishName": "Bäckröding",
+      "scientificName": "Salvelinus fontinalis",
+      "description": "En vacker fisk som är populär i sportfiske.",
+      "occurrence": "Utplanerad i många vatten över hela landet.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "2,645 kg"
+  },
+  {
+      "swedishName": "Faren",
+      "scientificName": "Abramis ballerus",
+      "description": "Trivs i långsamt rinnande vattendrag och sjöar, men även i bräckt vatten.",
+      "occurrence": "Hittas i södra och mellersta Sverige.",
+      "habitat": "Sötvatten och bräckt vatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "0,866 kg"
+  },
+  {
+      "swedishName": "Färna",
+      "scientificName": "Leuciscus cephalus",
+      "description": "En karpfisk som föredrar strömmande näringsrika vattendrag.",
+      "occurrence": "Vanlig i södra och mellersta Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "3,640 kg"
+  },
+  {
+      "swedishName": "Asp",
+      "scientificName": "Leuciscus aspius",
+      "description": "Ståtlig fisk av karpsläkte. Relativt ovanlig rovfisk utan tänder.",
+      "occurrence": "Hittas i södra och mellersta Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "8,030 kg"
+  },
+  {
+      "swedishName": "Gräskarp",
+      "scientificName": "Ctenopharyngodon idella",
+      "description": "Inplanterad i många vatten. Spännande och kraftfull art.",
+      "occurrence": "Hittas i golfbanedammar, kräftodlingsdammar etc.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "18,925 kg"
+  },
+  {
+      "swedishName": "Harr",
+      "scientificName": "Thymallus thymallus",
+      "description": "En mäktig fisk. Flugfiskarens dröm-rekordfisk.",
+      "occurrence": "Pite älv, Harrejaur, Norrbotten.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "2,850 kg"
+  },
+  {
+      "swedishName": "Havsöring",
+      "scientificName": "Salmo trutta",
+      "description": "En av våra mest populära sportfiskar.",
+      "occurrence": "Hittas både på västkusten och östkusten.",
+      "habitat": "Bräckt vatten",
+      "minimumSize": "45 cm på västkusten, 50 cm på östkusten.",
+      "swedishRecord": "15,260 kg"
+  },
+  {
+      "swedishName": "Id",
+      "scientificName": "Leuciscus idus",
+      "description": "En karpfisk som lever både i sött och bräckt vatten.",
+      "occurrence": "Vanlig i södra och mellersta Sverige.",
+      "habitat": "Sötvatten och bräckt vatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "3,780 kg"
+  },
+  {
+      "swedishName": "Indianlax",
+      "scientificName": "Oncorhynchus nerka",
+      "description": "Indianlax? Jadå. Den här arten har tidigare planterats ut och finns i Sverige på några få håll.",
+      "occurrence": "Inplanterad i några få vatten.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "0,570 kg"
+  },
+  {
+      "swedishName": "Insjölax",
+      "scientificName": "Salmo salar",
+      "description": "Tänk att den är fångad från Vätterns strand! Inget talar för att trollingbåtarna ska ta en större i brådrasket.",
+      "occurrence": "Öninge Vättern, Östergötland",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "20,400 kg"
+  },
+  {
+      "swedishName": "Insjööring",
+      "scientificName": "Salmo trutta",
+      "description": "En av våra mest populära sportfiskar.",
+      "occurrence": "Mellersta och norra Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Varierar beroende på vatten",
+      "swedishRecord": "17,000 kg"
+  },
+  {
+      "swedishName": "Kanadaröding",
+      "scientificName": "Salvelinus namaycush",
+      "description": "Kanadaröringen gillar kalla, djupa sjöar.",
+      "occurrence": "Vanlig i norra Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "14,020 kg"
+  },
+  {
+      "swedishName": "Karp",
+      "scientificName": "Cyprinus carpio",
+      "description": "En populär sportfisk och en riktigt bjässe.",
+      "occurrence": "Södra Sverige",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "32,450 kg"
+  },
+  {
+      "swedishName": "Lake",
+      "scientificName": "Lota lota",
+      "description": "En av våra mest sällsynta fiskar?",
+      "occurrence": "Hittas i södra och mellersta Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "8,500 kg"
+  },
+  {
+      "swedishName": "Lax",
+      "scientificName": "Salmo salar",
+      "description": "En av våra mest populära fiskar.",
+      "occurrence": "Vänern, Vättern, Östersjön",
+      "habitat": "Sötvatten och bräckt vatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "28,720 kg"
+  },
+  {
+      "swedishName": "Mört",
+      "scientificName": "Rutilus rutilus",
+      "description": "En av våra vanligaste fiskar.",
+      "occurrence": "Vanlig i sjöar och vattendrag över hela Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "1,726 kg"
+  },
+  {
+      "swedishName": "Puckellax",
+      "scientificName": "Oncorhynchus gorbuscha",
+      "description": "Puckellaxen är en av de minsta laxarna.",
+      "occurrence": "Inplanterad i några få vatten.",
+      "habitat": "Bräckt vatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "3,352 kg"
+  },
+  {
+      "swedishName": "Ruda",
+      "scientificName": "Carassius carassius",
+      "description": "En karpfisk, men sakanr den karaktäristiska skäggtömmar och är inte lika avlång.",
+      "occurrence": "Ursjön, Västmanland",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "3,030 kg"
+  },
+  {
+      "swedishName": "Röding",
+      "scientificName": "Salvelinus spp.",
+      "description": "En av våra mest populära sportfiskar.",
+      "occurrence": "Vättern, Norra Sverige, fjällvatten",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "10,830 kg"
+  },
+  {
+      "swedishName": "Sarv",
+      "scientificName": "Scardinius erythrophthalmus",
+      "description": "En metefavorit med guldsida och korallröda fenor.",
+      "occurrence": "Vanlig i sjöar och vattendrag över hela Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "1,730 kg"
+  },
+  {
+      "swedishName": "Silvruda",
+      "scientificName": "Carassius gibelio",
+      "description": "Silverruda är en karpfisk som tidigare klassats som en hybridfisk mellan guldfisk och ruda, men som numera anses som en egen art.",
+      "occurrence": "Gotland",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "2,407 kg"
+  },
+  {
+      "swedishName": "Strupsnittsöring",
+      "scientificName": "Oncorhynchus clarkii",
+      "description": "Finns i ett par svenska vatten via inplanteringar för länge sedan.",
+      "occurrence": "Inplanterad i några få vatten.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "0,590 kg"
+  },
+  {
+      "swedishName": "Stäm",
+      "scientificName": "Leuciscus leuciscus",
+      "description": "En av de minsta vitfiskarna.",
+      "occurrence": "tämmen lever i strömmande sötvatten, och återfinns vid kusten ofta i närheten av flodmynningar.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "0,401 kg"
+  },
+  {
+      "swedishName": "Sutare",
+      "scientificName": "Tinca tinca",
+      "description": "En av våra mest populära sportfiskar.",
+      "occurrence": "Vanlig i sjöar och vattendrag i södra och mellersta Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "5,460 kg"
+  },
+  {
+      "swedishName": "Vimma",
+      "scientificName": "Vimba vimba",
+      "description": "Vimman är en bottenätare som uteslutande metas i strömmande vatten.",
+      "occurrence": "Hittas i södra och mellersta Sverige.",
+      "habitat": "Sötvatten",
+      "minimumSize": "Inget minimimått",
+      "swedishRecord": "1,660 kg"
+  },
+  {
+      "swedishName": "Ål",
+      "scientificName": "Anguilla anguilla",
+      "description": "Tung och storgapig allätare. En fredad art.",
+      "occurrence": "Vanlig i södra Sverige.",
+      "habitat": "Sötvatten, bräckt vatten och hav",
+      "minimumSize": "Fisket är förbjudet",
+      "swedishRecord": "3,725 kg"
+  },
+  {
+    "swedishName": "Nors",
+    "scientificName": "Osmerus eperlanus L.",
+    "description": "Uppträder i ofantligt stora stim.",
+    "occurrence": "Mellansverige",
+    "habitat": "Sötvatten och hav",
+    "minimumSize": "Inget minimimått",
+    "swedishRecord": "Okänt"
+  },
+  {
+    "swedishName": "Bergsimpa",
+    "scientificName": "Cottus poecilopus",
+    "description": "Liten fisk. Mycket likt stensimpa.",
+    "occurrence": "Mellansverige",
+    "habitat": "Sötvatten",
+    "minimumSize": "Inget minimimått",
+    "swedishRecord": "Okänt"
+  },
+  {
+    "swedishName": "Stensimpa",
+    "scientificName": "Cottus gobio",
+    "description": "Bottenfisk som föredrar grunt vatten med hårda bottnar. Går ner till djupare vatten under vintern.",
+    "occurrence": "Mellansverige",
+    "habitat": "Sötvatten",
+    "minimumSize": "Inget minimimått",
+    "swedishRecord": "Okänt"
+  },
+  {
+    "swedishName": "Gärs",
+    "scientificName": "Gymnocephalus cernuus",
+    "description": "Gärsen är en fisk i ordningen abborrartade fiskar som lever i sött och bräckt vatten.",
+    "occurrence": "Mellansverige",
+    "habitat": "Sötvatten och bräckt vatten",
+    "minimumSize": "Inget minimimått",
+    "swedishRecord": "Okänt"
+  },
+  {
+    "swedishName": "Hornsimpa",
+    "scientificName": "Myoxocephalus quadricornis",
+    "description": "Lever i hav och djupa sjöar från grunda bottnar ner till 100 meters djup.",
+    "occurrence": "Ovanlig",
+    "habitat": "Sötvatten, bräckt vatten och hav",
+    "minimumSize": "Inget minimimått",
+    "swedishRecord": "Okänt"
+  }
+]
