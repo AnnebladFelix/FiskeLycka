@@ -3,14 +3,24 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { updateUserName, updateUserPassword } from '../../db/userOperations'; // Adjust the path to your actual file
+import { useAuth } from '../components/AuthContext';
+import { fetchUserById } from '../../db/userOperations';
 
 const UserScreen = () => {
   const [newName, setNewName] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const { user } = useAuth();
+  const userId = user?.userId ?? '';
+  console.log("🚀 ~ UserScreen ~ userId:", userId)
+  
+
+  fetchUserById(userId)
 
   const handleNameUpdate = async () => {
     try {
-      await updateUserName(newName);
+      if (userId) {
+        await updateUserName(userId, newName);
+      }
     } catch (error) {
       console.error('Error updating user name:', error);
     }
@@ -18,7 +28,9 @@ const UserScreen = () => {
 
   const handlePasswordUpdate = async () => {
     try {
-      await updateUserPassword(newPassword);
+      if (userId) {
+      await updateUserPassword(userId, newPassword);
+    }
     } catch (error) {
       console.error('Error updating user password:', error);
     }
