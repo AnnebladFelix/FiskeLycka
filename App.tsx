@@ -12,6 +12,7 @@ import SignupScreen from './src/screens/SignupScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import { AuthProvider } from './src/components/AuthContext';
 import UserScreen from './src/screens/UserScreen';
+import AdminPage from './src/screens/AdminPage';
 import FishDetailScreen from './src/screens/FishDetailScreen';
 
 const Stack = createNativeStackNavigator();
@@ -29,13 +30,13 @@ export default function App() {
           <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'Fiskevatten' }} />
           <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fiskemetoder' }} />
           <Stack.Screen name="UserScreen" component={UserScreen} options={{ title: 'Mina sidor' }} />
+          <Stack.Screen name="AdminPage" component={AdminPage} options={{title: 'Admin sida'}} />
           <Stack.Screen name="FishDetail" component={FishDetailScreen} options={{ title: 'Fiskart' }} />
         </Stack.Navigator>
       </NavigationContainer>
     </AuthProvider>
   );
 }
-
 
 const HomeScreen = ({ navigation }: { navigation: any}) => {
   const handleMenuClick = () => {
@@ -46,7 +47,6 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
     console.log('Logo clicked');
   }
 
-  
   const goToLoginScreen = () => {
     navigation.navigate('Login');
   };
@@ -57,7 +57,7 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
 
   const goToFishSpeciesScreen = () => {
     navigation.navigate('FishSpecies');
-  }; 
+  };
 
   const goToFishingWaterScreen = () => {
     navigation.navigate('FishingWater');
@@ -146,14 +146,14 @@ const styles = StyleSheet.create({
   logo: {
     marginTop:20,
     width: 100,
-    height: 80, 
+    height: 80,
     resizeMode: 'contain',
   },
   loginLogo: {
     marginTop:20,
     marginBottom:10,
     width: 80,
-    height: 60, 
+    height: 60,
     resizeMode: 'contain',
   },
   menuButton: {
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     flex: 1,
-    marginTop: 120, 
+    marginTop: 120,
   },
   searchContainer: {
     marginTop:10,
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   footer: {
-    height: 50, 
+    height: 50,
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     alignItems: 'center',
     justifyContent: 'center',

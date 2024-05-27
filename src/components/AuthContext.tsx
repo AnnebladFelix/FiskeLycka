@@ -5,6 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 interface UserData {
   userId: string;
   email: string;
+  admin?: boolean;
 }
 
 const AuthContext = createContext<{
@@ -35,7 +36,7 @@ export const AuthProvider: React.FC<{ children: ReactNode}> = ({ children }) => 
       <ActivityIndicator animating={true} color="blue" size="large" />
     </View>
   }
-    
+
     const login = async (userData: UserData) => {
     await AsyncStorage.setItem('userData', JSON.stringify(userData));
     setUser(userData);

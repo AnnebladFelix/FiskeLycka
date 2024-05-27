@@ -47,10 +47,12 @@ export const loginUser = async (email: string, password: string) => {
             `https://fiskelycka.netlify.app/api/users/login`,
             { email, password }
         );
-        const { success, userId } = response.data;
+        const { success, userId, admin } = response.data;
+
+        console.log("Admin:", response.data.admin );
 
         if (success) {
-            return { success: true, userId };
+            return { success: true, userId, admin };
         } else {
             return { success: false, message: "Invalid credentials" };
         }
