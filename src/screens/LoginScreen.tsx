@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, TextInput, View, TouchableOpacity, Text, StyleSheet, ImageBackground  } from "react-native";
-import { loginUser } from "../../db/userOperations"; 
+import { loginUser } from "../../db/userOperations";
 import { useAuth } from "../components/AuthContext";
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
@@ -10,25 +10,30 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
   const { user, login, logout } = useAuth();
 
   useEffect(() => {
-    if (user?.userId && user.email) {
+    if (user?.userId && user.email && user.admin === true) {
+      console.log("Admin är inloggad");
+      navigation.navigate("AdminPage");
+    }
+
+    else {
       navigation.navigate("UserScreen");
     }
   }, [user]);
 
   const handleLoginClick = async () => {
     try {
-      const result = await loginUser(email, password); 
+      const result = await loginUser(email, password);
       if (result.success) {
-        const userData = { userId: result.userId, email };
+        const userData = { userId: result.userId, email, admin: result.admin};
         login(userData);
       } else {
-        setErrorMessage(result.message || ""); 
+        setErrorMessage(result.message || "");
       }
-    } catch (error: any) { 
-      if (error instanceof Error) { 
-        setErrorMessage(error.message); 
+    } catch (error: any) {
+      if (error instanceof Error) {
+        setErrorMessage(error.message);
       } else {
-        setErrorMessage("An error occurred while logging in."); 
+        setErrorMessage("An error occurred while logging in.");
       }
     }
   };
@@ -59,13 +64,13 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
             placeholder="Lösenord"
             secureTextEntry
           />
-          <Button 
-            title="Logga in" 
-            onPress={handleLoginClick} 
-          /> 
-          {errorMessage ? <Text>{errorMessage}</Text> : null} 
-          <TouchableOpacity 
-            onPress={handleCreateAccount} 
+          <Button
+            title="Logga in"
+            onPress={handleLoginClick}
+          />
+          {errorMessage ? <Text>{errorMessage}</Text> : null}
+          <TouchableOpacity
+            onPress={handleCreateAccount}
             style={styles.createAccountButton}
           >
             <Text style={styles.createAccountText}>Inget konto än? Skapa här.</Text>
