@@ -37,14 +37,11 @@ export const AuthProvider: React.FC<{ children: ReactNode}> = ({ children }) => 
   }
     
     const login = async (userData: UserData) => {
-    // Save the user data to AsyncStorage
     await AsyncStorage.setItem('userData', JSON.stringify(userData));
-    console.log("async", userData)
     setUser(userData);
   };
 
   const logout = async () => {
-    // Remove the user data from AsyncStorage
     await AsyncStorage.removeItem('userData');
     setUser(null);
   };

@@ -19,7 +19,6 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
     try {
       const result = await loginUser(email, password); 
       if (result.success) {
-        console.log("User", email, "logged in successfully.", user?.userId, result.userId, user?.email);
         const userData = { userId: result.userId, email };
         login(userData);
       } else {
@@ -35,7 +34,6 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
   };
 
   const handleCreateAccount = () => {
-    // Navigate to Create Account screen
     navigation.navigate("Signup");
   };
 
