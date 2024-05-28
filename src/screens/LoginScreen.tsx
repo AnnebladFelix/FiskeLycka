@@ -14,9 +14,11 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
       console.log("Admin är inloggad");
       navigation.navigate("AdminPage");
     }
-
-    else {
+    else if(user?.userId && user.email) {
       navigation.navigate("UserScreen");
+    }
+    else {
+      navigation.navigate("Login");
     }
   }, [user]);
 

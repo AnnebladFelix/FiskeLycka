@@ -4,7 +4,7 @@ import { User } from "../src/interfaces/userInterfaces";
 export const fetchUsers = async () => {
     try {
         const response = await axios.get<User[]>(
-            "https://fiskelycka.netlify.app/api/users/getUser",
+            "https://fiskelycka.netlify.app/api/users/getUsers",
             { timeout: 10000 }
         );
         return response.data;
