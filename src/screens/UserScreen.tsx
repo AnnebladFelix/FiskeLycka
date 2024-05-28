@@ -4,12 +4,9 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { updateUserName, updateUserPassword } from '../../db/userOperations'; // Adjust the path to your actual file
 import { useAuth } from '../components/AuthContext';
-import { useUserData } from '../components/UserById';
-
 const UserScreen = () => {
   const [newName, setNewName] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const userData = useUserData();
 
   const { user } = useAuth();
 
@@ -37,7 +34,7 @@ const UserScreen = () => {
 
   return (
     <View>
-      <Text>Välkommen till mina sidor {userData?.name}</Text>
+      <Text>Välkommen till mina sidor {user?.name}</Text>
       <TextInput
         placeholder="New Name"
         value={newName}
