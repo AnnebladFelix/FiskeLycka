@@ -1,11 +1,5 @@
 import axios from "axios";
-
-interface User {
-    id: string;
-    name: string;
-    email: string;
-    password: string;
-}
+import { User } from "../src/interfaces/userInterfaces";
 
 export const fetchUsers = async () => {
   try {
@@ -60,17 +54,15 @@ export const loginUser = async (email: string, password: string) => {
     }
 };
 
-// Function to fetch logged-in user
+// Function to fetch user by id.
 export async function fetchUserById(id: string) {
     try {
-        const response = await axios.get(`https://fiskelycka.netlify.app/api/users/loggedInUser/${id}`);
-        console.log("🚀 ~ fetchUserById ~ response:", response.data)
+        const response = await axios.get(`https://fiskelycka.netlify.app/api/users/getUserById?userId=${id}`);
         return response.data;
     } catch (error) {
         throw new Error('Network response was not ok');
     }
 }
-
 
 // Function to update user name
 export async function updateUserName(userId: string, newName: string) {

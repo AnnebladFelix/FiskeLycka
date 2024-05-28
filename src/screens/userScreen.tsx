@@ -1,20 +1,30 @@
 // userScreen.tsx
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { updateUserName, updateUserPassword } from '../../db/userOperations'; // Adjust the path to your actual file
 import { useAuth } from '../components/AuthContext';
 import { fetchUserById } from '../../db/userOperations';
+import { UserData } from '../interfaces/userInterfaces';
 
 const UserScreen = () => {
   const [newName, setNewName] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const { user } = useAuth();
-  const userId = user?.userId ?? '';
-  console.log("🚀 ~ UserScreen ~ userId:", userId)
-  
+  const [userData, setUserData] = useState<UserData>();
 
-  fetchUserById(userId)
+  const { user } = useAuth();
+
+  const userId = user?.userId ?? '';
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (userId) {
+        const data = await fetchUserById(userId);
+        setUserData(data);
+      }
+    }
+    fetchUserData();
+  }, []);
 
   const handleNameUpdate = async () => {
     try {
@@ -38,7 +48,7 @@ const UserScreen = () => {
 
   return (
     <View>
-      <Text>Användare {}</Text>
+      <Text>Välkommen till mina sidor {userData?.name}</Text>
       <TextInput
         placeholder="New Name"
         value={newName}
@@ -56,5 +66,4 @@ const UserScreen = () => {
     </View>
   );
 };
-
 export default UserScreen;
