@@ -2,19 +2,23 @@ import axios from "axios";
 import { User } from "../src/interfaces/userInterfaces";
 
 export const fetchUsers = async () => {
-  try {
-      const response = await axios.get<User[]>(
-          "https://fiskelycka.netlify.app/api/users/getUser",
-          { timeout: 10000 }
-      );
-      return response.data;
-  } catch (error) {
-      console.error(error);
-      return [];
-  }
+    try {
+        const response = await axios.get<User[]>(
+            "https://fiskelycka.netlify.app/api/users/getUser",
+            { timeout: 10000 }
+        );
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
 };
 
-export const addUser = async (name: string, email: string, password: string) => {
+export const addUser = async (
+    name: string,
+    email: string,
+    password: string
+) => {
     try {
         const response = await axios.post<User>(
             "https://fiskelycka.netlify.app/api/users/register",
@@ -37,12 +41,14 @@ export const loginUser = async (email: string, password: string) => {
             `https://fiskelycka.netlify.app/api/users/login`,
             { email, password }
         );
-        const { success, userId } = response.data;
+        const { success, userId, admin } = response.data;
+
+        console.log("Admin:", response.data.admin );
 
         if (success) {
-            return { success: true, userId };
+            return { success: true, userId, admin };
         } else {
-            return { success: false, message: 'Invalid credentials' };
+            return { success: false, message: "Invalid credentials" };
         }
     } catch (error: any) {
         console.error(error);
@@ -98,5 +104,6 @@ export async function updateUserPassword(userId: string, newPassword: string) {
         return response.data;
     } catch (error) {
         throw new Error(`Network response was not ok: ${error}`);
+
     }
 }
