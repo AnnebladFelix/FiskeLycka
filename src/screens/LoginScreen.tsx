@@ -13,9 +13,11 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
     if (user?.userId && user.email && user.admin === true) {
       navigation.navigate("AdminPage");
     }
-
-    else {
+    else if(user?.userId && user.email) {
       navigation.navigate("UserScreen");
+    }
+    else {
+      navigation.navigate("Login");
     }
   }, [user]);
 

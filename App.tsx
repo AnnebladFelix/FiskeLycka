@@ -35,7 +35,7 @@ export default function App() {
             <Stack.Screen name="UserScreen" component={UserScreen} options={{ title: 'Mina sidor' }} />
             <Stack.Screen name="AdminPage" component={AdminPage} options={{title: 'Admin sida'}} />
             <Stack.Screen name="FishDetail" component={FishDetailScreen} options={{ title: 'Fiskart' }} />
-            <Stack.Screen name="SearchFishingWater" component={SearchFishingWaterScreen} options={{ title: 'Search Fishing Water' }} />
+            <Stack.Screen name="SearchFishingWater" component={SearchFishingWaterScreen} options={{ title: 'Sök fiskevatten' }} />
           </Stack.Navigator>
         </NavigationContainer>
       </GestureHandlerRootView>
