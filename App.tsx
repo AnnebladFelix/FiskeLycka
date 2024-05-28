@@ -6,10 +6,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {ImageBackground, StyleSheet, Text, TouchableOpacity, View, Image, ScrollView, TextInput} from 'react-native';
 import MapScreen from './src/screens/MapScreen';
 import FishSpeciesScreen from './src/screens/FishSpeciesScreen';
-import FishingWaterScreen from './src/screens/FishingWaterScreen';
 import FishingMethodsScreen from './src/screens/FingingMethodsScreen';
 import SignupScreen from './src/screens/SignupScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import SearchFishingWaterScreen from './src/screens/SearchFishingWaterScreen';
+import FishingWaterScreen from './src/screens/FishingWaterScreen';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AuthProvider } from './src/components/AuthContext';
 import UserScreen from './src/screens/UserScreen';
 import AdminPage from './src/screens/AdminPage';
@@ -20,20 +22,23 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <AuthProvider>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Karta' }} />
-          <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Logga in' }} />
-          <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Skapa konto' }} />
-          <Stack.Screen name="FishSpecies" component={FishSpeciesScreen} options={{ title: 'Fiskarter' }} />
-          <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'Fiskevatten' }} />
-          <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fiskemetoder' }} />
-          <Stack.Screen name="UserScreen" component={UserScreen} options={{ title: 'Mina sidor' }} />
-          <Stack.Screen name="AdminPage" component={AdminPage} options={{title: 'Admin sida'}} />
-          <Stack.Screen name="FishDetail" component={FishDetailScreen} options={{ title: 'Fiskart' }} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <GestureHandlerRootView style={{ flex: 1}}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Karta' }} />
+            <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Logga in' }} />
+            <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Skapa konto' }} />
+            <Stack.Screen name="FishSpecies" component={FishSpeciesScreen} options={{ title: 'Fiskarter' }} />
+            <Stack.Screen name="FishingWater" component={FishingWaterScreen} options={{ title: 'Fiskevatten' }} />
+            <Stack.Screen name="FishingMethods" component={FishingMethodsScreen} options={{ title: 'Fiskemetoder' }} />
+            <Stack.Screen name="UserScreen" component={UserScreen} options={{ title: 'Mina sidor' }} />
+            <Stack.Screen name="AdminPage" component={AdminPage} options={{title: 'Admin sida'}} />
+            <Stack.Screen name="FishDetail" component={FishDetailScreen} options={{ title: 'Fiskart' }} />
+            <Stack.Screen name="SearchFishingWater" component={SearchFishingWaterScreen} options={{ title: 'Search Fishing Water' }} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </GestureHandlerRootView>
     </AuthProvider>
   );
 }
@@ -59,8 +64,8 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
     navigation.navigate('FishSpecies');
   };
 
-  const goToFishingWaterScreen = () => {
-    navigation.navigate('FishingWater');
+  const goToSearchFishingWaterScreen = () => {
+    navigation.navigate('SearchFishingWater');
   };
 
   const goToFishingMethodsScreen = () => {
@@ -96,7 +101,7 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
             </ImageBackground>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.button} onPress={goToFishingWaterScreen}>
+          <TouchableOpacity style={styles.button} onPress={goToSearchFishingWaterScreen}>
             <Text style={styles.buttonText}>Fiskevatten</Text>
           </TouchableOpacity>
         </View>
