@@ -15,6 +15,7 @@ const SignupScreen: React.FC = () => {
     const [email, setEmail] = useState<string>("");
     const [name, setName] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [confirmPassword, setConfirmPassword] = useState<string>("");
     const [users, setUsers] = useState<User[]>([]);
     const [error, setError] = useState<string>("");
     const [userCreated, setUserCreated] = useState<boolean>(false);
@@ -28,6 +29,12 @@ const SignupScreen: React.FC = () => {
     }, []);
 
     const handleAddUser = async () => {
+    
+        if (password !== confirmPassword) {
+            setError("Lösenorden matchar inte. Försök igen.");
+            return;
+        }
+
         try {
             const user = await addUser(name, email, password);
             setError("");
@@ -63,6 +70,13 @@ const SignupScreen: React.FC = () => {
                 value={password}
                 onChangeText={setPassword}
                 placeholder="Lösenord"
+                secureTextEntry
+            />
+            <TextInput
+                style={styles.input}
+                value={confirmPassword}
+                onChangeText={setConfirmPassword}
+                placeholder="Bekräfta lösenord"
                 secureTextEntry
             />
             <Button title="Skapa konto" onPress={handleAddUser} />
