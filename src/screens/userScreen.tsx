@@ -10,8 +10,7 @@ const UserScreen = () => {
 
   const handleNameUpdate = async () => {
     try {
-      const updatedUser = await updateUserName(newName);
-      console.log('User name updated:', updatedUser);
+      await updateUserName(newName);
     } catch (error) {
       console.error('Error updating user name:', error);
     }
@@ -19,8 +18,7 @@ const UserScreen = () => {
 
   const handlePasswordUpdate = async () => {
     try {
-      const updatedUser = await updateUserPassword(newPassword);
-      console.log('User password updated:', updatedUser);
+      await updateUserPassword(newPassword);
     } catch (error) {
       console.error('Error updating user password:', error);
     }
@@ -28,6 +26,7 @@ const UserScreen = () => {
 
   return (
     <View>
+      <Text>Användare {}</Text>
       <TextInput
         placeholder="New Name"
         value={newName}

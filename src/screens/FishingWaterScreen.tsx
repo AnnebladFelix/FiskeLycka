@@ -37,8 +37,6 @@ const FishingWaterScreen = ({ route }: { route: any }) => {
             origin: '*', 
           },
         });
-
-        console.log(response.data);
         
         const pages = response.data.query.pages;
         const pageId = Object.keys(pages)[0];
