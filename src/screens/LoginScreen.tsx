@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Button, TextInput, View, TouchableOpacity, Text, StyleSheet, ImageBackground  } from "react-native";
+import { Button, TextInput, View, TouchableOpacity, Text, ImageBackground  } from "react-native";
 import { loginUser } from "../../db/userOperations";
 import { useAuth } from "../components/AuthContext";
+import { loginStyles as styles } from "../styling/Styling";
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
   const [email, setEmail] = useState("");
@@ -87,43 +88,5 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
   </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'flex-start',
-  },
-  container: {
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    padding: 5,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 24,
-    marginTop:40,
-  },
-  input: {
-    width: '100%',
-    height: 40,
-    padding: 10,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    backgroundColor: '#fff',
-  },
-  createAccountButton: {
-    marginTop: 16,
-  },
-  createAccountText: {
-    color: '#007BFF',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-});
 
 export default LoginScreen;
