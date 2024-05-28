@@ -36,7 +36,7 @@ const AdminPage = () => {
           <Text>Användarmail: {user.email}</Text>
           {user.posts ? (
             user.posts.map((post, postIndex) => (
-              <Text key={postIndex}>Post: Rubrik: {String(post.title)} {String(post.content) } </Text>
+              <Text key={postIndex}>Post: Rubrik: {String(post.title)} Innehåll: {String(post.content) } </Text>
             ))
           ) : (
             <Text>No posts from this user</Text>
