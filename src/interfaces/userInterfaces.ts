@@ -1,22 +1,30 @@
 export interface UserData {
-    name: string;
-    email: string;
-    id: string;
-    posts: Posts[];
-  }
-
-export interface User {
-    id: string;
-    name: string;
-    email: string;
-    password: string;
+  name: string;
+  email: string;
+  userId: string;
+  posts: Posts[];
+  admin?: boolean;
 }
 
-  interface Posts {
-    authorId: string;
-    id: string;
-    title: string;
-    content: string;
-    createdAt: string;
-    published: string;
-  }
+export interface AuthUserData {
+  name: string;
+  userId: string;
+  email: string;
+  admin?: boolean;
+}
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+}
+
+interface Posts {
+  authorId: string;
+  id: string;
+  title: string;
+  content: string;
+  createdAt: string;
+  published: string;
+}

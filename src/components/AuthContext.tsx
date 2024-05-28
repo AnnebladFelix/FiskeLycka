@@ -1,28 +1,33 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { ActivityIndicator, View } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
+import { ActivityIndicator, View } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AuthUserData } from "../interfaces/userInterfaces";
 
-interface UserData {
-  name: string;
-  userId: string;
-  email: string;
-  admin?: boolean;
-}
+const AuthContext = createContext<
+  | {
+      user: AuthUserData | null;
+      login: (userData: AuthUserData) => void;
+      logout: () => void;
+    }
+  | undefined
+>(undefined);
 
-const AuthContext = createContext<{
-  user: UserData | null;
-  login: (userData: UserData) => void;
-  logout: () => void;
-} | undefined>(undefined);
-
-export const AuthProvider: React.FC<{ children: ReactNode}> = ({ children }) => {
-  const [user, setUser] = useState<UserData | null>(null);
+export const AuthProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
+  const [user, setUser] = useState<AuthUserData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch the user data from AsyncStorage when the component mounts
     const fetchUserData = async () => {
-      const userDataString = await AsyncStorage.getItem('userData');
+      const userDataString = await AsyncStorage.getItem("userData");
       if (userDataString) {
         setUser(JSON.parse(userDataString));
       }
@@ -35,16 +40,16 @@ export const AuthProvider: React.FC<{ children: ReactNode}> = ({ children }) => 
   if (loading) {
     <View>
       <ActivityIndicator animating={true} color="blue" size="large" />
-    </View>
+    </View>;
   }
 
-    const login = async (userData: UserData) => {
-    await AsyncStorage.setItem('userData', JSON.stringify(userData));
+  const login = async (userData: AuthUserData) => {
+    await AsyncStorage.setItem("userData", JSON.stringify(userData));
     setUser(userData);
   };
 
   const logout = async () => {
-    await AsyncStorage.removeItem('userData');
+    await AsyncStorage.removeItem("userData");
     setUser(null);
   };
 
@@ -58,7 +63,7 @@ export const AuthProvider: React.FC<{ children: ReactNode}> = ({ children }) => 
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 };
