@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {ImageBackground, StyleSheet, Text, TouchableOpacity, View, Image, ScrollView, TextInput} from 'react-native';
 import MapScreen from './src/screens/MapScreen';
 import FishSpeciesScreen from './src/screens/FishSpeciesScreen';
-import FishingMethodsScreen from './src/screens/FingingMethodsScreen';
+import FishingMethodsScreen from './src/screens/FishingMethodsScreen';
 import SignupScreen from './src/screens/SignupScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SearchFishingWaterScreen from './src/screens/SearchFishingWaterScreen';
@@ -16,6 +16,7 @@ import { AuthProvider } from './src/components/AuthContext';
 import UserScreen from './src/screens/UserScreen';
 import AdminPage from './src/screens/AdminPage';
 import FishDetailScreen from './src/screens/FishDetailScreen';
+import FishingMethodsDetailScreen from './src/screens/FishingMethodsDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,7 @@ export default function App() {
             <Stack.Screen name="AdminPage" component={AdminPage} options={{title: 'Admin sida'}} />
             <Stack.Screen name="FishDetail" component={FishDetailScreen} options={{ title: 'Fiskart' }} />
             <Stack.Screen name="SearchFishingWater" component={SearchFishingWaterScreen} options={{ title: 'Sök fiskevatten' }} />
+            <Stack.Screen name="FishingMethod" component={FishingMethodsDetailScreen} options={{ title: 'Fiskemetod' }} />
           </Stack.Navigator>
         </NavigationContainer>
       </GestureHandlerRootView>
