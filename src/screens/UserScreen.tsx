@@ -1,30 +1,19 @@
 // userScreen.tsx
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { updateUserName, updateUserPassword } from '../../db/userOperations'; // Adjust the path to your actual file
 import { useAuth } from '../components/AuthContext';
-import { fetchUserById } from '../../db/userOperations';
-import { UserData } from '../interfaces/userInterfaces';
+import { useUserData } from '../components/UserById';
 
 const UserScreen = () => {
   const [newName, setNewName] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const [userData, setUserData] = useState<UserData>();
+  const userData = useUserData();
 
   const { user } = useAuth();
 
   const userId = user?.userId ?? '';
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      if (userId) {
-        const data = await fetchUserById(userId);
-        setUserData(data);
-      }
-    }
-    fetchUserData();
-  }, []);
 
   const handleNameUpdate = async () => {
     try {
