@@ -3,6 +3,7 @@ import { ActivityIndicator, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface UserData {
+  name: string;
   userId: string;
   email: string;
   admin?: boolean;
