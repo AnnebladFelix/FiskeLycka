@@ -1,7 +1,6 @@
 // SignupScreen.tsx
 import React, { useState, useEffect } from "react";
 import { Button, TextInput, View, Text, StyleSheet } from "react-native";
-import axios from "axios";
 import { fetchUsers, addUser } from "../../db/userOperations";
 
 
@@ -29,7 +28,7 @@ const SignupScreen: React.FC = () => {
 
     const handleAddUser = async () => {
         try {
-            const user = await addUser(name, email, password);
+            await addUser(name, email, password);
             setError("");
             setUserCreated(true);
             setEmail("");
