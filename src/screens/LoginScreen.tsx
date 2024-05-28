@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Button, TextInput, View, TouchableOpacity, Text, ImageBackground  } from "react-native";
+import {
+  Button,
+  TextInput,
+  View,
+  TouchableOpacity,
+  Text,
+  ImageBackground,
+} from "react-native";
 import { loginUser } from "../../db/userOperations";
 import { useAuth } from "../components/AuthContext";
-import { userPageStyles as styles } from "../styling/Styling";
+import { userPageStyles as styles } from "../styling/UserPagesStyling";
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
   const [email, setEmail] = useState("");
@@ -13,11 +20,9 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
   useEffect(() => {
     if (user?.userId && user.email && user.admin === true) {
       navigation.navigate("AdminPage");
-    }
-    else if(user?.userId && user.email) {
+    } else if (user?.userId && user.email) {
       navigation.navigate("UserScreen");
-    }
-    else {
+    } else {
       navigation.navigate("Login");
     }
   }, [user]);
@@ -26,7 +31,12 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
     try {
       const result = await loginUser(email, password);
       if (result.success) {
-        const userData = { userId: result.userId, email, admin: result.admin, name: result.name};
+        const userData = {
+          userId: result.userId,
+          email,
+          admin: result.admin,
+          name: result.name,
+        };
         login(userData);
       } else {
         setErrorMessage(result.message || "");
@@ -49,7 +59,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
       source={require("../../assets/images/bakground1.jpg")}
       style={styles.background}
     >
-      { !user ? (
+      {!user ? (
         <View style={styles.container}>
           <Text style={styles.title}>Logga in</Text>
           <TextInput
@@ -66,16 +76,15 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
             placeholder="Lösenord"
             secureTextEntry
           />
-          <Button
-            title="Logga in"
-            onPress={handleLoginClick}
-          />
+          <Button title="Logga in" onPress={handleLoginClick} />
           {errorMessage ? <Text>{errorMessage}</Text> : null}
           <TouchableOpacity
             onPress={handleCreateAccount}
             style={styles.createAccountButton}
           >
-            <Text style={styles.createAccountText}>Inget konto än? Skapa här.</Text>
+            <Text style={styles.createAccountText}>
+              Inget konto än? Skapa här.
+            </Text>
           </TouchableOpacity>
         </View>
       ) : (
@@ -83,9 +92,8 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
           <Text>Inloggad som {user.name}</Text>
           <Button title="Log out" onPress={logout} />
         </View>
-        )
-    }
-  </ImageBackground>
+      )}
+    </ImageBackground>
   );
 };
 
