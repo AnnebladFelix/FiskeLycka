@@ -9,7 +9,9 @@ import { userPageStyles as styles } from "../styling/UserPagesStyling";
 const UserScreen = () => {
   const [newName, setNewName] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [userData, setUserData] = useState<UserData>();
+  const [error, setError] = useState<string>("");
 
   const { user, logout } = useAuth();
 
@@ -26,6 +28,10 @@ const UserScreen = () => {
   };
 
   const handlePasswordUpdate = async () => {
+    if (newPassword !== confirmPassword) {
+      setError("Lösenorden matchar inte. Försök igen.");
+      return;
+  }
     try {
       if (userId) {
         await updateUserPassword(userId, newPassword);
@@ -54,6 +60,12 @@ const UserScreen = () => {
           placeholder="Nytt Lösenord"
           value={newPassword}
           onChangeText={setNewPassword}
+          secureTextEntry
+        />
+        <TextInput
+          placeholder="Bekräfta nytt lösenord"
+          value={confirmPassword}
+          onChangeText={setConfirmPassword}
           secureTextEntry
         />
         <Button title="Byt Lösenord" onPress={handlePasswordUpdate} />
