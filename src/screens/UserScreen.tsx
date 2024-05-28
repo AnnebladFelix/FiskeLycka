@@ -9,6 +9,8 @@ const UserScreen = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const [passwordChanged, setPasswordChanged] = useState<boolean>(false);
+  const [nameChanged, setNameChanged] = useState<boolean>(false);
 
   const { user, logout } = useAuth();
 
@@ -18,6 +20,7 @@ const UserScreen = () => {
     try {
       if (userId) {
         await updateUserName(userId, newName);
+        setNameChanged(true);
       }
     } catch (error) {
       console.error("Error updating user name:", error);
@@ -32,6 +35,7 @@ const UserScreen = () => {
     try {
       if (userId) {
         await updateUserPassword(userId, newPassword);
+        setPasswordChanged(true);
       }
     } catch (error) {
       console.error("Error updating user password:", error);
@@ -52,6 +56,9 @@ const UserScreen = () => {
           onChangeText={setNewName}
         />
         <Button title="Byt Namn" onPress={handleNameUpdate} />
+        {nameChanged ? (
+          <Text style={styles.success}>Användaren är skapad.</Text>
+        ) : null}
         <TextInput
           style={styles.input}
           placeholder="Nytt Lösenord"
@@ -67,6 +74,10 @@ const UserScreen = () => {
           secureTextEntry
         />
         <Button title="Byt Lösenord" onPress={handlePasswordUpdate} />
+        {error ? <Text style={styles.error}>{error}</Text> : null}
+        {passwordChanged ? (
+          <Text style={styles.success}>Lösenordet ändrat.</Text>
+        ) : null}
         <View style={styles.button}>
           <Button title="Log out" onPress={logout} />
         </View>
