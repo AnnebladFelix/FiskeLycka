@@ -45,4 +45,7 @@ export const userPageStyles = StyleSheet.create({
         color: 'green',
         marginTop: 10,
     },
+    button: {
+        marginTop: 10,
+    },
   });

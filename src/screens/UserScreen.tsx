@@ -13,7 +13,7 @@ const UserScreen = () => {
   const [newPassword, setNewPassword] = useState("");
   const [userData, setUserData] = useState<UserData>();
 
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   const userId = user?.userId ?? "";
 
@@ -53,7 +53,7 @@ const UserScreen = () => {
       style={styles.background}
     >
       <View style={styles.container}>
-        <Text>Välkommen till mina sidor {userData?.name}</Text>
+        <Text>Välkommen till mina sidor {user?.name}</Text>
         <TextInput
           style={styles.input}
           placeholder="Nytt Namn"
@@ -70,7 +70,10 @@ const UserScreen = () => {
           secureTextEntry
         />
         <Button title="Byt Lösenord" onPress={handlePasswordUpdate} />
-      </View>
+        <View style={styles.button}>
+          <Button title="Log out" onPress={logout} />
+        </View>
+        </View>
     </ImageBackground>
   );
 };
