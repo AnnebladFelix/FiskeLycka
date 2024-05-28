@@ -1,11 +1,5 @@
 import axios from "axios";
-
-interface User {
-    id: string;
-    name: string;
-    email: string;
-    password: string;
-}
+import { User } from "../src/interfaces/userInterfaces";
 
 export const fetchUsers = async () => {
     try {
@@ -66,53 +60,50 @@ export const loginUser = async (email: string, password: string) => {
     }
 };
 
-// Function to fetch logged-in user
-export const fetchLoggedInUser = async () => {
+// Function to fetch user by id.
+export async function fetchUserById(id: string) {
     try {
-        const response = await axios.get<User>(
-            "https://fiskelycka.netlify.app/api/users/loggedInUser",
-            { timeout: 10000 }
-        );
-        return response.data.id;
-    } catch (error) {
-        console.error("Error fetching logged-in user:", error);
-        return null;
-    }
-};
-
-// Function to update user name
-export async function updateUserName(newName: string) {
-    const userId = await fetchLoggedInUser();
-    try {
-        const response = await axios.post(`https://fiskelycka.netlify.app/api/users/updateUser`, { newName, userId });
+        const response = await axios.get(`https://fiskelycka.netlify.app/api/users/getUserById?userId=${id}`);
         return response.data;
     } catch (error) {
-        throw new Error("Network response was not ok");
+        throw new Error('Network response was not ok');
+    }
+}
+
+// Function to update user name
+export async function updateUserName(userId: string, newName: string) {
+    try {
+        const response = await axios.post('https://fiskelycka.netlify.app/api/users/updateUserName', {
+            userId: userId,
+            newName: newName,
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        return response.data;
+    } catch (error) {
+        throw new Error(`Network response was not ok: ${error}`);
     }
 }
 
 
 // Function to update user password
-export async function updateUserPassword(newPassword: string) {
-    const userId = await fetchLoggedInUser();
-    const response = await fetch(
-        "https://fiskelycka.netlify.app/api/users/updateUser",
-        {
-            method: "POST",
+export async function updateUserPassword(userId: string, newPassword: string) {
+    try {
+        const response = await axios.post('https://fiskelycka.netlify.app/api/users/updateUserPW', {
+            userId: userId,
+            newPassword: newPassword,
+        }, {
             headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                userId: userId,
-                newPassword: newPassword,
-            }),
-        }
-    );
+        });
 
-    if (!response.ok) {
-        throw new Error("Network response was not ok");
+        return response.data;
+    } catch (error) {
+        throw new Error(`Network response was not ok: ${error}`);
+
     }
-
-    const data = await response.json();
-    return data;
 }
