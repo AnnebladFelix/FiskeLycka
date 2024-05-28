@@ -41,6 +41,7 @@ const SignupScreen: React.FC = () => {
             setEmail("");
             setName("");
             setPassword("");
+            setConfirmPassword("");
         } catch (error: any) {
             setError(error.message);
             setUserCreated(false);

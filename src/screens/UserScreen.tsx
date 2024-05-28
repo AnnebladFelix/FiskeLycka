@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, ImageBackground } from "react-native";
 import { updateUserName, updateUserPassword } from "../../db/userOperations";
 import { useAuth } from "../components/AuthContext";
-import { fetchUserById } from "../../db/userOperations";
-import { UserData } from "../interfaces/userInterfaces";
 import { userPageStyles as styles } from "../styling/UserPagesStyling";
         
 const UserScreen = () => {
   const [newName, setNewName] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [userData, setUserData] = useState<UserData>();
   const [error, setError] = useState<string>("");
 
   const { user, logout } = useAuth();
@@ -63,7 +60,8 @@ const UserScreen = () => {
           secureTextEntry
         />
         <TextInput
-          placeholder="Bekräfta nytt lösenord"
+          style={styles.input}
+          placeholder="Bekräfta Nytt Lösenord"
           value={confirmPassword}
           onChangeText={setConfirmPassword}
           secureTextEntry
