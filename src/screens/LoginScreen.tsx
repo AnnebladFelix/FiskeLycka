@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, TextInput, View, TouchableOpacity, Text, ImageBackground  } from "react-native";
 import { loginUser } from "../../db/userOperations";
 import { useAuth } from "../components/AuthContext";
-import { loginStyles as styles } from "../styling/Styling";
+import { userPageStyles as styles } from "../styling/Styling";
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
   const [email, setEmail] = useState("");

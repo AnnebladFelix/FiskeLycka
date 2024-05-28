@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export const loginStyles = StyleSheet.create({
+export const userPageStyles = StyleSheet.create({
     background: {
       flex: 1,
       resizeMode: 'cover',
@@ -22,6 +22,7 @@ export const loginStyles = StyleSheet.create({
       width: '100%',
       height: 40,
       padding: 10,
+      margin: 10,
       marginBottom: 12,
       borderWidth: 1,
       borderColor: '#ccc',

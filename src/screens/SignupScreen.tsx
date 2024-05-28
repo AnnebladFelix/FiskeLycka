@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Button, TextInput, View, Text, ImageBackground } from "react-native";
 import axios from "axios";
 import { fetchUsers, addUser } from "../../db/userOperations";
-import { loginStyles as styles } from "../styling/Styling";
+import { userPageStyles as styles } from "../styling/Styling";
 
 
 interface User {

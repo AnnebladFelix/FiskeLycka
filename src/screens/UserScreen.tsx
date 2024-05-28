@@ -1,11 +1,12 @@
 // userScreen.tsx
 
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, ImageBackground } from 'react-native';
 import { updateUserName, updateUserPassword } from '../../db/userOperations'; // Adjust the path to your actual file
 import { useAuth } from '../components/AuthContext';
 import { fetchUserById } from '../../db/userOperations';
 import { UserData } from '../interfaces/userInterfaces';
+import { userPageStyles as styles } from '../styling/Styling';
 
 const UserScreen = () => {
   const [newName, setNewName] = useState('');
@@ -47,23 +48,30 @@ const UserScreen = () => {
   };
 
   return (
-    <View>
-      <Text>Välkommen till mina sidor {userData?.name}</Text>
-      <TextInput
-        placeholder="New Name"
-        value={newName}
-        onChangeText={setNewName}
-      />
-      <Button title="Update Name" onPress={handleNameUpdate} />
+    <ImageBackground
+        source={require("../../assets/images/bakground1.jpg")}
+        style={styles.background}
+    >
+      <View style={styles.container}>
+        <Text>Välkommen till mina sidor {userData?.name}</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Nytt Namn"
+          value={newName}
+          onChangeText={setNewName}
+        />
+        <Button title="Byt Namn" onPress={handleNameUpdate} />
 
-      <TextInput
-        placeholder="New Password"
-        value={newPassword}
-        onChangeText={setNewPassword}
-        secureTextEntry
-      />
-      <Button title="Update Password" onPress={handlePasswordUpdate} />
-    </View>
+        <TextInput
+          style={styles.input}
+          placeholder="Nytt Lösenord"
+          value={newPassword}
+          onChangeText={setNewPassword}
+          secureTextEntry
+        />
+        <Button title="Byt Lösenord" onPress={handlePasswordUpdate} />
+      </View>
+    </ImageBackground>
   );
 };
 export default UserScreen;
