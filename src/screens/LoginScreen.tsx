@@ -10,18 +10,17 @@ import {
 import { loginUser } from "../../db/userOperations";
 import { useAuth } from "../components/AuthContext";
 import { userPageStyles as styles } from "../styling/UserPagesStyling";
+import UserScreen from "./UserScreen";
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const { user, login, logout } = useAuth();
+  const { user, login } = useAuth();
 
   useEffect(() => {
     if (user?.userId && user.email && user.admin === true) {
       navigation.navigate("AdminPage");
-    } else if (user?.userId && user.email) {
-      navigation.navigate("UserScreen");
     } else {
       navigation.navigate("Login");
     }
@@ -88,10 +87,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
           </TouchableOpacity>
         </View>
       ) : (
-        <View>
-          <Text>Inloggad som {user.name}</Text>
-          <Button title="Log out" onPress={logout} />
-        </View>
+        <UserScreen />
       )}
     </ImageBackground>
   );
