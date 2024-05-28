@@ -11,7 +11,6 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
 
   useEffect(() => {
     if (user?.userId && user.email && user.admin === true) {
-      console.log("Admin är inloggad");
       navigation.navigate("AdminPage");
     }
 
@@ -24,7 +23,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
     try {
       const result = await loginUser(email, password);
       if (result.success) {
-        const userData = { userId: result.userId, email, admin: result.admin};
+        const userData = { userId: result.userId, email, admin: result.admin, name: result.name};
         login(userData);
       } else {
         setErrorMessage(result.message || "");
@@ -78,7 +77,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
         </View>
       ) : (
         <View>
-          <Text>Logged in as {email}</Text>
+          <Text>Inloggad som {user.name}</Text>
           <Button title="Log out" onPress={logout} />
         </View>
         )
