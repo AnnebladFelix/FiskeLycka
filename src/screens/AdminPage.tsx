@@ -13,7 +13,7 @@ const AdminPage = () => {
 
       const userData: UserData[] = allUsers.map(user => ({
         ...user,
-        userId: user.id,
+        userId: user.userId,
         posts: user.posts || [],
       }));
 

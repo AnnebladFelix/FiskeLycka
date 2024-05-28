@@ -18,7 +18,6 @@ export interface User {
   name: string;
   email: string;
   password: string;
-  posts: Posts[];
 }
 
 interface Posts {
