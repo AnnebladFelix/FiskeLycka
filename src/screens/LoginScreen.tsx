@@ -21,10 +21,16 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
   useEffect(() => {
     if (user?.userId && user.email && user.admin === true) {
       navigation.navigate("AdminPage");
-    } else {
+    } else if(user) {
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'Home'}, { name: 'UserScreen' }],
+      });
+    }
+    else{
       navigation.navigate("Login");
     }
-  }, [user]);
+  }, [user, navigation]);
 
   const handleLoginClick = async () => {
     try {
@@ -58,7 +64,6 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
       source={require("../../assets/images/bakground1.jpg")}
       style={styles.background}
     >
-      {!user ? (
         <View style={styles.container}>
           <Text style={styles.title}>Logga in</Text>
           <TextInput
@@ -86,9 +91,6 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
             </Text>
           </TouchableOpacity>
         </View>
-      ) : (
-        <UserScreen />
-      )}
     </ImageBackground>
   );
 };

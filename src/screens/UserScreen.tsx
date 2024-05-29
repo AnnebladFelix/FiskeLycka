@@ -4,7 +4,7 @@ import { updateUserName, updateUserPassword } from "../../db/userOperations";
 import { useAuth } from "../components/AuthContext";
 import { userPageStyles as styles } from "../styling/UserPagesStyling";
         
-const UserScreen = () => {
+const UserScreen = ({ navigation }: { navigation: any }) => {
   const [newName, setNewName] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState<string>("");
@@ -42,6 +42,14 @@ const UserScreen = () => {
     }
   };
 
+  const handleLogOutClick = async () => {
+    logout();
+    navigation.reset({
+      index: 0,
+      routes: [{name: 'Home'}, { name: 'Login' }],
+    });
+  }
+
   return (
     <ImageBackground
       source={require("../../assets/images/bakground1.jpg")}
@@ -57,7 +65,7 @@ const UserScreen = () => {
         />
         <Button title="Byt Namn" onPress={handleNameUpdate} />
         {nameChanged ? (
-          <Text style={styles.success}>Användaren är skapad.</Text>
+          <Text style={styles.success}>Användarnamnet är ändrat.</Text>
         ) : null}
         <TextInput
           style={styles.input}
@@ -79,7 +87,7 @@ const UserScreen = () => {
           <Text style={styles.success}>Lösenordet ändrat.</Text>
         ) : null}
         <View style={styles.button}>
-          <Button title="Log out" onPress={logout} />
+          <Button title="Logga ut" onPress={handleLogOutClick} />
         </View>
         </View>
     </ImageBackground>

@@ -2,7 +2,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator, NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {ImageBackground, Text, TouchableOpacity, View, Image, ScrollView, TextInput} from 'react-native';
 import MapScreen from './src/screens/MapScreen';
 import FishSpeciesScreen from './src/screens/FishSpeciesScreen';
@@ -20,6 +20,17 @@ import FishingMethodsDetailScreen from './src/screens/FishingMethodsDetailScreen
 import { mainStyles as styles } from './src/styling/AppStyling';
 
 const Stack = createNativeStackNavigator();
+
+type RootStackParamList = {
+  Login: undefined;
+  UserScreen: undefined;
+  Home: undefined;
+};
+
+export type UserScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'UserScreen'
+>;
 
 export default function App() {
   return (
