@@ -20,6 +20,8 @@ const SearchFishingWaterScreen = ({ navigation }: { navigation: any }) => {
     { latitude: 57.63423, longitude: 12.137591, title: 'Finnsjön,_Västergötland', name: 'Finnsjön' },
     { latitude: 56.548056, longitude: 12.949444, title: 'Lagan', name: 'Lagan' },
     { latitude: 57.78754, longitude: 12.97886, title: 'Öresjö_(Fristads_socken,_Västergötland)', name: 'Öresjön' },
+    { latitude: 58.916663, longitude: 13.499998, title: 'Vänern', name: 'Vänern' },
+    { latitude: 58.32266, longitude: 14.48427, title: 'Vättern', name: 'Vättern' },
   ];
 
   const handleSearch = (text: string) => {

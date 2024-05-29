@@ -6,7 +6,8 @@
       "occurrence": "Finns i nästan alla vatten från söder till norr.",
       "habitat": "Sötvatten och bräckt vatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "2,875 kg"
+      "swedishRecord": "2,875 kg",
+      "lakes": [ "Lagan", "Finnsjön,_Västergötland", "Vänern", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Stora_Kåsjön", "Öresjö_(Fristads_socken,_Västergötland)", "Vättern" ]
   },
   {
       "swedishName": "Gädda",
@@ -15,7 +16,8 @@
       "occurrence": "Vanlig i sjöar och vattendrag över hela Sverige.",
       "habitat": "Sötvatten och bräckt vatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "21,07 kg"
+      "swedishRecord": "21,07 kg",
+      "lakes": [ "Lagan", "Finnsjön,_Västergötland", "Vänern", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Stora_Kåsjön", "Öresjö_(Fristads_socken,_Västergötland)", "Vättern" ]
   },
   {
       "swedishName": "Gös",
@@ -24,7 +26,8 @@
       "occurrence": "Vanlig i södra och mellersta Sverige.",
       "habitat": "Sötvatten och bräckt vatten",
       "minimumSize": "45-50 cm beroende på region",
-      "swedishRecord": "12,65 kg"
+      "swedishRecord": "12,65 kg",
+      "lakes": [ "Vänern", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Öresjö_(Fristads_socken,_Västergötland)", "Vättern"  ]
   },
   {
       "swedishName": "Braxen",
@@ -33,7 +36,8 @@
       "occurrence": "Vanlig i sjöar och vattendrag över hela Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "8,42 kg"
+      "swedishRecord": "8,42 kg",
+      "lakes": [ "Vänern", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Öresjö_(Fristads_socken,_Västergötland)"  ]
   },
   {
       "swedishName": "Regnbåge",
@@ -42,7 +46,8 @@
       "occurrence": "Utsatt i många vatten över hela landet.",
       "habitat": "Sötvatten, ofta i utsatta fiskevatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "14,16 kg"
+      "swedishRecord": "14,16 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Sik",
@@ -51,7 +56,8 @@
       "occurrence": "Vanlig i norra Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "5,39 kg"
+      "swedishRecord": "5,39 kg",
+      "lakes": [ "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Öresjö_(Fristads_socken,_Västergötland)" ]
   },
   {
       "swedishName": "Siklöja",
@@ -60,7 +66,8 @@
       "occurrence": "Vanlig i norra Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "0,63 "
+      "swedishRecord": "0,63 ",
+      "lakes": [ "Vänern", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Öresjö_(Fristads_socken,_Västergötland)" ]
   },
   {
       "swedishName": "Björkna",
@@ -69,7 +76,8 @@
       "occurrence": "Vanlig i sjöar och vattendrag över hela Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "1,48 kg"
+      "swedishRecord": "1,48 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Bäckröding",
@@ -78,7 +86,8 @@
       "occurrence": "Utplanerad i många vatten över hela landet.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "2,645 kg"
+      "swedishRecord": "2,645 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Faren",
@@ -87,7 +96,8 @@
       "occurrence": "Hittas i södra och mellersta Sverige.",
       "habitat": "Sötvatten och bräckt vatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "0,866 kg"
+      "swedishRecord": "0,866 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Färna",
@@ -96,7 +106,8 @@
       "occurrence": "Vanlig i södra och mellersta Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "3,640 kg"
+      "swedishRecord": "3,640 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Asp",
@@ -105,7 +116,8 @@
       "occurrence": "Hittas i södra och mellersta Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "8,030 kg"
+      "swedishRecord": "8,030 kg",
+      "lakes": [ "Vänern" ]
   },
   {
       "swedishName": "Gräskarp",
@@ -114,7 +126,8 @@
       "occurrence": "Hittas i golfbanedammar, kräftodlingsdammar etc.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "18,925 kg"
+      "swedishRecord": "18,925 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Harr",
@@ -123,7 +136,8 @@
       "occurrence": "Pite älv, Harrejaur, Norrbotten.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "2,850 kg"
+      "swedishRecord": "2,850 kg",
+      "lakes": [ "Vättern" ]
   },
   {
       "swedishName": "Havsöring",
@@ -132,7 +146,8 @@
       "occurrence": "Hittas både på västkusten och östkusten.",
       "habitat": "Bräckt vatten",
       "minimumSize": "45 cm på västkusten, 50 cm på östkusten.",
-      "swedishRecord": "15,260 kg"
+      "swedishRecord": "15,260 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Id",
@@ -141,7 +156,8 @@
       "occurrence": "Vanlig i södra och mellersta Sverige.",
       "habitat": "Sötvatten och bräckt vatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "3,780 kg"
+      "swedishRecord": "3,780 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Indianlax",
@@ -150,7 +166,8 @@
       "occurrence": "Inplanterad i några få vatten.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "0,570 kg"
+      "swedishRecord": "0,570 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Insjölax",
@@ -159,7 +176,8 @@
       "occurrence": "Öninge Vättern, Östergötland",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "20,400 kg"
+      "swedishRecord": "20,400 kg",
+      "lakes": [ "Vänern", "Vättern" ]
   },
   {
       "swedishName": "Insjööring",
@@ -168,7 +186,8 @@
       "occurrence": "Mellersta och norra Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Varierar beroende på vatten",
-      "swedishRecord": "17,000 kg"
+      "swedishRecord": "17,000 kg",
+      "lakes": [ "Vänern", "Västra Öresjön", "Lagan", "Vättern" ]
   },
   {
       "swedishName": "Kanadaröding",
@@ -177,7 +196,8 @@
       "occurrence": "Vanlig i norra Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "14,020 kg"
+      "swedishRecord": "14,020 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Karp",
@@ -186,7 +206,8 @@
       "occurrence": "Södra Sverige",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "32,450 kg"
+      "swedishRecord": "32,450 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Lake",
@@ -195,7 +216,8 @@
       "occurrence": "Hittas i södra och mellersta Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "8,500 kg"
+      "swedishRecord": "8,500 kg",
+      "lakes": [ "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Öresjö_(Fristads_socken,_Västergötland)", "Vättern" ]
   },
   {
       "swedishName": "Lax",
@@ -204,7 +226,8 @@
       "occurrence": "Vänern, Vättern, Östersjön",
       "habitat": "Sötvatten och bräckt vatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "28,720 kg"
+      "swedishRecord": "28,720 kg",
+      "lakes": [ "Lagan", "Vänern", "Vättern" ]
   },
   {
       "swedishName": "Mört",
@@ -213,7 +236,8 @@
       "occurrence": "Vanlig i sjöar och vattendrag över hela Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "1,726 kg"
+      "swedishRecord": "1,726 kg",
+      "lakes": [ "Finnsjön,_Västergötland", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Stora_Kåsjön", "Öresjö_(Fristads_socken,_Västergötland)", "Vättern" ]
   },
   {
       "swedishName": "Puckellax",
@@ -222,7 +246,8 @@
       "occurrence": "Inplanterad i några få vatten.",
       "habitat": "Bräckt vatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "3,352 kg"
+      "swedishRecord": "3,352 kg",
+      "lakes": [ "Lagan" ]
   },
   {
       "swedishName": "Ruda",
@@ -231,7 +256,8 @@
       "occurrence": "Ursjön, Västmanland",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "3,030 kg"
+      "swedishRecord": "3,030 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Röding",
@@ -240,7 +266,8 @@
       "occurrence": "Vättern, Norra Sverige, fjällvatten",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "10,830 kg"
+      "swedishRecord": "10,830 kg",
+      "lakes": [ "Lagan", "Vättern" ]
   },
   {
       "swedishName": "Sarv",
@@ -249,7 +276,8 @@
       "occurrence": "Vanlig i sjöar och vattendrag över hela Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "1,730 kg"
+      "swedishRecord": "1,730 kg",
+      "lakes": [ "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)" ]
   },
   {
       "swedishName": "Silvruda",
@@ -258,7 +286,8 @@
       "occurrence": "Gotland",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "2,407 kg"
+      "swedishRecord": "2,407 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Strupsnittsöring",
@@ -267,7 +296,8 @@
       "occurrence": "Inplanterad i några få vatten.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "0,590 kg"
+      "swedishRecord": "0,590 kg",
+      "lakes": [ "Lagan" ]
   },
   {
       "swedishName": "Stäm",
@@ -276,7 +306,8 @@
       "occurrence": "tämmen lever i strömmande sötvatten, och återfinns vid kusten ofta i närheten av flodmynningar.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "0,401 kg"
+      "swedishRecord": "0,401 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Sutare",
@@ -285,7 +316,8 @@
       "occurrence": "Vanlig i sjöar och vattendrag i södra och mellersta Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "5,460 kg"
+      "swedishRecord": "5,460 kg",
+      "lakes": [ "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Stora_Kåsjön" ]
   },
   {
       "swedishName": "Vimma",
@@ -294,7 +326,8 @@
       "occurrence": "Hittas i södra och mellersta Sverige.",
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
-      "swedishRecord": "1,660 kg"
+      "swedishRecord": "1,660 kg",
+      "lakes": [ "Finnsjön" ]
   },
   {
       "swedishName": "Ål",
@@ -303,7 +336,8 @@
       "occurrence": "Vanlig i södra Sverige.",
       "habitat": "Sötvatten, bräckt vatten och hav",
       "minimumSize": "Fisket är förbjudet",
-      "swedishRecord": "3,725 kg"
+      "swedishRecord": "3,725 kg",
+      "lakes": [ "Västra Öresjön", "Stora_Kåsjön", "Öresjö_(Fristads_socken,_Västergötland)" ]
   },
   {
     "swedishName": "Nors",
@@ -312,7 +346,8 @@
     "occurrence": "Mellansverige",
     "habitat": "Sötvatten och hav",
     "minimumSize": "Inget minimimått",
-    "swedishRecord": "Okänt"
+    "swedishRecord": "Okänt",
+    "lakes": [ "Finnsjön" ]
   },
   {
     "swedishName": "Bergsimpa",
@@ -321,7 +356,8 @@
     "occurrence": "Mellansverige",
     "habitat": "Sötvatten",
     "minimumSize": "Inget minimimått",
-    "swedishRecord": "Okänt"
+    "swedishRecord": "Okänt",
+    "lakes": [ "Finnsjön" ]
   },
   {
     "swedishName": "Stensimpa",
@@ -330,7 +366,8 @@
     "occurrence": "Mellansverige",
     "habitat": "Sötvatten",
     "minimumSize": "Inget minimimått",
-    "swedishRecord": "Okänt"
+    "swedishRecord": "Okänt",
+    "lakes": [ "Finnsjön" ]
   },
   {
     "swedishName": "Gärs",
@@ -339,7 +376,8 @@
     "occurrence": "Mellansverige",
     "habitat": "Sötvatten och bräckt vatten",
     "minimumSize": "Inget minimimått",
-    "swedishRecord": "Okänt"
+    "swedishRecord": "Okänt",
+    "lakes": [ "Västra Öresjön" ]
   },
   {
     "swedishName": "Hornsimpa",
@@ -348,6 +386,7 @@
     "occurrence": "Ovanlig",
     "habitat": "Sötvatten, bräckt vatten och hav",
     "minimumSize": "Inget minimimått",
-    "swedishRecord": "Okänt"
+    "swedishRecord": "Okänt",
+    "lakes": [ "Vänern" ]
   }
 ]
