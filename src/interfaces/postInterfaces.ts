@@ -14,15 +14,6 @@ export interface CatchReportData {
   postId?: string;
 }
 
-export interface PostData {
-  id: string;
-  title: string;
-  content: String;
-  image?: string;
-  published: Boolean;
-  authorId: string;
-}
-
 export interface NewCatchReportData {
     catchReportId: string;
     newLocation?: string;
@@ -34,5 +25,21 @@ export interface NewCatchReportData {
     newWeather?: string;
     newWaterTemp?: number;
     newNotes?: string;
+    newImage?: string;
+}
+
+export interface PostData {
+  id: string;
+  title: string;
+  content: String;
+  image?: string;
+  published: Boolean;
+  authorId: string;
+}
+
+export interface NewPostData {
+    postId: string;
+    newTitle?: string;
+    newContent?: string;
     newImage?: string;
 }
