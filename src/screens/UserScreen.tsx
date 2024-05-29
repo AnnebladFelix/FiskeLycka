@@ -43,7 +43,7 @@ const UserScreen = ({ navigation }: { navigation: any }) => {
   };
 
   const handleLogOutClick = async () => {
-    logout();
+    await logout();
     navigation.reset({
       index: 0,
       routes: [{name: 'Home'}, { name: 'Login' }],
