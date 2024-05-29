@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Button, TextInput, View, Text, ImageBackground } from "react-native";
 import { fetchUsers, addUser } from "../../db/userOperations";
 import { userPageStyles as styles } from "../styling/UserPagesStyling";
+import {UserData} from '../interfaces/userInterfaces'
 
 interface User {
     id: string;
@@ -15,7 +16,7 @@ const SignupScreen = ({ navigation }: { navigation: any }) => {
     const [name, setName] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
-    const [users, setUsers] = useState<User[]>([]);
+    const [users, setUsers] = useState<UserData[]>([]);
     const [error, setError] = useState<string>("");
     const [userCreated, setUserCreated] = useState<boolean>(false);
 

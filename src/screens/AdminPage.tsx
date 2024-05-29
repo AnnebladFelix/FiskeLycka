@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { UserData } from '../interfaces/userInterfaces';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { fetchUsers } from '../../db/userOperations';
+import UserScreen from './UserScreen';
+import { useAuth } from '../components/AuthContext';
 
-const AdminPage = () => {
+const AdminPage = ({ navigation }: { navigation: any }) => {
   const [users, setUsers] = useState<UserData[]>([]);
+  const { logout } = useAuth();
 
   useEffect(() => {
     const getUsers = async () => {
@@ -27,8 +30,19 @@ const AdminPage = () => {
     getUsers();
   }, []);
 
+  const handleLogOutClick = async () => {
+    await logout();
+    navigation.reset({
+      index: 0,
+      routes: [{name: 'Home'}, { name: 'Login' }],
+    });
+  }
+
   return (
     <View>
+      <View>
+          <Button title="Logga ut" onPress={handleLogOutClick} />
+        </View>
       <Text> Du är nu inne på Admin sidan</Text>
       {users.map((user, index) => (
         <View key={index}>
@@ -43,6 +57,7 @@ const AdminPage = () => {
           )}
         </View>
       ))}
+      <UserScreen navigation={navigator}/>
     </View>
   );
 };

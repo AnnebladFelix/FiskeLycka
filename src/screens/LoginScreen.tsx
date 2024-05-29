@@ -20,7 +20,10 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
 
   useEffect(() => {
     if (user?.userId && user.email && user.admin === true) {
-      navigation.navigate("AdminPage");
+      navigation.reset({
+        index:0,
+        routes:[{name: 'Home'}, {name: 'AdminPage'}]
+      });
     } else if(user) {
       navigation.reset({
         index: 0,
