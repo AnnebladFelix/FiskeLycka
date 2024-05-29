@@ -5,12 +5,12 @@ import { fetchUsers, addUser } from "../../db/userOperations";
 import { userPageStyles as styles } from "../styling/UserPagesStyling";
 
 interface User {
-  id: string;
-  name: string;
-  email: string;
+    id: string;
+    name: string;
+    email: string;
 }
 
-const SignupScreen: React.FC = () => {
+const SignupScreen = ({ navigation }: { navigation: any }) => {
     const [email, setEmail] = useState<string>("");
     const [name, setName] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -28,7 +28,6 @@ const SignupScreen: React.FC = () => {
     }, []);
 
     const handleAddUser = async () => {
-    
         if (password !== confirmPassword) {
             setError("Lösenorden matchar inte. Försök igen.");
             return;
@@ -42,55 +41,58 @@ const SignupScreen: React.FC = () => {
             setName("");
             setPassword("");
             setConfirmPassword("");
+            setTimeout(() => {
+                navigation.navigate("Login");
+            }, 2000);
         } catch (error: any) {
             setError(error.message);
             setUserCreated(false);
         }
     };
-  
-  return (
-    <ImageBackground
-      source={require("../../assets/images/bakground1.jpg")}
-      style={styles.background}
-    >
-      <View style={styles.container}>
-        <Text style={styles.title}>Skapa konto</Text>
-        <TextInput
-          style={styles.input}
-          value={email}
-          onChangeText={setEmail}
-          placeholder="Email"
-          keyboardType="email-address"
-          autoCapitalize="none"
-        />
-        <TextInput
-          style={styles.input}
-          value={name}
-          onChangeText={setName}
-          placeholder="Namn"
-        />
-        <TextInput
-          style={styles.input}
-          value={password}
-          onChangeText={setPassword}
-          placeholder="Lösenord"
-          secureTextEntry
-        />
-        <TextInput
-          style={styles.input}
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
-          placeholder="Bekräfta lösenord"
-          secureTextEntry
-        />
-        <Button title="Skapa konto" onPress={handleAddUser} />
-        {error ? <Text style={styles.error}>{error}</Text> : null}
-        {userCreated ? (
-          <Text style={styles.success}>Användaren är skapad.</Text>
-        ) : null}
-      </View>
-    </ImageBackground>
-  );
+
+    return (
+        <ImageBackground
+            source={require("../../assets/images/bakground1.jpg")}
+            style={styles.background}
+        >
+            <View style={styles.container}>
+                <Text style={styles.title}>Skapa konto</Text>
+                <TextInput
+                    style={styles.input}
+                    value={email}
+                    onChangeText={setEmail}
+                    placeholder="Email"
+                    keyboardType="email-address"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    value={name}
+                    onChangeText={setName}
+                    placeholder="Namn"
+                />
+                <TextInput
+                    style={styles.input}
+                    value={password}
+                    onChangeText={setPassword}
+                    placeholder="Lösenord"
+                    secureTextEntry
+                />
+                <TextInput
+                    style={styles.input}
+                    value={confirmPassword}
+                    onChangeText={setConfirmPassword}
+                    placeholder="Bekräfta lösenord"
+                    secureTextEntry
+                />
+                <Button title="Skapa konto" onPress={handleAddUser} />
+                {error ? <Text style={styles.error}>{error}</Text> : null}
+                {userCreated ? (
+                    <Text style={styles.success}>Användaren är skapad. Du blir nu omdirigerad till Logga in.</Text>
+                ) : null}
+            </View>
+        </ImageBackground>
+    );
 };
 
 export default SignupScreen;
