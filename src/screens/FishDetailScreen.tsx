@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
+import Header from '../components/Header'
 
 interface FishSpecies {
     swedishName: string;
@@ -16,6 +17,7 @@ const FishDetailScreen = ({ route }: { route: any }) => {
 
     return (
         <View>
+            <Header />
             <Text>
                 {fish.swedishName} ({fish.scientificName})
             </Text>
