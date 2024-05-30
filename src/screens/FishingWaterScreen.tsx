@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator, Image } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -9,13 +9,14 @@ const formatMarkerTitle = (title: string) => {
   return formattedTitle;
 };
 
-const FishingWaterScreen = ({ route }: { route: any }) => {
+const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any }) => {
   const title = route.params?.title;
   const [lakeInfo, setLakeInfo] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [lakeImage, setLakeImage] = useState<string | null>(null);
 
-  const [lakeImage, setLakeImage] = useState(null);
+  const fiskarter = require('../../swedish_fish_species.json');
 
   useEffect(() => {
     if (!title) {
@@ -59,6 +60,14 @@ const FishingWaterScreen = ({ route }: { route: any }) => {
     fetchLakeInfo();
   }, [title]);
 
+  const handleFishDetailNavigation = (fish: any) => {
+    navigation.navigate('FishDetail', { fish });
+  };
+
+  const relevantFish = fiskarter.filter((fish: any) => fish.lakes && fish.lakes.includes(title));
+
+  console.log('Relevant fish:', relevantFish);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{formatMarkerTitle(title)}</Text>
@@ -70,6 +79,19 @@ const FishingWaterScreen = ({ route }: { route: any }) => {
         <ScrollView>
           {lakeImage && <Image source={{ uri: lakeImage }} style={styles.image} />}
           <Text style={styles.text}>{lakeInfo}</Text>
+          {relevantFish.length > 0 ? (
+            relevantFish.map((fish: any) => (
+              <TouchableOpacity
+                key={fish.swedishName}
+                style={styles.button}
+                onPress={() => handleFishDetailNavigation(fish)}
+              >
+                <Text style={styles.buttonText}>{fish.swedishName}</Text>
+              </TouchableOpacity>
+            ))
+          ) : (
+            <Text style={styles.noFishText}>No fish found for this lake.</Text>
+          )}
         </ScrollView>
       )}
     </View>
@@ -84,7 +106,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   scrollView: {
-    width: '100%', // Anpassa bredden efter behov
+    width: '100%',
   },
   title: {
     fontSize: 24,
@@ -96,14 +118,27 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
-  ScrollView: {
-    marginHorizontal: 20,
-  },
   image: {
     width: 300,
     height: 200,
     resizeMode: 'contain',
-  }
+  },
+  button: {
+    backgroundColor: '#4CAF50',
+    padding: 10,
+    marginVertical: 8,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  noFishText: {
+    fontSize: 16,
+    color: 'red',
+    textAlign: 'center',
+  },
 });
 
 export default FishingWaterScreen;

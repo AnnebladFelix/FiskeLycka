@@ -9,6 +9,7 @@ interface FishSpecies {
   habitat: string;
   minimumSize: string;
   swedishRecord: string;
+  lake: string;
 }
 
 const FishSpeciesScreen = ({ navigation }: { navigation: any }) => {
