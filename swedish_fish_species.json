@@ -7,7 +7,7 @@
       "habitat": "Sötvatten och bräckt vatten",
       "minimumSize": "Inget minimimått",
       "swedishRecord": "2,875 kg",
-      "lakes": [ "Lagan", "Finnsjön,_Västergötland", "Vänern", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Stora_Kåsjön", "Öresjö_(Fristads_socken,_Västergötland)", "Vättern" ]
+      "lakes": [ "Lagan", "Finnsjön, Västergötland", "Vänern", "Västra Öresjön", "Sämsjön (Finnekumla socken, Västergötland)", "Stora Kåsjön", "Öresjö (Fristads socken, Västergötland)", "Vättern" ]
   },
   {
       "swedishName": "Gädda",
@@ -17,7 +17,7 @@
       "habitat": "Sötvatten och bräckt vatten",
       "minimumSize": "Inget minimimått",
       "swedishRecord": "21,07 kg",
-      "lakes": [ "Lagan", "Finnsjön,_Västergötland", "Vänern", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Stora_Kåsjön", "Öresjö_(Fristads_socken,_Västergötland)", "Vättern" ]
+      "lakes": [ "Lagan", "Finnsjön, Västergötland", "Vänern", "Västra Öresjön", "Sämsjön (Finnekumla socken, Västergötland)", "Stora Kåsjön", "Öresjö (Fristads socken, Västergötland)", "Vättern" ]
   },
   {
       "swedishName": "Gös",
@@ -27,7 +27,7 @@
       "habitat": "Sötvatten och bräckt vatten",
       "minimumSize": "45-50 cm beroende på region",
       "swedishRecord": "12,65 kg",
-      "lakes": [ "Vänern", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Öresjö_(Fristads_socken,_Västergötland)", "Vättern"  ]
+      "lakes": [ "Vänern", "Västra Öresjön", "Sämsjön (Finnekumla socken, Västergötland)", "Öresjö (Fristads socken, Västergötland)", "Vättern"  ]
   },
   {
       "swedishName": "Braxen",
@@ -37,7 +37,7 @@
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
       "swedishRecord": "8,42 kg",
-      "lakes": [ "Vänern", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Öresjö_(Fristads_socken,_Västergötland)"  ]
+      "lakes": [ "Vänern", "Västra Öresjön", "Sämsjön (Finnekumla socken, Västergötland)", "Öresjö (Fristads socken, Västergötland)"  ]
   },
   {
       "swedishName": "Regnbåge",
@@ -57,7 +57,7 @@
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
       "swedishRecord": "5,39 kg",
-      "lakes": [ "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Öresjö_(Fristads_socken,_Västergötland)" ]
+      "lakes": [ "Västra Öresjön", "Sämsjön (Finnekumla socken, Västergötland)", "Öresjö (Fristads socken, Västergötland)" ]
   },
   {
       "swedishName": "Siklöja",
@@ -67,7 +67,7 @@
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
       "swedishRecord": "0,63 ",
-      "lakes": [ "Vänern", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Öresjö_(Fristads_socken,_Västergötland)" ]
+      "lakes": [ "Vänern", "Västra Öresjön", "Sämsjön (Finnekumla socken, Västergötland)", "Öresjö (Fristads socken, Västergötland)" ]
   },
   {
       "swedishName": "Björkna",
@@ -217,7 +217,7 @@
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
       "swedishRecord": "8,500 kg",
-      "lakes": [ "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Öresjö_(Fristads_socken,_Västergötland)", "Vättern" ]
+      "lakes": [ "Västra Öresjön", "Sämsjön (Finnekumla socken, Västergötland)", "Öresjö (Fristads socken, Västergötland)", "Vättern" ]
   },
   {
       "swedishName": "Lax",
@@ -237,7 +237,7 @@
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
       "swedishRecord": "1,726 kg",
-      "lakes": [ "Finnsjön,_Västergötland", "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Stora_Kåsjön", "Öresjö_(Fristads_socken,_Västergötland)", "Vättern" ]
+      "lakes": [ "Finnsjön, Västergötland", "Västra Öresjön", "Sämsjön (Finnekumla socken, Västergötland)", "Stora Kåsjön", "Öresjö (Fristads socken, Västergötland)", "Vättern" ]
   },
   {
       "swedishName": "Puckellax",
@@ -277,7 +277,7 @@
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
       "swedishRecord": "1,730 kg",
-      "lakes": [ "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)" ]
+      "lakes": [ "Västra Öresjön", "Sämsjön (Finnekumla socken, Västergötland)" ]
   },
   {
       "swedishName": "Silvruda",
@@ -317,7 +317,7 @@
       "habitat": "Sötvatten",
       "minimumSize": "Inget minimimått",
       "swedishRecord": "5,460 kg",
-      "lakes": [ "Västra Öresjön", "Sämsjön_(Finnekumla_socken,_Västergötland)", "Stora_Kåsjön" ]
+      "lakes": [ "Västra Öresjön", "Sämsjön (Finnekumla socken, Västergötland)", "Stora Kåsjön" ]
   },
   {
       "swedishName": "Vimma",
@@ -337,7 +337,7 @@
       "habitat": "Sötvatten, bräckt vatten och hav",
       "minimumSize": "Fisket är förbjudet",
       "swedishRecord": "3,725 kg",
-      "lakes": [ "Västra Öresjön", "Stora_Kåsjön", "Öresjö_(Fristads_socken,_Västergötland)" ]
+      "lakes": [ "Västra Öresjön", "Stora Kåsjön", "Öresjö (Fristads socken, Västergötland)" ]
   },
   {
     "swedishName": "Nors",
