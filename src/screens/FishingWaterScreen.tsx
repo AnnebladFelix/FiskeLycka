@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import { ScrollView } from 'react-native-gesture-handler';
+import Header from '../components/Header';
 
 const formatMarkerTitle = (title: string) => {
   const formattedTitle = title.replace(/_/g, ' ');
@@ -69,36 +70,42 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
   console.log('Relevant fish:', relevantFish);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{formatMarkerTitle(title)}</Text>
-      {loading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
-      ) : error ? (
-        <Text>{error}</Text>
-      ) : (
-        <ScrollView>
-          {lakeImage && <Image source={{ uri: lakeImage }} style={styles.image} />}
-          <Text style={styles.text}>{lakeInfo}</Text>
-          {relevantFish.length > 0 ? (
-            relevantFish.map((fish: any) => (
-              <TouchableOpacity
-                key={fish.swedishName}
-                style={styles.button}
-                onPress={() => handleFishDetailNavigation(fish)}
-              >
-                <Text style={styles.buttonText}>{fish.swedishName}</Text>
-              </TouchableOpacity>
-            ))
-          ) : (
-            <Text style={styles.noFishText}>No fish found for this lake.</Text>
-          )}
-        </ScrollView>
-      )}
+    <View style={styles.wrapper}>
+      <Header />
+      <View style={styles.container}>
+        <Text style={styles.title}>{formatMarkerTitle(title)}</Text>
+        {loading ? (
+          <ActivityIndicator size="large" color="#0000ff" />
+        ) : error ? (
+          <Text>{error}</Text>
+        ) : (
+          <ScrollView>
+            {lakeImage && <Image source={{ uri: lakeImage }} style={styles.image} />}
+            <Text style={styles.text}>{lakeInfo}</Text>
+            {relevantFish.length > 0 ? (
+              relevantFish.map((fish: any) => (
+                <TouchableOpacity
+                  key={fish.swedishName}
+                  style={styles.button}
+                  onPress={() => handleFishDetailNavigation(fish)}
+                >
+                  <Text style={styles.buttonText}>{fish.swedishName}</Text>
+                </TouchableOpacity>
+              ))
+            ) : (
+              <Text style={styles.noFishText}>No fish found for this lake.</Text>
+            )}
+          </ScrollView>
+        )}
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',

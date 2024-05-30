@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import Header from '../components/Header';
 
 interface FishSpecies {
   swedishName: string;
@@ -26,6 +27,7 @@ const FishSpeciesScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={styles.container}>
+      <Header />
       <FlatList
         data={fiskarter}
         renderItem={renderItem}

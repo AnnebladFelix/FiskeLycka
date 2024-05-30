@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
+import Header from "../components/Header";
 
 const FishingMethodDetailScreen = ({ route }: any) => {
     const { method } = route.params;
@@ -25,6 +26,7 @@ const FishingMethodDetailScreen = ({ route }: any) => {
 
     return (
         <ScrollView style={styles.container}>
+            <Header />
             <Text style={styles.title}>{method.name}</Text>
             <Text style={styles.description}>{method.description}</Text>
             <Text style={styles.sectionTitle}>Utrustning:</Text>

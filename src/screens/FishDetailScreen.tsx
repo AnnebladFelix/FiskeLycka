@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Image, ActivityIndicator } from "react-native";
 import axios from "axios";
+import Header from "../components/Header";
 
 interface FishSpecies {
   swedishName: string;
@@ -57,6 +58,7 @@ const FishDetailScreen = ({ route }: { route: any }) => {
 
   return (
     <View>
+        <Header />
       <Text>{fish.swedishName} ({fish.scientificName})</Text>
       <Text>{fish.description}</Text>
       <Text>Förekomst: {fish.occurrence}</Text>

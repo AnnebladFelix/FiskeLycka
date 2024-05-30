@@ -21,7 +21,7 @@ import { mainStyles as styles } from './src/styling/AppStyling';
 
 const Stack = createNativeStackNavigator();
 
-type RootStackParamList = {
+export type RootStackParamList = {
   Login: undefined;
   UserScreen: undefined;
   Home: undefined;

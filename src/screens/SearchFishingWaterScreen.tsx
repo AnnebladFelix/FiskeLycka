@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import Header from '../components/Header';
 
 
 interface Lake {
@@ -42,6 +43,7 @@ const SearchFishingWaterScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={styles.container}>
+      <Header />
       <TextInput
         placeholder="Sök fiskevatten"
         value={searchQuery}

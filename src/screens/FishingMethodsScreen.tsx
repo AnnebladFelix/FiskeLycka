@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import Header from '../components/Header';
 
 
 export interface FishingMethods {
@@ -27,6 +28,7 @@ const FishingMethodsScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={styles.container}>
+      <Header />
       <FlatList
         data={methods}
         renderItem={renderItem}
