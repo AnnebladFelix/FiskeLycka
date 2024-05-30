@@ -73,6 +73,7 @@ export async function fetchPosts() {
     const response = await axios.get<PostData[]>(
       "http://localhost:3000/api/posts/getPosts"
     );
+    console.log("🚀 ~ fetchPosts ~ response:", response)
     return response.data;
   } catch (error) {
     console.error(error);

@@ -18,6 +18,7 @@ import AdminPage from './src/screens/AdminPage';
 import FishDetailScreen from './src/screens/FishDetailScreen';
 import FishingMethodsDetailScreen from './src/screens/FishingMethodsDetailScreen';
 import { mainStyles as styles } from './src/styling/AppStyling';
+import CatchReportsPage from './src/screens/DisplayCatchReports';
 
 const Stack = createNativeStackNavigator();
 
@@ -50,6 +51,7 @@ export default function App() {
             <Stack.Screen name="FishDetail" component={FishDetailScreen} options={{ title: 'Fiskart' }} />
             <Stack.Screen name="SearchFishingWater" component={SearchFishingWaterScreen} options={{ title: 'Sök fiskevatten' }} />
             <Stack.Screen name="FishingMethod" component={FishingMethodsDetailScreen} options={{ title: 'Fiskemetod' }} />
+            <Stack.Screen name="CatchReports" component={CatchReportsPage} options={{ title: 'Fångstrapporter' }} />
           </Stack.Navigator>
         </NavigationContainer>
       </GestureHandlerRootView>
@@ -135,6 +137,7 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
         <StatusBar style="auto" />
       </ScrollView>
 
+      <CatchReportsPage />
       {/* Footer */}
       <View style={styles.footer}>
         <Text>@Copywrite 2024</Text>
