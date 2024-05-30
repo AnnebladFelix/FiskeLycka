@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { fetchCatchReports, fetchPosts } from '../../db/postOperations';
-import { CatchReportData, PostData } from '../interfaces/postInterfaces';
+import { CatchReportData } from '../interfaces/postInterfaces';
 import { userPageStyles as style } from '../styling/UserPagesStyling';
 
 const CatchReportsPage = () => {
 
 const [catchReports, setCatchReports] = useState<CatchReportData[]>([]);
-const [posts, setPosts] = useState<PostData[]>([]);
 
 useEffect(() => {
   const fetchData = async () => {
@@ -17,16 +16,6 @@ useEffect(() => {
   
   fetchData();
 },[]);
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchPosts();
-      setPosts(data);
-  };
-  
-  fetchData();
-}, []);
-
 
 return (
   <View style={style.container}>
