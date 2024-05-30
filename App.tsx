@@ -88,6 +88,10 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
     navigation.navigate('FishingMethods');
   };
 
+  const goToCatchReportPage = () => {
+    navigation.navigate('CatchReports');
+  };
+
   return (
     <ImageBackground
       source={require('./assets/images/bakground1.jpg')}
@@ -130,14 +134,14 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.singleButton}>
-          <Text style={styles.buttonText}>Mina Fiskekort</Text>
+        <TouchableOpacity style={styles.singleButton} onPress={goToCatchReportPage}>
+          <Text style={styles.buttonText}>Fångstrapporter</Text>
         </TouchableOpacity>
 
         <StatusBar style="auto" />
       </ScrollView>
 
-      <CatchReportsPage />
+      {/* <CatchReportsPage /> */}
       {/* Footer */}
       <View style={styles.footer}>
         <Text>@Copywrite 2024</Text>

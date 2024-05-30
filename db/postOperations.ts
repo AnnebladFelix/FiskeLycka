@@ -24,7 +24,7 @@ export async function createCatchReport(catchReportData: CatchReportData) {
 export async function fetchCatchReports() {
   try {
     const response = await axios.get<CatchReportData[]>(
-      "http://localhost:3000/api/posts/getCatchReports"
+      "http://10.0.2.2:3000/api/posts/getCatchReports"
     );
     return response.data;
   } catch (error) {
@@ -71,7 +71,7 @@ export async function createPost(postData: PostData) {
 export async function fetchPosts() {
   try {
     const response = await axios.get<PostData[]>(
-      "http://localhost:3000/api/posts/getPosts"
+      "http://10.0.2.2:3000/api/posts/getPosts"
     );
     console.log("🚀 ~ fetchPosts ~ response:", response)
     return response.data;
