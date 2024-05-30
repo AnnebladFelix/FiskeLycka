@@ -5,7 +5,7 @@ import { CatchReportData, NewCatchReportData, PostData, NewPostData } from "../s
 export async function createCatchReport(catchReportData: CatchReportData) {
   try {
     const response = await axios.post(
-      "http://localhost:3000/api/posts/createCatchReport",
+      "https://fiskelycka.netlify.app/api/posts/createCatchReport",
       {
         catchReport: catchReportData,
       }
@@ -24,7 +24,7 @@ export async function createCatchReport(catchReportData: CatchReportData) {
 export async function fetchCatchReports() {
   try {
     const response = await axios.get<CatchReportData[]>(
-      "http://10.0.2.2:3000/api/posts/getCatchReports"
+      "https://fiskelycka.netlify.app/api/posts/getCatchReports"
     );
     return response.data;
   } catch (error) {
@@ -36,7 +36,7 @@ export async function fetchCatchReports() {
 export const updateCatchReport = async (updatedData: NewCatchReportData) => {
   try {
     const response = await axios.patch(
-      'http://localhost:3000/api/posts/updateCatchReport',
+      'https://fiskelycka.netlify.app/api/posts/updateCatchReport',
       {
         ...updatedData,
       }
@@ -52,7 +52,7 @@ export const updateCatchReport = async (updatedData: NewCatchReportData) => {
 export async function createPost(postData: PostData) {
   try {
     const response = await axios.post(
-      "http://localhost:3000/api/posts/createPost",
+      "https://fiskelycka.netlify.app/api/posts/createPost",
       {
         post: postData,
       }
@@ -71,9 +71,8 @@ export async function createPost(postData: PostData) {
 export async function fetchPosts() {
   try {
     const response = await axios.get<PostData[]>(
-      "http://10.0.2.2:3000/api/posts/getPosts"
+      "https://fiskelycka.netlify.app/api/posts/getPosts"
     );
-    console.log("🚀 ~ fetchPosts ~ response:", response)
     return response.data;
   } catch (error) {
     console.error(error);
@@ -84,7 +83,7 @@ export async function fetchPosts() {
 export const updatePost = async (updatedData: NewPostData) => {
   try {
     const response = await axios.patch(
-      'http://localhost:3000/api/posts/updatePost',
+      'https://fiskelycka.netlify.app/api/posts/updatePost',
       {
         ...updatedData,
       }

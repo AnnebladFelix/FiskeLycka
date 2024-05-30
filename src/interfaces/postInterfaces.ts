@@ -35,6 +35,7 @@ export interface PostData {
   image?: string;
   published: Boolean;
   authorId: string;
+  reports: CatchReportData[];
 }
 
 export interface NewPostData {

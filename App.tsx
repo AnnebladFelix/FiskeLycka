@@ -141,7 +141,7 @@ const HomeScreen = ({ navigation }: { navigation: any}) => {
         <StatusBar style="auto" />
       </ScrollView>
 
-      {/* <CatchReportsPage /> */}
+      <CatchReportsPage />
       {/* Footer */}
       <View style={styles.footer}>
         <Text>@Copywrite 2024</Text>
