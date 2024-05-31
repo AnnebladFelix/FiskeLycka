@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import Header from '../components/Header';
+import Header from '../../components/Header';
 
 interface FishSpecies {
   swedishName: string;
