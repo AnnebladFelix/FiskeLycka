@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import { ScrollView } from 'react-native-gesture-handler';
-import Header from '../components/Header';
+import Header from '../../components/Header';
 
 const formatMarkerTitle = (title: string) => {
   const formattedTitle = title.replace(/_/g, ' ');
