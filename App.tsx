@@ -16,7 +16,7 @@ import {
 } from "react-native";
 import MapScreen from "./src/screens/mapAndWaterScreens/MapScreen";
 import FishSpeciesScreen from "./src/screens/fishScreens/FishSpeciesScreen";
-import FishingMethodsScreen from "./src/screens/fishingSceen/FishingMethodsScreen";
+import FishingMethodsScreen from "./src/screens/fishingSceens/FishingMethodsScreen";
 import SignupScreen from "./src/screens/userScreens/SignupScreen";
 import LoginScreen from "./src/screens/userScreens/LoginScreen";
 import SearchFishingWaterScreen from "./src/screens/mapAndWaterScreens/SearchFishingWaterScreen";
@@ -26,7 +26,7 @@ import { AuthProvider } from "./src/components/AuthContext";
 import UserScreen from "./src/screens/userScreens/UserScreen";
 import AdminPage from "./src/screens/userScreens/AdminPage";
 import FishDetailScreen from "./src/screens/fishScreens/FishDetailScreen";
-import FishingMethodsDetailScreen from "./src/screens/fishingSceen/FishingMethodsDetailScreen";
+import FishingMethodsDetailScreen from "./src/screens/fishingSceens/FishingMethodsDetailScreen";
 import { mainStyles as styles } from "./src/styling/AppStyling";
 
 const Stack = createNativeStackNavigator();
