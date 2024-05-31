@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Platform } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import Device from 'expo-device';
-import CustomMarker from '../components/CustomMarker';
+import CustomMarker from '../../components/CustomMarker';
 
 
 interface Position {

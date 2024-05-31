@@ -52,7 +52,7 @@ const UserScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <ImageBackground
-      source={require("../../assets/images/bakground1.jpg")}
+      source={require("../../../assets/images/bakground1.jpg")}
       style={styles.background}
     >
       <View style={styles.container}>
