@@ -15,7 +15,7 @@ interface FishSpecies {
 
 const FishSpeciesScreen = ({ navigation }: { navigation: any }) => {
 
-  const fiskarter = require('../../swedish_fish_species.json');
+  const fiskarter = require('../../../swedish_fish_species.json');
 
   const renderItem = ({ item } : {item : FishSpecies}) => (
     <TouchableOpacity onPress={() => navigation.navigate('FishDetail', { fish: item })}>

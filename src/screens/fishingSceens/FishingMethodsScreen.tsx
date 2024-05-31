@@ -16,7 +16,7 @@ export interface FishingMethods {
 
 const FishingMethodsScreen = ({ navigation }: { navigation: any }) => {
 
-  const methods = require('../../fishingmethods.json');
+  const methods = require('../../../fishingmethods.json');
 
   const renderItem = ({ item } : {item : FishingMethods}) => (
     <TouchableOpacity onPress={() => navigation.navigate('FishingMethod', { method: item })}>
