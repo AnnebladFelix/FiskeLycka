@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, ImageBackground } from "react-native";
-import { updateUserName, updateUserPassword } from "../../db/userOperations";
-import { useAuth } from "../components/AuthContext";
-import { userPageStyles as styles } from "../styling/UserPagesStyling";
+import { updateUserName, updateUserPassword } from "../../../db/userOperations";
+import { useAuth } from "../../components/AuthContext";
+import { userPageStyles as styles } from "../../styling/UserPagesStyling";
         
 const UserScreen = ({ navigation }: { navigation: any }) => {
   const [newName, setNewName] = useState('');
