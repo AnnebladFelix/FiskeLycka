@@ -1,0 +1,99 @@
+[
+    {
+      "lake": "Västra Öresjön",
+      "boatRental": {
+        "name": "Wilhelm",
+        "phone": "072-537 45 52"
+      },
+      "fishingLicenseSales": [
+        {
+          "name": "Skene Järn",
+          "phone": "0320 - 195 18"
+        },
+        {
+          "name": "Marks jakt & Fiskecenter",
+          "phone": "0320 - 440 08"
+        },
+        {
+          "name": "Hanatorps Camping",
+          "phone": "0320 - 483 12, 0703 - 00 15 82"
+        },
+        {
+          "name": "Bil & Motor i Horred AB",
+          "phone": "0320 - 806 35"
+        }
+      ],
+      "fishingService": {
+        "depthMap": {
+          "info": "Säljes vid fiskekortsförsäljningsställena.",
+          "price": "100kr"
+        }
+      },
+      "otherServices": [
+        {
+          "type": "Stuguthyrning",
+          "provider": "Hanatorps Camping",
+          "phone": "0320 - 483 12, 0703 - 00 15 82"
+        },
+        {
+          "type": "Matställen",
+          "provider": "Örby Pizzeria",
+          "phone": "0320 - 484 38"
+        }
+      ]
+    },
+    {
+      "lake": "Vättern",
+      "boatRental": {
+        "name": "Boatrent AB",
+        "phone": "070-123 45 67"
+      },
+      "fishingLicenseSales": [
+        {
+          "name": "Online Purchase",
+          "link": "https://www.example.com/buy-license"
+        }
+      ]
+    },
+    {
+      "lake": "Finnsjön",
+      "fishingLicenseSales": [
+        {
+          "name": "Online Purchase",
+          "link": "https://www.example.com/buy-license"
+        }
+      ]
+    },
+    {
+      "lake": "Example Lake",
+      "boatRental": {
+        "name": "Boat Rentals Inc.",
+        "phone": "012-345 67 89"
+      },
+      "fishingLicenseSales": [
+        {
+          "name": "Example Store",
+          "phone": "098-765 43 21"
+        }
+      ],
+      "fishingService": {
+        "depthMap": {
+          "info": "Available at license sales points.",
+          "price": "150kr"
+        }
+      },
+      "otherServices": [
+        {
+          "type": "Cabin Rental",
+          "provider": "Example Camping",
+          "phone": "012-345 67 89"
+        },
+        {
+          "type": "Restaurants",
+          "provider": "Example Pizzeria",
+          "phone": "012-345 67 89"
+        }
+      ]
+    }
+  ]
+  

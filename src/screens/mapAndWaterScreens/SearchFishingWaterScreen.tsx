@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import Header from '../components/Header';
+import Header from '../../components/Header';
 
 
 interface Lake {

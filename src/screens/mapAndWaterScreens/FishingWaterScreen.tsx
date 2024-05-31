@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import { ScrollView } from 'react-native-gesture-handler';
-import Header from '../components/Header';
+import Header from '../../components/Header';
 
 const formatMarkerTitle = (title: string) => {
   const formattedTitle = title.replace(/_/g, ' ');
-
   return formattedTitle;
 };
 
@@ -16,8 +15,10 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [lakeImage, setLakeImage] = useState<string | null>(null);
+  const [fishingCardInfo, setFishingCardInfo] = useState(null);
 
   const fiskarter = require('../../../swedish_fish_species.json');
+  const fishingCardData = require('../../../fishingCardData.json');
 
   useEffect(() => {
     if (!title) {
@@ -59,6 +60,11 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
     };
 
     fetchLakeInfo();
+
+    const cardInfo = fishingCardData.find(info => info.lake === title);
+    setFishingCardInfo(cardInfo);
+
+
   }, [title]);
 
   const handleFishDetailNavigation = (fish: any) => {
@@ -82,8 +88,37 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
           <ScrollView>
             {lakeImage && <Image source={{ uri: lakeImage }} style={styles.image} />}
             <Text style={styles.text}>{lakeInfo}</Text>
+            {fishingCardInfo && (
+              <View style={styles.card}>
+                <Text style={styles.cardTitle}>Fishing Card Info</Text>
+                <Text style={styles.cardSection}>Båtuthyring:</Text>
+                <Text>{fishingCardInfo.boatRental.name}</Text>
+                <Text>{fishingCardInfo.boatRental.phone}</Text>
+
+                <Text style={styles.cardSection}>Fiskekortsförsäljning:</Text>
+                {fishingCardInfo.fishingLicenseSales.map((item, index) => (
+                  <View key={index}>
+                    <Text>{item.name}</Text>
+                    <Text>{item.phone}</Text>
+                  </View>
+                ))}
+
+                <Text style={styles.cardSection}>Fiskeservice:</Text>
+                <Text>{fishingCardInfo.fishingService.depthMap.info}</Text>
+                <Text>Pris: {fishingCardInfo.fishingService.depthMap.price}</Text>
+
+                <Text style={styles.cardSection}>Övrig service och aktiviteter i närområdet:</Text>
+                {fishingCardInfo.otherServices.map((service, index) => (
+                  <View key={index}>
+                    <Text>{service.type}</Text>
+                    <Text>{service.provider}</Text>
+                    <Text>{service.phone}</Text>
+                  </View>
+                ))}
+              </View>
+            )}
             {relevantFish.length > 0 ? (
-              relevantFish.map((fish: any) => (
+              relevantFish.map(fish => (
                 <TouchableOpacity
                   key={fish.swedishName}
                   style={styles.button}
@@ -101,6 +136,7 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   wrapper: {
