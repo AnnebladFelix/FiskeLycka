@@ -73,6 +73,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
                     placeholder="Email"
                     style={styles.input}
                     autoCapitalize="none"
+                    keyboardType="email-address"
                 />
                 <TextInput
                     style={styles.input}
