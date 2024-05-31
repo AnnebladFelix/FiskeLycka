@@ -16,7 +16,7 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
   const [error, setError] = useState<string | null>(null);
   const [lakeImage, setLakeImage] = useState<string | null>(null);
 
-  const fiskarter = require('../../swedish_fish_species.json');
+  const fiskarter = require('../../../swedish_fish_species.json');
 
   useEffect(() => {
     if (!title) {

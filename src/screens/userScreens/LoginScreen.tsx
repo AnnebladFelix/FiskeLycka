@@ -10,7 +10,6 @@ import {
 import { loginUser } from "../../../db/userOperations";
 import { useAuth } from "../../components/AuthContext";
 import { userPageStyles as styles } from "../../styling/UserPagesStyling";
-import UserScreen from "./UserScreen";
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
     const [email, setEmail] = useState("");
@@ -63,7 +62,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
 
     return (
         <ImageBackground
-            source={require("../../assets/images/bakground1.jpg")}
+            source={require("../../../assets/images/bakground1.jpg")}
             style={styles.background}
         >
             <View style={styles.container}>
