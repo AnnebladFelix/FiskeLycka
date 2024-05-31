@@ -31,10 +31,10 @@ import { mainStyles as styles } from "./src/styling/AppStyling";
 
 const Stack = createNativeStackNavigator();
 
-type RootStackParamList = {
-    Login: undefined;
-    UserScreen: undefined;
-    Home: undefined;
+export type RootStackParamList = {
+  Login: undefined;
+  UserScreen: undefined;
+  Home: undefined;
 };
 
 export type UserScreenNavigationProp = NativeStackNavigationProp<

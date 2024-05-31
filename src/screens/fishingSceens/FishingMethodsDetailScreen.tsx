@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
+import Header from "../components/Header";
 
 const FishingMethodDetailScreen = ({ route }: any) => {
     const { method } = route.params;
@@ -24,27 +25,33 @@ const FishingMethodDetailScreen = ({ route }: any) => {
     };
 
     return (
-        <ScrollView style={styles.container}>
-            <Text style={styles.title}>{method.name}</Text>
-            <Text style={styles.description}>{method.description}</Text>
-            <Text style={styles.sectionTitle}>Utrustning:</Text>
-            {renderEquipment(method.equipment)}
-            {method.tips && (
-                <>
-                    <Text style={styles.sectionTitle}>Tips:</Text>
-                    {Object.entries(method.tips).map(([key, value]) => (
-                        <View key={key} style={styles.equipmentContainer}>
-                            <Text style={styles.equipmentTitle}>{key}</Text>
-                            <Text>{value as string}</Text>
-                        </View>
-                    ))}
-                </>
-            )}
-        </ScrollView>
+        <View style={styles.wrapper}>
+            <Header />
+            <ScrollView style={styles.container}>
+                <Text style={styles.title}>{method.name}</Text>
+                <Text style={styles.description}>{method.description}</Text>
+                <Text style={styles.sectionTitle}>Utrustning:</Text>
+                {renderEquipment(method.equipment)}
+                {method.tips && (
+                    <>
+                        <Text style={styles.sectionTitle}>Tips:</Text>
+                        {Object.entries(method.tips).map(([key, value]) => (
+                            <View key={key} style={styles.equipmentContainer}>
+                                <Text style={styles.equipmentTitle}>{key}</Text>
+                                <Text>{value as string}</Text>
+                            </View>
+                        ))}
+                    </>
+                )}
+            </ScrollView>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
+    wrapper: {
+        flex: 1,
+      },
     container: {
         flex: 1,
         padding: 10,

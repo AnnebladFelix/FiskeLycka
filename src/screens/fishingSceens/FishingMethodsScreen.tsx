@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import Header from '../components/Header';
 
 
 export interface FishingMethods {
@@ -26,17 +27,23 @@ const FishingMethodsScreen = ({ navigation }: { navigation: any }) => {
   );
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={methods}
-        renderItem={renderItem}
-        keyExtractor={item => item.name}
-      />
+    <View style={styles.wrapper}>
+      <Header />
+      <View style={styles.container}>
+        <FlatList
+          data={methods}
+          renderItem={renderItem}
+          keyExtractor={item => item.name}
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     padding: 10,
