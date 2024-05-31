@@ -26,18 +26,24 @@ const FishSpeciesScreen = ({ navigation }: { navigation: any }) => {
   );
 
   return (
-    <View style={styles.container}>
-      <Header />
-      <FlatList
-        data={fiskarter}
-        renderItem={renderItem}
-        keyExtractor={item => item.swedishName}
-      />
+    <View style={styles.wrapper}>
+        <Header />
+      <View style={styles.container}>
+        <FlatList
+          data={fiskarter}
+          renderItem={renderItem}
+          keyExtractor={item => item.swedishName}
+        />
+      </View>
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     padding: 10,

@@ -27,18 +27,23 @@ const FishingMethodsScreen = ({ navigation }: { navigation: any }) => {
   );
 
   return (
-    <View style={styles.container}>
+    <View style={styles.wrapper}>
       <Header />
-      <FlatList
-        data={methods}
-        renderItem={renderItem}
-        keyExtractor={item => item.name}
-      />
+      <View style={styles.container}>
+        <FlatList
+          data={methods}
+          renderItem={renderItem}
+          keyExtractor={item => item.name}
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     padding: 10,

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
-import { headerStyles as styles } from '../styling/headerStyling';
+import { headerStyles as styles } from '../styling/HeaderStyling';
 
 const Header = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();

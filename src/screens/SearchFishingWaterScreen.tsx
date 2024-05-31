@@ -38,32 +38,39 @@ const SearchFishingWaterScreen = ({ navigation }: { navigation: any }) => {
   };
 
   const handleSelectLake = (lake: Lake) => {
-    navigation.navigate('FishingWater', { title: lake.title });
+    const formattedTitle = lake.title.replace(/_/g, ' ');
+    console.log('Navigating to:', formattedTitle);
+    navigation.navigate('FishingWater', { title: formattedTitle });
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.wrapper}>
       <Header />
-      <TextInput
-        placeholder="Sök fiskevatten"
-        value={searchQuery}
-        onChangeText={handleSearch}
-        style={styles.searchInput}
-      />
-      <FlatList
-        data={filteredLakes}
-        keyExtractor={(item) => item.title}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => handleSelectLake(item)}>
-            <Text style={styles.item}>{item.name}</Text>
-          </TouchableOpacity>
-        )}
-      />
+      <View style={styles.container}>
+        <TextInput
+          placeholder="Sök fiskevatten"
+          value={searchQuery}
+          onChangeText={handleSearch}
+          style={styles.searchInput}
+        />
+        <FlatList
+          data={filteredLakes}
+          keyExtractor={(item) => item.title}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => handleSelectLake(item)}>
+              <Text style={styles.item}>{item.name}</Text>
+            </TouchableOpacity>
+          )}
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     padding: 20,

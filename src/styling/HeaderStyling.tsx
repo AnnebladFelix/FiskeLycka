@@ -3,16 +3,23 @@ import { StyleSheet } from 'react-native';
 export const headerStyles = StyleSheet.create({
   header: {
     flexDirection: 'row',
+    alignItems: 'flex-end',
     justifyContent: 'space-between',
-    padding: 10,
+    height: 80,
+    paddingHorizontal: 20,
     backgroundColor: '#fff',
   },
   logo: {
-    width: 50,
-    height: 50,
+    marginTop:20,
+    width: 100,
+    height: 80,
+    resizeMode: 'contain',
   },
   loginLogo: {
-    width: 30,
-    height: 30,
+    marginTop:20,
+    marginBottom:10,
+    width: 80,
+    height: 60,
+    resizeMode: 'contain',
   },
 });
