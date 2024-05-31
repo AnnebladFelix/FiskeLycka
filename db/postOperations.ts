@@ -1,8 +1,8 @@
 import axios from "axios";
-import { CatchReportData, NewCatchReportData, PostData, NewPostData } from "../src/interfaces/postInterfaces";
+import { CatchReportData, NewCatchReportData, PostData, NewPostData, CreatCatchReportData } from "../src/interfaces/postInterfaces";
 
 // Catch report operation logic
-export async function createCatchReport(catchReportData: CatchReportData) {
+export async function createCatchReport(catchReportData: CreatCatchReportData) {
   try {
     const response = await axios.post(
       "https://fiskelycka.netlify.app/api/posts/createCatchReport",

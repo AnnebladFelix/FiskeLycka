@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, Image } from "react-native";
-import { fetchPosts } from "../../db/postOperations";
-import { PostData } from "../interfaces/postInterfaces";
-import { userPageStyles as style } from "../styling/UserPagesStyling";
+import { fetchPosts } from "../../../db/postOperations";
+import { PostData } from "../../interfaces/postInterfaces";
+import { userPageStyles as style } from "../../styling/UserPagesStyling";
 
 const PostsPage = () => {
   const [posts, setPosts] = useState<PostData[]>([]);

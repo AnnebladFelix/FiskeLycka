@@ -14,6 +14,21 @@ export interface CatchReportData {
   postId?: string;
 }
 
+export interface CreatCatchReportData {
+  location: string;
+  species: string;
+  bait: string;
+  method: string;
+  weather: string;
+  authorId: string;
+  waterTemp?: number;
+  notes?: string;
+  image?: string;
+  weight?: number;
+  length?: number;
+  postId?: string;
+}
+
 export interface NewCatchReportData {
     catchReportId: string;
     newLocation?: string;
