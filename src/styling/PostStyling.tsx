@@ -46,4 +46,7 @@ export const postStyles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 10,
   },
+  loadingIndicator: {
+    margin: 20,
+  }
 });

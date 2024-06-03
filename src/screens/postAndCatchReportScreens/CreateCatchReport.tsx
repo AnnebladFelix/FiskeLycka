@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Image, TextInput, ScrollView, View } from "react-native";
+import { Button, Image, TextInput, ScrollView, View, ActivityIndicator, Text } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
 import { CreatCatchReportData } from "../../interfaces/postInterfaces";
@@ -14,7 +14,7 @@ export default function CreateCatchReport() {
   const auth = useAuth();
   const userId = auth.user?.userId ?? "";
   const navigation = useNavigation<CatchReportsPageNavigationProp>();
-
+  const [loading, setLoading] = useState(false)
   const [image, setImage] = useState<string | undefined>(undefined);
   const [notes, setNotes] = useState<string | undefined>();
   const [location, setLocation] = useState("");
@@ -47,6 +47,8 @@ export default function CreateCatchReport() {
       return;
     }
 
+    setLoading(true)
+
     const catchReportData: CreatCatchReportData = {
       location,
       species,
@@ -68,12 +70,15 @@ export default function CreateCatchReport() {
     } catch (error) {
       console.error("Error submitting catch report:", error);
       alert("Gick inte att skapa rapport!");
+    } finally {
+      setLoading(false)
     }
   };
 
   return (
     <ScrollView>
-      <View style={styles.container}>
+      { !loading ? (
+        <View style={styles.container}>
         <Button 
           title="Ladda Upp Bild"
           onPress={pickImage}
@@ -141,7 +146,12 @@ export default function CreateCatchReport() {
           style={styles.input}
         />
         <Button title="Lägg till" onPress={handleSubmit} />
-      </View>
+      </View> ) : (
+        <View style={styles.container}>
+          <Text style={styles.title}> Din fångstrapport laddas nu upp! </Text>
+          <ActivityIndicator style={styles.loadingIndicator} size={60} color="#0000ff" />
+        </View>
+        )}     
     </ScrollView>
   );
 }
