@@ -1,39 +1,26 @@
 import React, { useState } from "react";
-import { Button, Image, View, TextInput } from "react-native";
+import { Button, Image, TextInput, ScrollView, View } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
 import { CreatCatchReportData } from "../../interfaces/postInterfaces";
 import { createCatchReport } from "../../../db/postOperations";
 import { useAuth } from "../../components/AuthContext";
-import { userPageStyles as styles } from "../../styling/UserPagesStyling";
+import { postStyles as styles } from "../../styling/postStyling";
 
 export default function CreateCatchReport() {
   const auth = useAuth();
   const userId = auth.user?.userId ?? "";
-  const [waterTemp, setWaterTemp] = useState<number>(0);
-  const [weight, setWeight] = useState<number>(0);
-  const [length, setLength] = useState<number>(0);
 
-  const [catchReportData, setCatchReportData] = useState<CreatCatchReportData>({
-    location: "",
-    species: "",
-    bait: "",
-    method: "",
-    weather: "",
-    authorId: userId,
-    waterTemp: waterTemp,
-    notes: "",
-    image: "",
-    weight: weight,
-    length: length,
-  });
-
-  const handleInputChange = (field: keyof CreatCatchReportData, value: string | number) => {
-    setCatchReportData({
-      ...catchReportData,
-      [field]: value,
-    });
-  };
+  const [image, setImage] = useState<string | undefined>(undefined);
+  const [notes, setNotes] = useState<string | undefined>();
+  const [location, setLocation] = useState("");
+  const [species, setSpecies] = useState("");
+  const [bait, setBait] = useState("");
+  const [method, setMethod] = useState("");
+  const [weather, setWeather] = useState("");
+  const [waterTemp, setWaterTemp] = useState("");
+  const [weight, setWeight] = useState("");
+  const [length, setLength] = useState("");
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -44,82 +31,113 @@ export default function CreateCatchReport() {
     });
 
     if (!result.canceled) {
-      const uri = result['uri'];
-      setCatchReportData({
-        ...catchReportData,
-        image: uri,
+      const base64 = await FileSystem.readAsStringAsync(result.assets[0].uri, {
+        encoding: FileSystem.EncodingType.Base64,
       });
+      setImage(`data:image/jpeg;base64,${base64}`);
     }
-  }
-
+  };
   const handleSubmit = async () => {
-    await createCatchReport(catchReportData);
+    if (!location || !species || !bait || !method || !weather || !userId) {
+      alert("Fyll i alla de fällt som har en * ");
+      return;
+    }
+
+    const catchReportData: CreatCatchReportData = {
+      location,
+      species,
+      bait,
+      method,
+      weather,
+      notes,
+      authorId: userId,
+      waterTemp: parseFloat(waterTemp),
+      image: image ? image.split(",")[1] : undefined,
+      weight: parseFloat(weight),
+      length: parseFloat(length),
+    };
+
+    try {
+      console.log("Submitting catch report:", catchReportData);
+      await createCatchReport(catchReportData);
+      alert("Success, Report submitted successfully");
+    } catch (error) {
+      console.error("Error submitting catch report:", error);
+      alert("Error, Failed to submit report");
+    }
   };
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Plats"
-        value={catchReportData.location}
-        onChangeText={(value) => handleInputChange("location", value)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Art"
-        value={catchReportData.species}
-        onChangeText={(value) => handleInputChange("species", value)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Bete"
-        value={catchReportData.bait}
-        onChangeText={(value) => handleInputChange("bait", value)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Metod"
-        value={catchReportData.method}
-        onChangeText={(value) => handleInputChange("method", value)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Väder"
-        value={catchReportData.weather}
-        onChangeText={(value) => handleInputChange("weather", value)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Notering"
-        value={catchReportData.notes}
-        onChangeText={(value) => handleInputChange("notes", value)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Vatten temperatur"
-        value={catchReportData.waterTemp.toString()}
-        onChangeText={(value) => setWaterTemp(Number(value))}
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Vikt"
-        value={catchReportData.weight.toString()}
-        onChangeText={(value) => setWeight(Number(value))}
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Längd"
-        value={catchReportData.length.toString()}
-        onChangeText={(value) => setLength(Number(value))}
-        keyboardType="numeric"
-      />
-      <Button title="Pick Image" onPress={pickImage} />
-      {catchReportData.image && (
-        <Image source={{ uri: catchReportData.image }} style={{ width: 200, height: 200 }} />
-      )}
-      <Button title="Submit" onPress={handleSubmit} />
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Button 
+          title="Ladda Upp Bild"
+          onPress={pickImage}
+        />
+        {image && (
+          <Image source={{ uri: image }} style={styles.image } />
+        )}
+        <TextInput
+          placeholder="Plats *"
+          onChangeText={setLocation}
+          value={location}
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Fisk *"
+          onChangeText={setSpecies}
+          value={species}
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Bete *"
+          onChangeText={setBait} 
+          value={bait}
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Metod *"
+          onChangeText={setMethod}
+          value={method}
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Väder *"
+          onChangeText={setWeather}
+          value={weather}
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Vattentemp"
+          keyboardType="decimal-pad"
+          onChangeText={setWaterTemp}
+          value={waterTemp}
+          style={styles.input}
+        />
+
+        <TextInput
+          placeholder="Vikten"
+          keyboardType="decimal-pad"
+          onChangeText={setWeight}
+          value={weight}
+          style={styles.input}
+        />
+
+        <TextInput
+          placeholder="Längd"
+          keyboardType="decimal-pad"
+          onChangeText={setLength}
+          value={length}
+          style={styles.input}
+        />
+                <TextInput 
+          placeholder="Anteckningar" 
+          onChangeText={setNotes} 
+          value={notes} 
+          style={styles.input}
+        />
+        <Button title="Lägg till" onPress={handleSubmit} />
+      </View>
+    </ScrollView>
   );
 }
