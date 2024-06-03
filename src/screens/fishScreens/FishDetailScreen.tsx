@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Image, ActivityIndicator } from "react-native";
 import axios from "axios";
-import Header from "../components/Header";
+import Header from "../../components/Header";
 
 interface FishSpecies {
   swedishName: string;

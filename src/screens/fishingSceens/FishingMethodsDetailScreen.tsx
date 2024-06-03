@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import Header from "../components/Header";
+import Header from "../../components/Header";
 
 const FishingMethodDetailScreen = ({ route }: any) => {
     const { method } = route.params;
