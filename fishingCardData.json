@@ -1,0 +1,151 @@
+[
+    {
+      "lake": "Västra Öresjön",
+      "boatRental": {
+        "name": "Wilhelm",
+        "phone": "072-537 45 52"
+      },
+      "fishingLicenseSales": [
+        {
+          "name": "Skene Järn",
+          "phone": "0320 - 195 18"
+        },
+        {
+          "name": "Marks jakt & Fiskecenter",
+          "phone": "0320 - 440 08"
+        },
+        {
+          "name": "Hanatorps Camping",
+          "phone": "0320 - 483 12, 0703 - 00 15 82"
+        },
+        {
+          "name": "Bil & Motor i Horred AB",
+          "phone": "0320 - 806 35"
+        }
+      ],
+      "fishingService": {
+        "depthMap": {
+          "info": "Säljes vid fiskekortsförsäljningsställena.",
+          "price": "100kr"
+        }
+      },
+      "otherServices": [
+        {
+          "type": "Stuguthyrning",
+          "provider": "Hanatorps Camping",
+          "phone": "0320 - 483 12, 0703 - 00 15 82"
+        },
+        {
+          "type": "Matställen",
+          "provider": "Örby Pizzeria",
+          "phone": "0320 - 484 38"
+        }
+      ]
+    },
+    {
+      "lake": "Vättern",
+      "boatRental": {
+        "name": "Boatrent AB",
+        "phone": "070-123 45 67"
+      },
+      "fishingLicenseSales": [
+        {
+          "name": "Online Purchase",
+          "link": "https://www.example.com/buy-license"
+        }
+      ]
+    },
+    {
+      "lake": "Finnsjön, Västergötland",
+      "fishingLicenseSales": [
+        {
+          "name": "Gula kortet Göteborg(inkl Härryda)",
+          "link": "https://www.ifiske.se/fiskekort-gula-kortet-goteborg.htm"
+        }
+      ]
+    },
+    {
+      "lake": "Sämsjön (Finnekumla socken, Västergötland)",
+      "boatRental": {
+        "name": "Vegby Camping",
+        "phone": "0702675992"
+      },
+      "fishingLicenseSales": [
+        {
+          "name": "Vegby Camping",
+          "phone": "0702675992",
+          "link": "https://www.vegbycamping.com/"
+        }
+      ],
+      "fishingService": {
+        "depthMap": {
+          "info": "Available at license sales points.",
+          "price": "150kr"
+        }
+      },
+      "otherServices": [
+        {
+          "type": "Cafe Sjöparken",
+          "phone": "073-085 40 68"
+        },
+        {
+          "type": "Vegby Camping Restaurang",
+          "provider": "Grill Restaurang och Pizzeria",
+          "phone": "0702675992"
+        }
+      ]
+    },
+    {
+      "lake": "Stora Kåsjön",
+      "fishingLicenseSales": [
+        {
+          "name": "Gula kortet Göteborg(inkl Härryda)",
+          "link": "https://www.ifiske.se/fiskekort-gula-kortet-goteborg.htm"
+        }
+      ]
+    },
+    {
+      "lake": "Lagan",
+      "fishingLicenseSales": [
+        {
+          "name": "Gula kortet Göteborg(inkl Härryda)",
+          "link": "https://www.laholmslaxfiske.nu/se/fiskekort/fiskekort-26498249"
+        }
+      ]
+    },
+    {
+      "lake": "Vänern",
+      "boatRental": {
+        "name": "Boatrent AB",
+        "phone": "070-123 45 67"
+      },
+      "fishingLicenseSales": [
+        {
+          "name": "Online Purchase",
+          "link": "https://www.example.com/buy-license"
+        }
+      ]
+    },
+    {
+      "lake": "Öresjö (Fristads socken, Västergötland)",
+      "boatRental": {
+        "name": "Boatrent AB",
+        "phone": "070-123 45 67"
+      },
+      "fishingLicenseSales": [
+        {
+          "name": "OKQ8 Fristad",
+          "phone": "033-26 04 00"
+        },
+        {
+          "name": "Vildland",
+          "phone": "033-41 15 66"
+        },
+        {
+          "name": "Wollmars Fiske Jakt Fritid",
+          "phone": "033-12 68 00"
+        }
+      ]
+    }
+  ]
+  

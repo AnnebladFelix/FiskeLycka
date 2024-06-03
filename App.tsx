@@ -71,17 +71,17 @@ export default function App() {
                         <Stack.Screen
                             name="FishSpecies"
                             component={FishSpeciesScreen}
-                            options={{ title: "Fiskarter" }}
+                            options={{ title: "Fiskarter", headerShown:false }}
                         />
                         <Stack.Screen
                             name="FishingWater"
                             component={FishingWaterScreen}
-                            options={{ title: "Fiskevatten" }}
+                            options={{ title: "Fiskevatten", headerShown:false }}
                         />
                         <Stack.Screen
                             name="FishingMethods"
                             component={FishingMethodsScreen}
-                            options={{ title: "Fiskemetoder" }}
+                            options={{ title: "Fiskemetoder", headerShown:false }}
                         />
                         <Stack.Screen
                             name="UserScreen"
@@ -96,17 +96,17 @@ export default function App() {
                         <Stack.Screen
                             name="FishDetail"
                             component={FishDetailScreen}
-                            options={{ title: "Fiskart" }}
+                            options={{ title: "Fiskart", headerShown:false }}
                         />
                         <Stack.Screen
                             name="SearchFishingWater"
                             component={SearchFishingWaterScreen}
-                            options={{ title: "Sök fiskevatten" }}
+                            options={{ title: "Sök fiskevatten", headerShown:false }}
                         />
                         <Stack.Screen
                             name="FishingMethod"
                             component={FishingMethodsDetailScreen}
-                            options={{ title: "Fiskemetod" }}
+                            options={{ title: "Fiskemetod", headerShown:false }}
                         />
                     </Stack.Navigator>
                 </NavigationContainer>
