@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, Button, Image, ScrollView } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { fetchCatchReports } from "../../../db/postOperations";
 import { CatchReportData } from "../../interfaces/postInterfaces";
 import { postStyles as style } from "../../styling/postStyling";
@@ -18,14 +18,18 @@ export type CatchReportsPageNavigationProp = StackNavigationProp<
 const CatchReportsPage = () => {
   const [catchReports, setCatchReports] = useState<CatchReportData[]>([]);
   const navigation = useNavigation<CatchReportsPageNavigationProp>();
+  const isFocused = useIsFocused();
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchCatchReports();
       setCatchReports(data);
     };
 
-    fetchData();
-  }, []);
+    if (isFocused) {
+      fetchData();
+    }
+  }, [isFocused]);
 
 
   return (
