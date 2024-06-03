@@ -17,6 +17,7 @@ interface Fish {
   lakes: string[];
 }
 
+
 const formatMarkerTitle = (title: string) => {
   const formattedTitle = title.replace(/_/g, ' ');
   return formattedTitle;
