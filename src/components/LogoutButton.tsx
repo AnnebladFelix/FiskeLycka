@@ -1,6 +1,7 @@
 import React from "react";
-import { Button } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 import { useAuth } from "./AuthContext";
+import { userPageStyles as styles } from "../styling/UserPagesStyling";
 
 const LogoutButton = ({ navigation }: { navigation: any }) => {
     const { logout } = useAuth();
@@ -13,7 +14,11 @@ const LogoutButton = ({ navigation }: { navigation: any }) => {
         });
     };
 
-    return <Button title="Logga ut" onPress={handleLogOutClick} />;
+    return (
+        <TouchableOpacity style={styles.button} onPress={handleLogOutClick}>
+            <Text style={styles.buttonText}>LOGGA UT</Text>
+        </TouchableOpacity>
+    )
 };
 
 export default LogoutButton;

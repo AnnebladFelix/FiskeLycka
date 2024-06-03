@@ -17,7 +17,6 @@ interface Fish {
   lakes: string[];
 }
 
-
 const formatMarkerTitle = (title: string) => {
   const formattedTitle = title.replace(/_/g, ' ');
   return formattedTitle;
@@ -163,7 +162,6 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   wrapper: {

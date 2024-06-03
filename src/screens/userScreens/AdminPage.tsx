@@ -44,9 +44,7 @@ const AdminPage = ({ navigation }: { navigation: any }) => {
                 </View>
             ))}
             <UserSettings />
-            <View>
-                <LogoutButton navigation={navigation} />
-            </View>
+            <LogoutButton navigation={navigation} />
         </View>
     );
 };

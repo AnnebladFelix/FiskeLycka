@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import Device from 'expo-device';
 import CustomMarker from '../../components/CustomMarker';
+import { MapScreenStyling as styles } from '../../styling/MapScreenStyling';
 
 
 interface Position {
@@ -89,17 +90,5 @@ const MapScreen = ({ navigation }: { navigation: any }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    
-  },
-  map: {
-    width: '100%',
-    height: '100%',
-  },
-})
 
 export default MapScreen;
