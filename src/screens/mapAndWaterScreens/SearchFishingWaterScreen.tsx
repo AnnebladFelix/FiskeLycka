@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, FlatList, TouchableOpacity } from 'react-native';
 import Header from '../../components/Header';
-
+import { SearchFishingWaterScreenStyling as styles } from '../../styling/SearchFishingWaterStyling';
 
 interface Lake {
     latitude: number;
@@ -66,27 +66,5 @@ const SearchFishingWaterScreen = ({ navigation }: { navigation: any }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-  searchInput: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    padding: 10,
-    marginBottom: 20,
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-  },
-});
 
 export default SearchFishingWaterScreen;

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
+import { View, Text, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import { ScrollView } from 'react-native-gesture-handler';
 import Header from '../../components/Header';
+import { FishingWaterScreenStyle as styles } from '../../styling/FishingWaterScreenStyling';
 
 const formatMarkerTitle = (title: string) => {
   const formattedTitle = title.replace(/_/g, ' ');
@@ -101,51 +102,5 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  scrollView: {
-    width: '100%',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  text: {
-    fontSize: 16,
-    textAlign: 'center',
-  },
-  image: {
-    width: 300,
-    height: 200,
-    resizeMode: 'contain',
-  },
-  button: {
-    backgroundColor: '#4CAF50',
-    padding: 10,
-    marginVertical: 8,
-    borderRadius: 5,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-  },
-  noFishText: {
-    fontSize: 16,
-    color: 'red',
-    textAlign: 'center',
-  },
-});
 
 export default FishingWaterScreen;

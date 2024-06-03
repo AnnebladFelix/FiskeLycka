@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ImageBackground } from "react-native";
+import { ImageBackground } from "react-native";
 import { userPageStyles as styles } from "../../styling/UserPagesStyling";
 import UserSettings from "../../components/UserSettings";
 import LogoutButton from "../../components/LogoutButton";
