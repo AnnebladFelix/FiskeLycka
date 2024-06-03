@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, ImageBackground } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ImageBackground } from "react-native";
 import { updateUserName, updateUserPassword } from "../../db/userOperations";
 import { useAuth } from "../components/AuthContext";
 import { userPageStyles as styles } from "../styling/UserPagesStyling";
@@ -51,7 +51,9 @@ const UserSettings = () => {
                 value={newName}
                 onChangeText={setNewName}
             />
-            <Button title="Byt Namn" onPress={handleNameUpdate} />
+            <TouchableOpacity style={styles.button} onPress={handleNameUpdate}>
+                <Text style={styles.buttonText}>ÄNDRA NAMN</Text>
+            </TouchableOpacity>
             {nameChanged ? (
                 <Text style={styles.success}>Användarnamnet är ändrat.</Text>
             ) : null}
@@ -69,7 +71,9 @@ const UserSettings = () => {
                 onChangeText={setConfirmPassword}
                 secureTextEntry
             />
-            <Button title="Byt Lösenord" onPress={handlePasswordUpdate} />
+            <TouchableOpacity style={styles.button} onPress={handlePasswordUpdate}>
+                <Text style={styles.buttonText}>ÄNDRA LÖSENORD</Text>
+            </TouchableOpacity>
             {error ? <Text style={styles.error}>{error}</Text> : null}
             {passwordChanged ? (
                 <Text style={styles.success}>Lösenordet ändrat.</Text>

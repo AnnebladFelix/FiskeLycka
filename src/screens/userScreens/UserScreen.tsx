@@ -11,9 +11,7 @@ const UserScreen = ({ navigation }: { navigation: any }) => {
             style={styles.background}
         >
             <UserSettings />
-            <View style={styles.button}>
-                <LogoutButton navigation={navigation} />
-            </View>
+            <LogoutButton navigation={navigation} />
         </ImageBackground>
     );
 };

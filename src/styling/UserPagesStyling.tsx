@@ -46,6 +46,15 @@ export const userPageStyles = StyleSheet.create({
         marginTop: 10,
     },
     button: {
-        marginTop: 10,
-    },
+      backgroundColor: "#007AFF",
+      padding: 12,
+      borderRadius: 5,
+      alignSelf: "center", 
+      width: "40%",
+      margin: 10,
+  },
+  buttonText: {
+      color: "#fff",
+      textAlign: "center",
+  }
   });
