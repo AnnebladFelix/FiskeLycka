@@ -4,16 +4,15 @@ import { useNavigation } from "@react-navigation/native";
 import { fetchCatchReports } from "../../../db/postOperations";
 import { CatchReportData } from "../../interfaces/postInterfaces";
 import { postStyles as style } from "../../styling/postStyling";
-
 import { StackNavigationProp } from "@react-navigation/stack";
 
 type RootStackParamList = {
-  CatchReportsPage: undefined;
+  CatchReports: undefined;
   CreateCatchReport: undefined;
 };
 export type CatchReportsPageNavigationProp = StackNavigationProp<
   RootStackParamList,
-  'CatchReportsPage'
+  'CatchReports'
 >;
 
 const CatchReportsPage = () => {

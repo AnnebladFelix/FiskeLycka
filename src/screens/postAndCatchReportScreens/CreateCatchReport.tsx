@@ -6,10 +6,14 @@ import { CreatCatchReportData } from "../../interfaces/postInterfaces";
 import { createCatchReport } from "../../../db/postOperations";
 import { useAuth } from "../../components/AuthContext";
 import { postStyles as styles } from "../../styling/postStyling";
+import { useNavigation } from '@react-navigation/native';
+import type {CatchReportsPageNavigationProp} from "./DisplayCatchReports"
+
 
 export default function CreateCatchReport() {
   const auth = useAuth();
   const userId = auth.user?.userId ?? "";
+  const navigation = useNavigation<CatchReportsPageNavigationProp>();
 
   const [image, setImage] = useState<string | undefined>(undefined);
   const [notes, setNotes] = useState<string | undefined>();
@@ -58,12 +62,12 @@ export default function CreateCatchReport() {
     };
 
     try {
-      console.log("Submitting catch report:", catchReportData);
       await createCatchReport(catchReportData);
-      alert("Success, Report submitted successfully");
+      navigation.navigate("CatchReports")
+      alert("Din fångstrapport är skapad!");
     } catch (error) {
       console.error("Error submitting catch report:", error);
-      alert("Error, Failed to submit report");
+      alert("Gick inte att skapa rapport!");
     }
   };
 
