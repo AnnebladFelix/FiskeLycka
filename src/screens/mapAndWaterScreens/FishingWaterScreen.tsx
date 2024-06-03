@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator, Image, TouchableOpacity, Linking } from 'react-native';
 import axios from 'axios';
 import { ScrollView } from 'react-native-gesture-handler';
 import Header from '../../components/Header';
-import { FishingWaterScreenStyle as styles } from '../../styling/FishingWaterScreenStyling';
+import {
+  BoatRental,
+  FishingLicenseSale,
+  DepthMap,
+  FishingService,
+  OtherService,
+  FishingCardInfo
+} from '../../components/FishingCardData';
+
+interface Fish {
+  swedishName: string;
+  lakes: string[];
+}
 
 const formatMarkerTitle = (title: string) => {
   const formattedTitle = title.replace(/_/g, ' ');
-
   return formattedTitle;
 };
 
@@ -17,8 +28,10 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [lakeImage, setLakeImage] = useState<string | null>(null);
+  const [fishingCardInfo, setFishingCardInfo] = useState<FishingCardInfo | null>(null);
 
-  const fiskarter = require('../../../swedish_fish_species.json');
+  const fiskarter: Fish[] = require('../../../swedish_fish_species.json');
+  const fishingCardData: FishingCardInfo[] = require('../../../fishingCardData.json');
 
   useEffect(() => {
     if (!title) {
@@ -60,15 +73,18 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
     };
 
     fetchLakeInfo();
+
+    const cardInfo = fishingCardData.find(info => info.lake === title);
+    setFishingCardInfo(cardInfo || null);
+
+
   }, [title]);
 
-  const handleFishDetailNavigation = (fish: any) => {
+  const handleFishDetailNavigation = (fish: Fish) => {
     navigation.navigate('FishDetail', { fish });
   };
 
-  const relevantFish = fiskarter.filter((fish: any) => fish.lakes && fish.lakes.includes(title));
-
-  console.log('Relevant fish:', relevantFish);
+  const relevantFish = fiskarter.filter(fish => fish.lakes && fish.lakes.includes(title!));
 
   return (
     <View style={styles.wrapper}>
@@ -83,8 +99,52 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
           <ScrollView>
             {lakeImage && <Image source={{ uri: lakeImage }} style={styles.image} />}
             <Text style={styles.text}>{lakeInfo}</Text>
+            {fishingCardInfo && (
+              <View style={styles.card}>
+                <Text style={styles.cardTitle}>Fiskekort & Övrig Info:</Text>
+                {fishingCardInfo.boatRental && (
+                  <>
+                    <Text style={styles.cardSection}>Båtuthyring:</Text>
+                    <Text>{fishingCardInfo.boatRental.name}</Text>
+                    <Text>{fishingCardInfo.boatRental.phone}</Text>
+                  </>
+                )}
+                <Text style={styles.cardSection}>Fiskekortsförsäljning:</Text>
+                {fishingCardInfo.fishingLicenseSales.map((item, index) => (
+                  <View key={index}>
+                    <Text>{item.name}</Text>
+                    {item.phone &&<Text>{item.phone}</Text>}
+                    {item.link && (
+                      <TouchableOpacity onPress={() => Linking.openURL(item.link!)}>
+                        <Text style={styles.linkText}>{item.link}</Text>
+                      </TouchableOpacity>
+                    )}
+                  </View>
+                ))}
+                {fishingCardInfo.fishingService && (
+                  <>
+                    <Text style={styles.cardSection}>Fiskeservice:</Text>
+                    <Text>{fishingCardInfo.fishingService.depthMap.info}</Text>
+                    <Text>Pris: {fishingCardInfo.fishingService.depthMap.price}</Text>
+                  </>
+                )}
+                {fishingCardInfo.otherServices && (
+                  <>
+                    <Text style={styles.cardSection}>Övrig service och aktiviteter i närområdet:</Text>
+                    {fishingCardInfo.otherServices.map((service, index) => (
+                    <View key={index}>
+                      <Text>{service.type}</Text>
+                      <Text>{service.provider}</Text>
+                      <Text>{service.phone}</Text>
+                    </View>
+                ))}
+                </>
+                )}
+              </View>
+            )}
+            <Text style={styles.title}>Fiskarter i denna sjön:</Text>
             {relevantFish.length > 0 ? (
-              relevantFish.map((fish: any) => (
+              relevantFish.map(fish => (
                 <TouchableOpacity
                   key={fish.swedishName}
                   style={styles.button}
@@ -102,5 +162,75 @@ const FishingWaterScreen = ({ route, navigation }: { route: any, navigation: any
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  scrollView: {
+    width: '100%',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  text: {
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  image: {
+    width: 300,
+    height: 200,
+    resizeMode: 'contain',
+  },
+  card: {
+    marginVertical: 10,
+    padding: 10,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+  },
+  cardTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  cardSection: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  linkText: {
+    color: 'blue',
+    textDecorationLine: 'underline',
+  },
+  button: {
+    backgroundColor: '#4CAF50',
+    padding: 10,
+    marginVertical: 8,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  noFishText: {
+    fontSize: 16,
+    color: 'red',
+    textAlign: 'center',
+  },
+});
 
 export default FishingWaterScreen;

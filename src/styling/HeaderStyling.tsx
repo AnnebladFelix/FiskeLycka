@@ -5,7 +5,7 @@ export const headerStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'space-between',
-    height: 80,
+    height: 120,
     paddingHorizontal: 20,
     backgroundColor: '#fff',
   },
@@ -17,7 +17,7 @@ export const headerStyles = StyleSheet.create({
   },
   loginLogo: {
     marginTop:20,
-    marginBottom:10,
+    marginBottom:0,
     width: 80,
     height: 60,
     resizeMode: 'contain',
