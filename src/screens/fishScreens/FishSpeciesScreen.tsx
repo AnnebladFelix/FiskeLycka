@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity} from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, ImageBackground} from 'react-native';
 import Header from '../../components/Header';
 import { FishSpeciesScreenStyling as styles } from '../../styling/FishSpeciesScreenStyling';
 
@@ -27,9 +27,14 @@ const FishSpeciesScreen = ({ navigation }: { navigation: any }) => {
   );
 
   return (
+    <ImageBackground
+            source={require("../../../assets/images/bakground1.jpg")}
+            style={styles.background}
+        >
     <View style={styles.wrapper}>
         <Header />
       <View style={styles.container}>
+        <Text style={styles.text}>Fiskarter</Text>
         <FlatList
           data={fiskarter}
           renderItem={renderItem}
@@ -38,6 +43,7 @@ const FishSpeciesScreen = ({ navigation }: { navigation: any }) => {
       </View>
 
     </View>
+    </ImageBackground>
   );
 };
 
