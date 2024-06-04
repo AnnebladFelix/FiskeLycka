@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, Image } from "react-native";
 import { fetchPosts } from "../../../db/postOperations";
 import { PostData } from "../../interfaces/postInterfaces";
+import Header from "../../components/Header";
 import { userPageStyles as style } from "../../styling/UserPagesStyling";
 
 const PostsPage = () => {
@@ -18,6 +19,7 @@ const PostsPage = () => {
 
   return (
     <View style={style.container}>
+    <Header />
       <Text style={style.title}>Fångstrapporter</Text>
       <FlatList
         data={posts}

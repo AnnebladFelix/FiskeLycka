@@ -13,6 +13,7 @@ import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { fetchCatchReports } from "../../../db/postOperations";
 import { CatchReportData } from "../../interfaces/postInterfaces";
 import { StackNavigationProp } from "@react-navigation/stack";
+import Header from "../../components/Header";
 
 type RootStackParamList = {
   CatchReports: undefined;
@@ -44,6 +45,7 @@ const CatchReportsPage = () => {
       source={require("../../../assets/images/bakground1.jpg")}
       style={style.background}
     >
+    <Header />
       <SafeAreaView style={style.container}>
         <TouchableOpacity
           onPress={() => navigation.navigate("CreateCatchReport")}

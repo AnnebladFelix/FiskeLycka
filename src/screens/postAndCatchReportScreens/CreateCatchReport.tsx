@@ -16,6 +16,7 @@ import { createCatchReport } from "../../../db/postOperations";
 import { useAuth } from "../../components/AuthContext";
 import { postStyles as style } from "../../styling/PostStyling";
 import { useNavigation } from "@react-navigation/native";
+import Header from "../../components/Header";
 import type { CatchReportsPageNavigationProp } from "./DisplayCatchReports";
 
 export default function CreateCatchReport() {
@@ -88,6 +89,7 @@ export default function CreateCatchReport() {
       source={require("../../../assets/images/bakground1.jpg")}
       style={style.background}
     >
+    <Header />
       <ScrollView>
         {!loading ? (
           <View style={style.container}>
