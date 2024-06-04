@@ -70,7 +70,7 @@ const CatchReportsPage = () => {
               <View style={style.card}>
                 <Text style={style.title}>Just nu finns det inget här!</Text>
                 <NetworkStatus />
-                <Text>FiskeLycka ligger nere tillfälligt!</Text>
+                <Text>Kolla så du har närverk eller om FiskeLycka ligger nere tillfälligt!</Text>
               </View>
             ) : (
               <FlatList
