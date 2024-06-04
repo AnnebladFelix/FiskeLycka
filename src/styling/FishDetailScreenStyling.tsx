@@ -41,6 +41,7 @@ export const FishDetailScreenStyling = StyleSheet.create({
     backgroundColor: "#f9f9f9",
     padding: 25,
     margin: 10,
+    marginVertical: 20,
     borderRadius: 10,
     marginBottom: 10,
     shadowColor: "#000",
