@@ -1,9 +1,9 @@
 // SignupScreen.tsx
 import React, { useState, useEffect } from "react";
 import { Button, TextInput, View, Text, ImageBackground } from "react-native";
-import { fetchUsers, addUser } from "../../db/userOperations";
-import { userPageStyles as styles } from "../styling/UserPagesStyling";
-import {UserData} from '../interfaces/userInterfaces'
+import { fetchUsers, addUser } from "../../../db/userOperations";
+import { userPageStyles as styles } from "../../styling/UserPagesStyling";
+import {UserData} from '../../interfaces/userInterfaces'
 
 interface User {
     id: string;
@@ -53,7 +53,7 @@ const SignupScreen = ({ navigation }: { navigation: any }) => {
 
     return (
         <ImageBackground
-            source={require("../../assets/images/bakground1.jpg")}
+            source={require("../../../assets/images/bakground1.jpg")}
             style={styles.background}
         >
             <View style={styles.container}>

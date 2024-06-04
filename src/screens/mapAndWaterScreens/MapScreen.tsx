@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import Device from 'expo-device';
-import CustomMarker from '../components/CustomMarker';
+import CustomMarker from '../../components/CustomMarker';
+import { MapScreenStyling as styles } from '../../styling/MapScreenStyling';
 
 
 interface Position {
@@ -23,6 +24,8 @@ const MapScreen = ({ navigation }: { navigation: any }) => {
     { latitude: 57.63423, longitude: 12.137591, title: 'Finnsjön,_Västergötland', name: 'Finnsjön' },
     { latitude: 56.548056, longitude: 12.949444, title: 'Lagan', name: 'Lagan' },
     { latitude: 57.78754, longitude: 12.97886, title: 'Öresjö_(Fristads_socken,_Västergötland)', name: 'Öresjön' },
+    { latitude: 58.916663, longitude: 13.499998, title: 'Vänern', name: 'Vänern' },
+    { latitude: 58.32266, longitude: 14.48427, title: 'Vättern', name: 'Vättern' },
   ];
 
   useEffect(() => {
@@ -87,17 +90,5 @@ const MapScreen = ({ navigation }: { navigation: any }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    
-  },
-  map: {
-    width: '100%',
-    height: '100%',
-  },
-})
 
 export default MapScreen;

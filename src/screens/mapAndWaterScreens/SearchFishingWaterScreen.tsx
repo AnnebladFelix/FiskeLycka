@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-
+import { View, Text, TextInput, FlatList, TouchableOpacity } from 'react-native';
+import Header from '../../components/Header';
+import { SearchFishingWaterScreenStyling as styles } from '../../styling/SearchFishingWaterStyling';
 
 interface Lake {
     latitude: number;
@@ -20,6 +21,8 @@ const SearchFishingWaterScreen = ({ navigation }: { navigation: any }) => {
     { latitude: 57.63423, longitude: 12.137591, title: 'Finnsjön,_Västergötland', name: 'Finnsjön' },
     { latitude: 56.548056, longitude: 12.949444, title: 'Lagan', name: 'Lagan' },
     { latitude: 57.78754, longitude: 12.97886, title: 'Öresjö_(Fristads_socken,_Västergötland)', name: 'Öresjön' },
+    { latitude: 58.916663, longitude: 13.499998, title: 'Vänern', name: 'Vänern' },
+    { latitude: 58.32266, longitude: 14.48427, title: 'Vättern', name: 'Vättern' },
   ];
 
   const handleSearch = (text: string) => {
@@ -35,47 +38,33 @@ const SearchFishingWaterScreen = ({ navigation }: { navigation: any }) => {
   };
 
   const handleSelectLake = (lake: Lake) => {
-    navigation.navigate('FishingWater', { title: lake.title });
+    const formattedTitle = lake.title.replace(/_/g, ' ');
+    console.log('Navigating to:', formattedTitle);
+    navigation.navigate('FishingWater', { title: formattedTitle });
   };
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        placeholder="Sök fiskevatten"
-        value={searchQuery}
-        onChangeText={handleSearch}
-        style={styles.searchInput}
-      />
-      <FlatList
-        data={filteredLakes}
-        keyExtractor={(item) => item.title}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => handleSelectLake(item)}>
-            <Text style={styles.item}>{item.name}</Text>
-          </TouchableOpacity>
-        )}
-      />
+    <View style={styles.wrapper}>
+      <Header />
+      <View style={styles.container}>
+        <TextInput
+          placeholder="Sök fiskevatten"
+          value={searchQuery}
+          onChangeText={handleSearch}
+          style={styles.searchInput}
+        />
+        <FlatList
+          data={filteredLakes}
+          keyExtractor={(item) => item.title}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => handleSelectLake(item)}>
+              <Text style={styles.item}>{item.name}</Text>
+            </TouchableOpacity>
+          )}
+        />
+      </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-  searchInput: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    padding: 10,
-    marginBottom: 20,
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-  },
-});
 
 export default SearchFishingWaterScreen;
