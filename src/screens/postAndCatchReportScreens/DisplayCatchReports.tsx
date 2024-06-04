@@ -15,6 +15,7 @@ import { fetchCatchReports } from "../../../db/postOperations";
 import { CatchReportData } from "../../interfaces/postInterfaces";
 import { StackNavigationProp } from "@react-navigation/stack";
 import Header from "../../components/Header";
+import NetworkStatus from "../../components/NetworkStatus";
 
 type RootStackParamList = {
   CatchReports: undefined;
@@ -68,7 +69,8 @@ const CatchReportsPage = () => {
             {catchReports.length === 0 ? (
               <View style={style.card}>
                 <Text style={style.title}>Just nu finns det inget här!</Text>
-                <Text>Kolla så du har närverk eller om FiskeLycka ligger nere tillfälligt!</Text>
+                <NetworkStatus />
+                <Text>FiskeLycka ligger nere tillfälligt!</Text>
               </View>
             ) : (
               <FlatList
