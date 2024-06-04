@@ -5,13 +5,19 @@ export const FishingMethodsScreenStyling = StyleSheet.create({
         flex: 1,
     },
     container: {
-        flex: 1,
         padding: 10,
-        backgroundColor: "#f5f5f5",
+        backgroundColor: "rgba(225,225,225,0.5)",
+        margin: 10,
+        borderRadius: 10,
     },
+    text: {
+        fontSize: 24,
+        alignSelf: "center",
+        fontWeight: "bold",
+    },  
     itemContainer: {
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: "rgb(240, 240, 240)",
         padding: 10,
         marginVertical: 8,
         borderRadius: 5,
@@ -20,8 +26,14 @@ export const FishingMethodsScreenStyling = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowRadius: 1,
         elevation: 2,
+        margin: 10,
     },
     itemText: {
-        fontSize: 16,
+        fontSize: 18,
+    },
+    background: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "flex-start",
     },
 });
