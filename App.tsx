@@ -242,13 +242,13 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
         </TouchableOpacity>
 
         <StatusBar style="auto" />
-      </ScrollView>
+        </ScrollView>
 
-      {/* Footer */}
-      <View style={styles.footer}>
-        <Text>@Copywrite 2024</Text>
-        <StatusBar style="auto" />
-      </View>
-    </ImageBackground>
-  );
+          {/* Footer */}
+          <View style={styles.footer}>
+              <Text>@DreamGreen 2024</Text>
+              <StatusBar style="auto" />
+          </View>
+      </ImageBackground>
+    );
 };
