@@ -21,7 +21,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
         if (user?.userId && user.email && user.admin === true) {
             navigation.reset({
                 index: 0,
-                routes: [{ name: "Home" }, { name: "AdminPage" }],
+                routes: [{ name: "Home" }, { name: "AdminScreen" }],
             });
         } else if (user) {
             navigation.reset({
