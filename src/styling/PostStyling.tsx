@@ -16,7 +16,7 @@ export const postStyles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 24,
+    marginBottom: 10,
     marginTop: 10,
   },
   input: {

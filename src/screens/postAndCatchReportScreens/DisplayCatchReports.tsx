@@ -47,13 +47,13 @@ const CatchReportsPage = () => {
     >
     <Header />
       <SafeAreaView style={style.container}>
+        <Text style={style.title}>Fångstrapporter</Text>
         <TouchableOpacity
           onPress={() => navigation.navigate("CreateCatchReport")}
           style={style.button}
         >
           <Text style={style.buttonText}>Skapa ny fångstrapport</Text>
         </TouchableOpacity>
-        <Text style={style.title}>Fångstrapporter</Text>
         <FlatList
           style={style.flatlist}
           data={catchReports}
