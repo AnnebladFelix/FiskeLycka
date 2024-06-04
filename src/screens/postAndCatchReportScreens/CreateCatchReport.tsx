@@ -1,20 +1,28 @@
 import React, { useState } from "react";
-import { Button, Image, TextInput, ScrollView, View, ActivityIndicator, Text } from "react-native";
+import {
+  TouchableOpacity,
+  Image,
+  TextInput,
+  ScrollView,
+  View,
+  ActivityIndicator,
+  Text,
+  ImageBackground,
+} from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
 import { CreatCatchReportData } from "../../interfaces/postInterfaces";
 import { createCatchReport } from "../../../db/postOperations";
 import { useAuth } from "../../components/AuthContext";
-import { postStyles as styles } from "../../styling/postStyling";
-import { useNavigation } from '@react-navigation/native';
-import type {CatchReportsPageNavigationProp} from "./DisplayCatchReports"
-
+import { postStyles as style } from "../../styling/PostStyling";
+import { useNavigation } from "@react-navigation/native";
+import type { CatchReportsPageNavigationProp } from "./DisplayCatchReports";
 
 export default function CreateCatchReport() {
   const auth = useAuth();
   const userId = auth.user?.userId ?? "";
   const navigation = useNavigation<CatchReportsPageNavigationProp>();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [image, setImage] = useState<string | undefined>(undefined);
   const [notes, setNotes] = useState<string | undefined>();
   const [location, setLocation] = useState("");
@@ -47,7 +55,7 @@ export default function CreateCatchReport() {
       return;
     }
 
-    setLoading(true)
+    setLoading(true);
 
     const catchReportData: CreatCatchReportData = {
       location,
@@ -65,93 +73,102 @@ export default function CreateCatchReport() {
 
     try {
       await createCatchReport(catchReportData);
-      navigation.navigate("CatchReports")
+      navigation.navigate("CatchReports");
       alert("Din fångstrapport är skapad!");
     } catch (error) {
       console.error("Error submitting catch report:", error);
       alert("Gick inte att skapa rapport!");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
   return (
-    <ScrollView>
-      { !loading ? (
-        <View style={styles.container}>
-        <Button 
-          title="Ladda Upp Bild"
-          onPress={pickImage}
-        />
-        {image && (
-          <Image source={{ uri: image }} style={styles.image } />
+    <ImageBackground
+      source={require("../../../assets/images/bakground1.jpg")}
+      style={style.background}
+    >
+      <ScrollView>
+        {!loading ? (
+          <View style={style.container}>
+            <TouchableOpacity style={style.button} onPress={pickImage}>
+              <Text style={style.buttonText}>Ladda Upp Bild</Text>
+            </TouchableOpacity>
+            {image && <Image source={{ uri: image }} style={style.image} />}
+            <TextInput
+              placeholder="Plats *"
+              onChangeText={setLocation}
+              value={location}
+              style={style.input}
+            />
+            <TextInput
+              placeholder="Fisk *"
+              onChangeText={setSpecies}
+              value={species}
+              style={style.input}
+            />
+            <TextInput
+              placeholder="Bete *"
+              onChangeText={setBait}
+              value={bait}
+              style={style.input}
+            />
+            <TextInput
+              placeholder="Metod *"
+              onChangeText={setMethod}
+              value={method}
+              style={style.input}
+            />
+            <TextInput
+              placeholder="Väder *"
+              onChangeText={setWeather}
+              value={weather}
+              style={style.input}
+            />
+            <TextInput
+              placeholder="Vattentemp"
+              keyboardType="decimal-pad"
+              onChangeText={setWaterTemp}
+              value={waterTemp}
+              style={style.input}
+            />
+
+            <TextInput
+              placeholder="Vikten"
+              keyboardType="decimal-pad"
+              onChangeText={setWeight}
+              value={weight}
+              style={style.input}
+            />
+
+            <TextInput
+              placeholder="Längd"
+              keyboardType="decimal-pad"
+              onChangeText={setLength}
+              value={length}
+              style={style.input}
+            />
+            <TextInput
+              placeholder="Anteckningar"
+              onChangeText={setNotes}
+              value={notes}
+              style={style.input}
+            />
+            <TouchableOpacity style={style.button} onPress={handleSubmit}>
+              <Text style={style.buttonText}>Lägg Till</Text>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <View style={style.container}>
+            <Text style={style.title}> Din fångstrapport laddas nu upp! </Text>
+            <ActivityIndicator
+              style={style.loadingIndicator}
+              size={60}
+              color="#0000ff"
+            />
+          </View>
         )}
-        <TextInput
-          placeholder="Plats *"
-          onChangeText={setLocation}
-          value={location}
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Fisk *"
-          onChangeText={setSpecies}
-          value={species}
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Bete *"
-          onChangeText={setBait} 
-          value={bait}
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Metod *"
-          onChangeText={setMethod}
-          value={method}
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Väder *"
-          onChangeText={setWeather}
-          value={weather}
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Vattentemp"
-          keyboardType="decimal-pad"
-          onChangeText={setWaterTemp}
-          value={waterTemp}
-          style={styles.input}
-        />
-
-        <TextInput
-          placeholder="Vikten"
-          keyboardType="decimal-pad"
-          onChangeText={setWeight}
-          value={weight}
-          style={styles.input}
-        />
-
-        <TextInput
-          placeholder="Längd"
-          keyboardType="decimal-pad"
-          onChangeText={setLength}
-          value={length}
-          style={styles.input}
-        />
-                <TextInput 
-          placeholder="Anteckningar" 
-          onChangeText={setNotes} 
-          value={notes} 
-          style={styles.input}
-        />
-        <Button title="Lägg till" onPress={handleSubmit} />
-      </View> ) : (
-        <View style={styles.container}>
-          <Text style={styles.title}> Din fångstrapport laddas nu upp! </Text>
-          <ActivityIndicator style={styles.loadingIndicator} size={60} color="#0000ff" />
-        </View>
-        )}     
-    </ScrollView>
+      </ScrollView>
+    </ImageBackground>
   );
 }

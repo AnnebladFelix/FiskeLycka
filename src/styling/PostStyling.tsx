@@ -9,29 +9,35 @@ export const postStyles = StyleSheet.create({
   container: {
     justifyContent: "flex-start",
     alignItems: "center",
-    padding: 10,
-    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    backgroundColor: "rgba(255, 255, 255, 0.5)",
+    margin: 10,
+    flex: 1,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 24,
-    marginTop: 40,
+    marginTop: 10,
   },
   input: {
-    width: "100%",
+    width: "90%",
     height: 40,
     padding: 10,
     margin: 10,
-    marginBottom: 12,
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 5,
     backgroundColor: "#fff",
   },
+  flatlist: {
+    flex: 1,
+    paddingBottom: 20,
+    marginBottom: 20,
+  },
   card: {
     backgroundColor: "#f9f9f9",
-    padding: 15,
+    padding: 25,
+    margin: 10,
     borderRadius: 10,
     marginBottom: 10,
     shadowColor: "#000",
@@ -48,5 +54,17 @@ export const postStyles = StyleSheet.create({
   },
   loadingIndicator: {
     margin: 20,
-  }
+  },
+  button: {
+    backgroundColor: "#007AFF",
+    padding: 12,
+    borderRadius: 5,
+    alignSelf: "center", 
+    width: "40%",
+    margin: 10,
+},
+buttonText: {
+    color: "#fff",
+    textAlign: "center",
+}
 });
