@@ -32,7 +32,7 @@ const FishSpeciesScreen = ({ navigation }: { navigation: any }) => {
             style={styles.background}
         >
     <View style={styles.wrapper}>
-        <Header />
+        {/* <Header /> */}
       <View style={styles.container}>
         <Text style={styles.text}>Fiskarter</Text>
         <FlatList

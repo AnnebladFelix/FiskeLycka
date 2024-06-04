@@ -7,7 +7,7 @@ export const headerStyles = StyleSheet.create({
         justifyContent: 'space-between',
         height: 120,
         paddingHorizontal: 20,
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        backgroundColor: 'rgba(250, 250, 250, 0.8)',
     },
     logo: {
         marginTop:20,

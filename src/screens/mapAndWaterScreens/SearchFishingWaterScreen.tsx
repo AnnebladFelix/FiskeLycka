@@ -96,7 +96,7 @@ const SearchFishingWaterScreen = ({ navigation }: { navigation: any }) => {
             style={styles.background}
         >
             <View style={styles.wrapper}>
-                <Header />
+                {/* <Header /> */}
                 <View style={styles.container}>
                     <TextInput
                         placeholder="Sök fiskevatten"

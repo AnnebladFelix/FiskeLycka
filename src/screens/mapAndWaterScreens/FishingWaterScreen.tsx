@@ -101,7 +101,7 @@ const FishingWaterScreen = ({
       style={styles.background}
     >
       <View style={styles.wrapper}>
-        <Header />
+        {/* <Header /> */}
         <ScrollView style={styles.card}>
           <Text style={styles.title}>{formatMarkerTitle(title)}</Text>
           {loading ? (

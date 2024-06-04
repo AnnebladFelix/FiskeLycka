@@ -67,7 +67,7 @@ const FishDetailScreen = ({ route }: { route: any }) => {
       style={styles.background}
     >
       <View style={styles.container}>
-        <Header />
+        {/* <Header /> */}
         <View style={styles.card}>
           <Text style={styles.mainHeaderText}>{fish.swedishName}</Text>
           <Text style={styles.subHeaderText}>({fish.scientificName})</Text>

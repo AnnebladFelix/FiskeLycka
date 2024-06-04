@@ -93,7 +93,7 @@ export default function CreateCatchReport() {
                 source={require("../../../assets/images/bakground1.jpg")}
                 style={style.background}
             >
-                <Header />
+                {/* <Header /> */}
                 <View style={style.card}>
                     <Text style={style.title}>
                         Du måste vara inloggad för att kunna skapa en fångstrapport.

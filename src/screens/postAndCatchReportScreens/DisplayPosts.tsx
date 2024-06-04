@@ -19,7 +19,7 @@ const PostsPage = () => {
 
   return (
     <View style={style.container}>
-    <Header />
+    {/* <Header /> */}
       <Text style={style.title}>Fångstrapporter</Text>
       <FlatList
         data={posts}

@@ -26,12 +26,12 @@ const FishingMethodDetailScreen = ({ route }: any) => {
     };
 
     return (
-        <ImageBackground
-        source={require("../../../assets/images/bakground1.jpg")}
-        style={styles.background}
-      >
+    //     <ImageBackground
+    //     source={require("../../../assets/images/bakground1.jpg")}
+    //     style={styles.background}
+    //   >
         <View style={styles.wrapper}>
-            <Header />
+            {/* <Header /> */}
             <ScrollView style={styles.card}>
                 <Text style={styles.title}>{method.name}</Text>
                 <Text style={styles.description}>{method.description}</Text>
@@ -50,7 +50,7 @@ const FishingMethodDetailScreen = ({ route }: any) => {
                 )}
             </ScrollView>
         </View>
-        </ImageBackground>
+        // </ImageBackground>
     );
 };
 

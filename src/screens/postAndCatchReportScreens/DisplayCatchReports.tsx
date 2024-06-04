@@ -49,7 +49,7 @@ const CatchReportsPage = () => {
       source={require("../../../assets/images/bakground1.jpg")}
       style={style.background}
     >
-      <Header />
+      {/* <Header /> */}
       <SafeAreaView style={style.container}>
         <Text style={style.title}>Fångstrapporter</Text>
         <TouchableOpacity

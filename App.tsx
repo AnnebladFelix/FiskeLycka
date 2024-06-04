@@ -2,17 +2,16 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
-  createNativeStackNavigator,
-  NativeStackNavigationProp,
+    createNativeStackNavigator,
+    NativeStackNavigationProp,
 } from "@react-navigation/native-stack";
 import {
-  ImageBackground,
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-  ScrollView,
-  TextInput,
+    ImageBackground,
+    Text,
+    TouchableOpacity,
+    View,
+    ScrollView,
+    TextInput,
 } from "react-native";
 import MapScreen from "./src/screens/mapAndWaterScreens/MapScreen";
 import FishSpeciesScreen from "./src/screens/fishScreens/FishSpeciesScreen";
@@ -31,13 +30,14 @@ import { mainStyles as styles } from "./src/styling/AppStyling";
 import CatchReportsPage from "./src/screens/postAndCatchReportScreens/DisplayCatchReports";
 import PostsPage from "./src/screens/postAndCatchReportScreens/DisplayPosts";
 import CreateCatchReport from "./src/screens/postAndCatchReportScreens/CreateCatchReport";
+import Header from "./src/components/Header";
 
 const Stack = createNativeStackNavigator();
 
 export type RootStackParamList = {
-  Login: undefined;
-  UserScreen: undefined;
-  Home: undefined;
+    Login: undefined;
+    UserScreen: undefined;
+    Home: undefined;
 };
 
 export type UserScreenNavigationProp = NativeStackNavigationProp<
@@ -50,83 +50,128 @@ export default function App() {
         <AuthProvider>
             <GestureHandlerRootView style={{ flex: 1 }}>
                 <NavigationContainer>
-                    <Stack.Navigator>
-                        <Stack.Screen
-                            name="Home"
-                            component={HomeScreen}
-                            options={{ headerShown: false }}
-                        />
-                        <Stack.Screen
-                            name="Map"
-                            component={MapScreen}
-                            options={{ title: "Karta" }}
-                        />
-                        <Stack.Screen
-                            name="Login"
-                            component={LoginScreen}
-                            options={{ title: "Logga in" }}
-                        />
-                        <Stack.Screen
-                            name="Signup"
-                            component={SignupScreen}
-                            options={{ title: "Skapa konto" }}
-                        />
-                        <Stack.Screen
-                            name="FishSpecies"
-                            component={FishSpeciesScreen}
-                            options={{ title: "Fiskarter", headerShown:false }}
-                        />
-                        <Stack.Screen
-                            name="FishingWater"
-                            component={FishingWaterScreen}
-                            options={{ title: "Fiskevatten", headerShown:false }}
-                        />
-                        <Stack.Screen
-                            name="FishingMethods"
-                            component={FishingMethodsScreen}
-                            options={{ title: "Fiskemetoder", headerShown:false }}
-                        />
-                        <Stack.Screen
-                            name="UserScreen"
-                            component={UserScreen}
-                            options={{ title: "Mina sidor" }}
-                        />
-                        <Stack.Screen
-                            name="AdminPage"
-                            component={AdminPage}
-                            options={{ title: "Admin sida" }}
-                        />
-                        <Stack.Screen
-                            name="FishDetail"
-                            component={FishDetailScreen}
-                            options={{ title: "Fiskart", headerShown:false }}
-                        />
-                        <Stack.Screen
-                            name="SearchFishingWater"
-                            component={SearchFishingWaterScreen}
-                            options={{ title: "Sök fiskevatten", headerShown:false }}
-                        />
-                        <Stack.Screen
-                            name="FishingMethod"
-                            component={FishingMethodsDetailScreen}
-                            options={{ title: "Fiskemetod", headerShown:false }}
-                        />
-                        <Stack.Screen
-                          name="CatchReports"
-                          component={CatchReportsPage}
-                          options={{ title: "Fångstrapporter", headerShown:false }}
-                        />
-                        <Stack.Screen
-                          name="Posts"
-                          component={PostsPage}
-                          options={{ title: "Inlägg", headerShown:false }}
-                        />
-                        <Stack.Screen
-                          name="CreateCatchReport"
-                          component={CreateCatchReport}
-                          options={{ title: "Skapa fångstrapport", headerShown:false }}
-                        />
-                    </Stack.Navigator>
+                    <ImageBackground
+                        source={require("./assets/images/bakground1.jpg")}
+                        style={styles.background}
+                    >
+                        <Header />
+                        <Stack.Navigator>
+                            <Stack.Screen
+                                name="Home"
+                                component={HomeScreen}
+                                options={{ headerShown: false }}
+                            />
+                            <Stack.Screen
+                                name="Map"
+                                component={MapScreen}
+                                options={{ title: "Karta", headerShown: false }}
+                            />
+                            <Stack.Screen
+                                name="Login"
+                                component={LoginScreen}
+                                options={{
+                                    title: "Logga in",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="Signup"
+                                component={SignupScreen}
+                                options={{
+                                    title: "Skapa konto",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="FishSpecies"
+                                component={FishSpeciesScreen}
+                                options={{
+                                    title: "Fiskarter",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="FishingWater"
+                                component={FishingWaterScreen}
+                                options={{
+                                    title: "Fiskevatten",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="FishingMethods"
+                                component={FishingMethodsScreen}
+                                options={{
+                                    title: "Fiskemetoder",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="UserScreen"
+                                component={UserScreen}
+                                options={{
+                                    title: "Mina sidor",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="AdminPage"
+                                component={AdminPage}
+                                options={{
+                                    title: "Admin sida",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="FishDetail"
+                                component={FishDetailScreen}
+                                options={{
+                                    title: "Fiskart",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="SearchFishingWater"
+                                component={SearchFishingWaterScreen}
+                                options={{
+                                    title: "Sök fiskevatten",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="FishingMethod"
+                                component={FishingMethodsDetailScreen}
+                                options={{
+                                    title: "Fiskemetod",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="CatchReports"
+                                component={CatchReportsPage}
+                                options={{
+                                    title: "Fångstrapporter",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="Posts"
+                                component={PostsPage}
+                                options={{
+                                    title: "Inlägg",
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="CreateCatchReport"
+                                component={CreateCatchReport}
+                                options={{
+                                    title: "Skapa fångstrapport",
+                                    headerShown: false,
+                                }}
+                            />
+                        </Stack.Navigator>
+                    </ImageBackground>
                 </NavigationContainer>
             </GestureHandlerRootView>
         </AuthProvider>
@@ -134,18 +179,6 @@ export default function App() {
 }
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
-    const handleMenuClick = () => {
-        console.log("Menu clicked");
-    };
-
-    const handleLogoClick = () => {
-        console.log("Logo clicked");
-    };
-
-    const goToLoginScreen = () => {
-        navigation.navigate("Login");
-    };
-
     const goToMapScreen = () => {
         navigation.navigate("Map");
     };
@@ -161,33 +194,13 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
     const goToFishingMethodsScreen = () => {
         navigation.navigate("FishingMethods");
     };
-  
+
     const goToCatchReportPage = () => {
-      navigation.navigate("CatchReports");
+        navigation.navigate("CatchReports");
     };
 
     return (
-        <ImageBackground
-            source={require("./assets/images/bakground1.jpg")}
-            style={styles.background}
-        >
-            {/* Header */}
-            <View style={styles.header}>
-                <TouchableOpacity onPress={handleLogoClick}>
-                    <Image
-                        source={require("./assets/images/Logo.png")}
-                        style={styles.logo}
-                    />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={goToLoginScreen}>
-                    <Image
-                        source={require("./assets/images/login+fish.png")}
-                        style={styles.loginLogo}
-                    />
-                </TouchableOpacity>
-            </View>
-
-            {/* Body */}
+        <>
             <ScrollView style={styles.mainContent}>
                 {/* Searchbar */}
                 <View style={styles.searchContainer}>
@@ -232,20 +245,18 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity
-                  style={styles.singleButton}
-                  onPress={goToCatchReportPage}
+                    style={styles.singleButton}
+                    onPress={goToCatchReportPage}
                 >
-                  <Text style={styles.buttonText}>Fångstrapporter</Text>
+                    <Text style={styles.buttonText}>Fångstrapporter</Text>
                 </TouchableOpacity>
 
                 <StatusBar style="auto" />
             </ScrollView>
-
-            {/* Footer */}
             <View style={styles.footer}>
                 <Text>@DreamGreen 2024</Text>
                 <StatusBar style="auto" />
             </View>
-        </ImageBackground>
+        </>
     );
 };

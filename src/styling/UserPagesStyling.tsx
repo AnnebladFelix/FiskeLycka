@@ -7,10 +7,11 @@ export const userPageStyles = StyleSheet.create({
       justifyContent: 'flex-start',
     },
     container: {
-      justifyContent: 'flex-start',
       alignItems: 'center',
       padding: 10,
-      backgroundColor: 'rgba(255, 255, 255, 0.8)',
+      margin: 10,
+      borderRadius:10,
+      backgroundColor: 'rgba(250, 250, 250, 0.8)',
     },
     title: {
       fontSize: 24,

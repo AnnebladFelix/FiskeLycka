@@ -4,6 +4,7 @@ import { Button, TextInput, View, Text, ImageBackground } from "react-native";
 import { fetchUsers, addUser } from "../../../db/userOperations";
 import { userPageStyles as styles } from "../../styling/UserPagesStyling";
 import {UserData} from '../../interfaces/userInterfaces'
+import Header from "../../components/Header";
 
 interface User {
     id: string;
@@ -56,6 +57,7 @@ const SignupScreen = ({ navigation }: { navigation: any }) => {
             source={require("../../../assets/images/bakground1.jpg")}
             style={styles.background}
         >
+            {/* <Header/> */}
             <View style={styles.container}>
                 <Text style={styles.title}>Skapa konto</Text>
                 <TextInput
