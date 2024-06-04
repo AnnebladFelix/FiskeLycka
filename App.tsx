@@ -60,17 +60,17 @@ export default function App() {
             <Stack.Screen
               name="Map"
               component={MapScreen}
-              options={{ title: "Karta" }}
+              options={{ title: "Karta", headerShown: false }}
             />
             <Stack.Screen
               name="Login"
               component={LoginScreen}
-              options={{ title: "Logga in" }}
+              options={{ title: "Logga in", headerShown: false }}
             />
             <Stack.Screen
               name="Signup"
               component={SignupScreen}
-              options={{ title: "Skapa konto" }}
+              options={{ title: "Skapa konto", headerShown: false }}
             />
             <Stack.Screen
               name="FishSpecies"
@@ -90,7 +90,7 @@ export default function App() {
             <Stack.Screen
               name="UserScreen"
               component={UserScreen}
-              options={{ title: "Mina sidor" }}
+              options={{ title: "Mina sidor", headerShown: false  }}
             />
             <Stack.Screen
               name="AdminScreen"

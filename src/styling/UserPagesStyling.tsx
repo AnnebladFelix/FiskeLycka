@@ -10,6 +10,8 @@ export const userPageStyles = StyleSheet.create({
       justifyContent: 'flex-start',
       alignItems: 'center',
       padding: 10,
+      margin:10,
+      borderRadius:10,
       backgroundColor: 'rgba(255, 255, 255, 0.8)',
     },
     title: {
