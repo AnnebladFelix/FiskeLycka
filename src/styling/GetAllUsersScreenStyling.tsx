@@ -4,6 +4,11 @@ export const GetAllUsersScreenStyling = StyleSheet.create({
   loadingIndicator: {
     margin: 20,
   },
+  background: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "flex-start",
+  },
   button: {
     backgroundColor: "#007AFF",
     padding: 12,

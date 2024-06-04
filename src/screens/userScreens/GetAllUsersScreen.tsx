@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { UserData } from "../../interfaces/userInterfaces";
-import { View, Text } from "react-native";
+import { View, Text, ImageBackground } from "react-native";
 import { fetchUsers } from "../../../db/userOperations";
 import Header from "../../components/Header";
 import { GetAllUsersScreenStyling as styles } from "../../styling/GetAllUsersScreenStyling";
@@ -25,7 +25,10 @@ function GetAllUsersScreen() {
   }, []);
 
   return (
-    <View>
+      <ImageBackground
+            source={require("../../../assets/images/bakground1.jpg")}
+            style={styles.background}
+        >
       <Header />
       {users.map((user, index) => (
         <View key={index}>
@@ -47,7 +50,7 @@ function GetAllUsersScreen() {
           </View>
         </View>
       ))}
-    </View>
+    </ImageBackground>
   );
 }
 

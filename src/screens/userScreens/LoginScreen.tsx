@@ -10,6 +10,7 @@ import {
 import { loginUser } from "../../../db/userOperations";
 import { useAuth } from "../../components/AuthContext";
 import { userPageStyles as styles } from "../../styling/UserPagesStyling";
+import Header from "../../components/Header";
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
     const [email, setEmail] = useState("");
@@ -65,6 +66,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
             source={require("../../../assets/images/bakground1.jpg")}
             style={styles.background}
         >
+            <Header/>
             <View style={styles.container}>
                 <Text style={styles.title}>Logga in</Text>
                 <TextInput
