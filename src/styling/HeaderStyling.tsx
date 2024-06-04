@@ -17,7 +17,7 @@ export const headerStyles = StyleSheet.create({
   },
   loginLogo: {
     marginTop:20,
-    marginBottom:0,
+    marginBottom:10,
     width: 80,
     height: 60,
     resizeMode: 'contain',
