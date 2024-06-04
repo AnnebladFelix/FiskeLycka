@@ -7,7 +7,7 @@ export const FishSpeciesScreenStyling = StyleSheet.create({
     container: {
         padding: 10,
         flex: 1,
-        backgroundColor: "rgba(232,232,232,0.8)",
+        backgroundColor: "rgba(225,225,225,0.5)",
         margin: 10,
         borderRadius: 10,
     },

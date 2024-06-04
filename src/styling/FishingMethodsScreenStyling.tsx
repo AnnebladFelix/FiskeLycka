@@ -5,9 +5,8 @@ export const FishingMethodsScreenStyling = StyleSheet.create({
         flex: 1,
     },
     container: {
-        // flex: 1,
         padding: 10,
-        backgroundColor: "rgba(232,232,232,0.8)",
+        backgroundColor: "rgba(225,225,225,0.5)",
         margin: 10,
         borderRadius: 10,
     },
