@@ -2,32 +2,35 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
-    createNativeStackNavigator,
-    NativeStackNavigationProp,
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
 } from "@react-navigation/native-stack";
 import {
-    ImageBackground,
-    Text,
-    TouchableOpacity,
-    View,
-    Image,
-    ScrollView,
-    TextInput,
+  ImageBackground,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  ScrollView,
+  TextInput,
 } from "react-native";
-import MapScreen from "./src/screens/mapAndWaterScreens/MapScreen";
-import FishSpeciesScreen from "./src/screens/fishScreens/FishSpeciesScreen";
-import FishingMethodsScreen from "./src/screens/fishingSceens/FishingMethodsScreen";
-import SignupScreen from "./src/screens/userScreens/SignupScreen";
-import LoginScreen from "./src/screens/userScreens/LoginScreen";
-import SearchFishingWaterScreen from "./src/screens/mapAndWaterScreens/SearchFishingWaterScreen";
-import FishingWaterScreen from "./src/screens/mapAndWaterScreens/FishingWaterScreen";
+import MapScreen from "./src/screens/MapScreen";
+import FishSpeciesScreen from "./src/screens/FishSpeciesScreen";
+import FishingMethodsScreen from "./src/screens/FishingMethodsScreen";
+import SignupScreen from "./src/screens/SignupScreen";
+import LoginScreen from "./src/screens/LoginScreen";
+import SearchFishingWaterScreen from "./src/screens/SearchFishingWaterScreen";
+import FishingWaterScreen from "./src/screens/FishingWaterScreen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { AuthProvider } from "./src/components/AuthContext";
-import UserScreen from "./src/screens/userScreens/UserScreen";
-import AdminPage from "./src/screens/userScreens/AdminPage";
-import FishDetailScreen from "./src/screens/fishScreens/FishDetailScreen";
-import FishingMethodsDetailScreen from "./src/screens/fishingSceens/FishingMethodsDetailScreen";
+import UserScreen from "./src/screens/UserScreen";
+import AdminPage from "./src/screens/AdminPage";
+import FishDetailScreen from "./src/screens/FishDetailScreen";
+import FishingMethodsDetailScreen from "./src/screens/FishingMethodsDetailScreen";
 import { mainStyles as styles } from "./src/styling/AppStyling";
+import CatchReportsPage from "./src/screens/postAndCatchReportScreens/DisplayCatchReports";
+import PostsPage from "./src/screens/postAndCatchReportScreens/DisplayPosts";
+import CreateCatchReport from "./src/screens/postAndCatchReportScreens/CreateCatchReport";
 
 const Stack = createNativeStackNavigator();
 
@@ -108,6 +111,21 @@ export default function App() {
                             component={FishingMethodsDetailScreen}
                             options={{ title: "Fiskemetod", headerShown:false }}
                         />
+                        <Stack.Screen
+                          name="CatchReports"
+                          component={CatchReportsPage}
+                          options={{ title: "Fångstrapporter", headerShown:false }}
+                        />
+                        <Stack.Screen
+                          name="Posts"
+                          component={PostsPage}
+                          options={{ title: "Inlägg", headerShown:false }}
+                        />
+                        <Stack.Screen
+                          name="CreateCatchReport"
+                          component={CreateCatchReport}
+                          options={{ title: "Skapa fångstrapport", headerShown:false }}
+                        />
                     </Stack.Navigator>
                 </NavigationContainer>
             </GestureHandlerRootView>
@@ -142,6 +160,10 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
     const goToFishingMethodsScreen = () => {
         navigation.navigate("FishingMethods");
+    };
+  
+    const goToCatchReportPage = () => {
+      navigation.navigate("CatchReports");
     };
 
     return (
@@ -209,9 +231,11 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
                         <Text style={styles.buttonText}>Fiske Metoder</Text>
                     </TouchableOpacity>
                 </View>
-
-                <TouchableOpacity style={styles.singleButton}>
-                    <Text style={styles.buttonText}>Mina Fiskekort</Text>
+                <TouchableOpacity
+                  style={styles.singleButton}
+                  onPress={goToCatchReportPage}
+                >
+                  <Text style={styles.buttonText}>Fångstrapporter</Text>
                 </TouchableOpacity>
 
                 <StatusBar style="auto" />
