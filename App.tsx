@@ -14,19 +14,19 @@ import {
   ScrollView,
   TextInput,
 } from "react-native";
-import MapScreen from "./src/screens/MapScreen";
-import FishSpeciesScreen from "./src/screens/FishSpeciesScreen";
-import FishingMethodsScreen from "./src/screens/FishingMethodsScreen";
-import SignupScreen from "./src/screens/SignupScreen";
-import LoginScreen from "./src/screens/LoginScreen";
-import SearchFishingWaterScreen from "./src/screens/SearchFishingWaterScreen";
-import FishingWaterScreen from "./src/screens/FishingWaterScreen";
+import MapScreen from "./src/screens/mapAndWaterScreens/MapScreen";
+import FishSpeciesScreen from "./src/screens/fishScreens/FishSpeciesScreen";
+import FishingMethodsScreen from "./src/screens/fishingSceens/FishingMethodsScreen";
+import SignupScreen from "./src/screens/userScreens/SignupScreen";
+import LoginScreen from "./src/screens/userScreens/LoginScreen";
+import SearchFishingWaterScreen from "./src/screens/mapAndWaterScreens/SearchFishingWaterScreen";
+import FishingWaterScreen from "./src/screens/mapAndWaterScreens/FishingWaterScreen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { AuthProvider } from "./src/components/AuthContext";
-import UserScreen from "./src/screens/UserScreen";
-import AdminPage from "./src/screens/AdminPage";
-import FishDetailScreen from "./src/screens/FishDetailScreen";
-import FishingMethodsDetailScreen from "./src/screens/FishingMethodsDetailScreen";
+import UserScreen from "./src/screens/userScreens/UserScreen";
+import AdminPage from "./src/screens/userScreens/AdminPage";
+import FishDetailScreen from "./src/screens/fishScreens/FishDetailScreen";
+import FishingMethodsDetailScreen from "./src/screens/fishingSceens/FishingMethodsDetailScreen";
 import { mainStyles as styles } from "./src/styling/AppStyling";
 import CatchReportsPage from "./src/screens/postAndCatchReportScreens/DisplayCatchReports";
 import PostsPage from "./src/screens/postAndCatchReportScreens/DisplayPosts";
