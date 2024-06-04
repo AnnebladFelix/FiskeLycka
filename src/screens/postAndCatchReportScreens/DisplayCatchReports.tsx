@@ -70,7 +70,10 @@ const CatchReportsPage = () => {
               <View style={style.card}>
                 <Text style={style.title}>Just nu finns det inget här!</Text>
                 <NetworkStatus />
-                <Text>Kolla så du har närverk eller om FiskeLycka ligger nere tillfälligt!</Text>
+                <Text>
+                  Kolla så du har närverk eller om FiskeLycka ligger nere
+                  tillfälligt!
+                </Text>
               </View>
             ) : (
               <FlatList
@@ -79,21 +82,16 @@ const CatchReportsPage = () => {
                 renderItem={({ item }) => (
                   <View style={style.card}>
                     <Text>Fisk: {item.species}</Text>
-                    <Text>
-                      Vikt: {item.weight ? `${item.weight} kg` : "N/A"}
-                    </Text>
-                    <Text>
-                      Längd: {item.length ? `${item.length} cm` : "N/A"}
-                    </Text>
+                    {item.weight ? (<Text>Vikt: {item.weight} kg</Text>):(<></>)}
+                    {item.length ? (<Text>Längd: {item.length} cm</Text>):(<></>)}
                     <Text>Plats: {item.location}</Text>
                     <Text>Bete: {item.bait}</Text>
                     <Text>Metod: {item.method}</Text>
                     <Text>Väder: {item.weather}</Text>
-                    <Text>
-                      Vattentemp:{" "}
-                      {item.waterTemp ? `${item.waterTemp}°C` : "N/A"}
-                    </Text>
-                    <Text>Anteckningar: {item.notes}</Text>
+                    {item.waterTemp ? (<Text>Vattentemp: {item.waterTemp}°C</Text>):(<></>)}
+                    {item.notes && (
+                      <Text>Anteckningar: {item.notes}</Text>
+                    )}
                     {item.image && (
                       <Image
                         source={{ uri: `data:image/jpeg;base64,${item.image}` }}
