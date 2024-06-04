@@ -228,7 +228,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
                         style={styles.button}
                         onPress={goToFishingMethodsScreen}
                     >
-                        <Text style={styles.buttonText}>Fiske Metoder</Text>
+                        <Text style={styles.buttonText}>Fiskemetoder</Text>
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity
@@ -243,7 +243,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
             {/* Footer */}
             <View style={styles.footer}>
-                <Text>@Copywrite 2024</Text>
+                <Text>@DreamGreen 2024</Text>
                 <StatusBar style="auto" />
             </View>
         </ImageBackground>
