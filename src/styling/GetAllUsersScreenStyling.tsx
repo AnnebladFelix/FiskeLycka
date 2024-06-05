@@ -33,4 +33,7 @@ export const GetAllUsersScreenStyling = StyleSheet.create({
     shadowRadius: 5,
     elevation: 3,
   },
+  title:{
+    fontSize:24,
+  }
 });
