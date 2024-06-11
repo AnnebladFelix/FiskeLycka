@@ -71,14 +71,14 @@ const CatchReportsPage = () => {
                 <Text style={style.title}>Just nu finns det inget här!</Text>
                 <NetworkStatus />
                 <Text>
-                  Kolla så du har närverk eller om FiskeLycka ligger nere
+                  Kolla så du har nätverk eller om FiskeLycka ligger nere
                   tillfälligt!
                 </Text>
               </View>
             ) : (
               <FlatList
                 style={style.flatlist}
-                data={catchReports}
+                data={catchReports.slice().reverse()}
                 renderItem={({ item }) => (
                   <View style={style.card}>
                     <Text>Fisk: {item.species}</Text>
